@@ -1,0 +1,358 @@
+
+\input{header}
+
+\begin{document}
+
+
+\title{Lecture 1}
+
+\date{Feb 26, 2024}
+
+\maketitle
+
+The main goal of this course is to study representations of semisimple Lie algebras via geometric methods. We restrict ourselves to the case when the base field $k$ is algebraically closed and of characteristic $0$, such as the field $\mBC$ of complex numbers.
+
+
+\section{Semisimple Lie Algebras}
+This is just a quick review of the definitions about finite-dimensional semisimple Lie algebras. See \cite[Chapter 0]{Hum} for the abc's and \cite{Ser} for a thorough textbook.
+
+\begin{defn}
+	A \textbf{Lie algebra} (over $k$) is a vector space $\mfg$ equipped with a binary operation $[-,-]:\mfg\times \mfg \to \mfg$, called the \textbf{Lie bracket}, such that:
+	\begin{itemize}
+		\item
+			The Lie bracket is \textbf{bilinear}, i.e., factors as $\mfg\times \mfg \to \mfg\otimes\mfg \to \mfg$.
+		\item 
+			The Lie bracket is \textbf{alternating}: $[x,x]=0$.
+		\item
+			The \textbf{Jacobi identity} holds: $[x,[y,z]]+[y,[z,x]]+[z,[x,y]]=0$.
+	\end{itemize}
+
+	Let $\mfg_1$ and $\mfg_2$ be Lie algebras. A \textbf{Lie algebra homomorphism} between them is a $k$-linear map $f: \mfg_1\to \mfg_2$ commuting with Lie brackets, i.e., $f([x,y]) = [f(x),f(y)]$.
+
+	This defines a category $\mathsf{Lie}_k$ of Lie algebras.
+\end{defn}
+
+
+\begin{exam}
+	Any vector space $V$ is equipped with a trivial Lie bracket: $[x,y]=0$. Such Lie algebras are called \textbf{abelian Lie algebras}.
+\end{exam}
+
+\begin{exam}
+	\label{exam-assoc-to-Lie}
+	Let $A$ be an associative algebra. Then the underlying vector space has a natural Lie algebra structure with Lie bracket given by $[x,y]:= xy-yx$. This defines a functor $\mathsf{oblv}:\mathsf{Alg}_k \to \mathsf{Lie}_k$ from the category of associative algebras to that of Lie algebras.
+\end{exam}
+
+\begin{exam}
+	Let $V$ be a vector space and $\gl(V)$ be the vector space of endomorphisms of $V$. By Example \ref{exam-assoc-to-Lie}, $\gl(V)$ is naturally a Lie algebra with Lie bracket given by $[f,g]=f\circ g-g\circ f$. This is the \textbf{general linear Lie algebra} of $V$. 
+
+	If $V$ is finite-dimensional, let $\sl(V)\subset \gl(V)$ be the subspace of endomorphisms $f$ such that the trace $\tr(f)=0$.
+
+	When $V=k^{\oplus n}$, we write $\gl_n:= \gl(V)$, $\sl_n:=\sl(V)$. Note that $\gl_n$ (resp. $\sl_n$) can be identified with the space of $n\times n$ matrices (resp. whose traces are zero).
+\end{exam}
+
+\begin{facts}
+	We have $[\gl(V),\gl(V)] = \sl(V)$.
+\end{facts}
+
+\begin{defn}
+	Let $\mfg$ be a Lie algebra. A \textbf{representation} of $\mfg$, or \textbf{$\mfg$-module}, is a vector space $V$ equipped with a Lie algebra homomorphism $\mfg \to \gl(V)$. In other words, there is a bilinear map $(-\cdot-):\mfg \times V \to V$ such that $[x,y]\cdot v = x\cdot (y\cdot v) - y\cdot(x\cdot v)$.
+
+	Let $V_1$ and $V_2$ be representations of $\mfg$. A $\mfg$-linear map between them is a $k$-linear map $f:V_1\to V_2$ such that the following diagram commutes:
+	\[
+		\xymatrix{
+			\mfg \times V_1 
+				\ar[r] \ar[d]_-{\Id\times f}
+			& V_1 
+				\ar[d]^-f \\
+			\mfg \times V_2
+				\ar[r] 
+			& V_2.
+		}
+	\]
+
+	This defines a category $\mfg\hmod$ of representations of $\mfg$.
+\end{defn}
+
+\begin{facts}
+	The category $\mfg\hmod$ is an abelian category. The forgetful functor $\mfg\hmod\to \Vect_k$ is exact.
+\end{facts}
+
+\begin{exam}
+	Let $\mfg$ be a Lie algebra. The map $\ad: \mfg \to \gl(\mfg)$, $x\mapsto \ad_x:=[x,-]$ defines a $\mfg$-module structure on $\mfg$ itself. This is called the \textbf{adjoint representation}. 
+\end{exam}
+
+\begin{defn}
+	Let $\mfg$ be a finite dimensional Lie algebra and $x\in \mfg$ be an element. We say $x$ is \textbf{semisimple} (resp. \textbf{nilpotent}) if the corresponding endomorphism $\ad_x: \mfg \to \mfg$ is so.
+\end{defn}
+
+
+
+\begin{defn}
+	Let $\mfg$ be a Lie algebra. An \textbf{ideal} $\mfa \subset \mfg$ is a sub-representation of the adjoint representation. In other words, we require $[\mfg,\mfa] \subset \mfa$.
+\end{defn}
+
+\begin{rem}
+	Note that an ideal $\mfa$ is also a Lie subalgebra.
+\end{rem}
+
+\begin{exam}
+	Let $\mfg$ be a Lie algebra, then $[\mfg,\mfg]\subset \mfg$ is an ideal. We call it the \textbf{derived Lie algebra} of $\mfg$.
+\end{exam}
+
+\begin{defn}
+	Let $\mfg$ be a Lie algebra. We say $\mfg$ is \textbf{simple} if:
+	\begin{itemize}
+		\item It is not abelian;
+		\item The adjoint representation is simple (a.k.a. irreducible), i.e., $\mfg$ has no ideal other than $0$ and itself.
+	\end{itemize}
+\end{defn}
+
+\begin{exam}
+	The Lie algebra $\gl_n$ is not simple because $[\gl_n,\gl_n] = \sl_n$ is a proper ideal of it. The Lie algebra $\sl_n$ is simple for $n\ge 2$.
+\end{exam}
+
+\begin{rem}
+	Finite-dimensional simple Lie algebras (over $k$) are fully classified. A similar classification for infinite-dimensional simple Lie algebras seems to be hopeless.
+\end{rem}
+
+\begin{defn}
+	Let $\mfg_i$, $i\in I$ be Lie algebras indexed by a set $I$. The direct sum $\oplus \mfg_i$ of the underlying vector spaces has a natural Lie bracket given by $[(x_i)_{i\in I},(y_i)_{i\in I}]:=([x_i,y_i])_{i\in I}$. The obtained Lie algebra is called the \textbf{direct sum} of the Lie algebras $\mfg_i$.
+\end{defn}
+
+\begin{warn}
+	The direct sum $\oplus \mfg_i$ is \emph{not} the coproduct in the category $\mathsf{Lie}_k$. Instead, if $I$ is a finite set, then it is the \emph{product} of $\mfg_i$ in this category.
+\end{warn}
+
+\begin{rem}
+	Representation theory for $\mfg_1\oplus \mfg_2$ can be obtained from those for $\mfg_1$ and $\mfg_2$ in a non-trivial mechanism\footnote{The abelian category $(\mfg_1\oplus \mfg_2)\hmod$ is the \emph{tensor product} of $\mfg_1\hmod$ and $\mfg_2\hmod$.}.
+\end{rem}
+
+\begin{defn}
+	Let $\mfg$ be a Lie algebra. We say $\mfg$ is \textbf{semisimple} if it is a direct sum of simple Lie algebras.
+\end{defn}
+
+\begin{rem}
+	The zero Lie algebra $0$ is semisimple but not simple.
+\end{rem}
+
+The main goal of this course is to study representations of finite-dimensional semisimple Lie algebras.
+
+\begin{convn}
+	From now on, unless otherwise stated, Lie algebras are assumed to be finite-dimensional.
+\end{convn}
+
+\begin{exe}
+	\red{This is not a homework!}
+	\begin{itemize}
+		\item[(1)]
+			Let $\mfg$ be a finite-dimensional semisimple Lie algebra. Show $[\mfg,\mfg]=\mfg$.
+		\item
+			The opposite statement is generally \emph{not} true. Below is a counterexample. Let $\mfh$ be a simple Lie algebra and $V$ be a nontrivial simple $\mfh$-module. Define a bracket on the vector space by the formula $\mfh\oplus V$ by $[(x,u),(y,v)]:=([x,y],x\cdot v-y\cdot u)$.
+		\item[(2)]
+			Show this bracket defines a Lie algebra structure on $\mfh\oplus V$. We denote this Lie algebra by $\mfh\ltimes V$.
+		\item[(3)]
+			Show $[\mfh\ltimes V, \mfh\ltimes V]=\mfh\ltimes V$ but $\mfh\ltimes V$ is not semisimple.
+	\end{itemize}
+\end{exe}
+
+\section{Root Space Decomposition}
+
+
+
+\begin{convn}
+	From now on, unless otherwise stated, $\mfg$ means a finite-dimensional semisimple Lie algebra.
+\end{convn}
+
+\begin{defn}
+	A \textbf{Cartan subalgebra} $\mft$ of $\mfg$ is a maximal abelian subalgebra of it consisting of semisimple elements.
+\end{defn}
+
+\begin{warn}
+	A maximal abelian subalgebra of $\mfg$ might not be a Cartan subalgebra. For example, $\sl_2$ contains a maximal abelian subalgebra spanned by $e:=\big(\begin{smallmatrix} 0 & 1\\ 0 & 0
+	\end{smallmatrix}\big)$ but $e$ is not semisimple\footnote{
+		I made this mistake during the lecture.}.
+
+
+\end{warn}
+
+\begin{warn}
+	Cartan subalgebras for general finite-dimensional Lie algebras are defined in a different way and they are not abelian in general. That definition is equivalent to the above one if $\mfg$ is semisimple.
+\end{warn}
+
+\begin{thm}
+	Cartan subalgebras of $\mfg$ have a same dimension, which is called the \textbf{(semisimple) rank} of $\mfg$\footnote{
+		In fact, Cartan subalgebras are all conjugate to each other by a (non-unique) element of the corresponding Lie group $G$ of $\mfg$.
+	}. 
+\end{thm}
+
+\begin{exam}
+	\label{exam-Cartan-sln}
+	The rank of $\sl_n$ is $n-1$. One Cartan subalgebra of it is the subspace of diagonal matrices.
+\end{exam}
+
+\begin{notn}
+	From now on, we fix a Cartan subalgebra $\mft$ of $\mfg$. Let $\mft^*:=\mathsf{Hom}(\mft,k)$ be the dual vector space of $\mft$. For any $\alpha\in \mft^*$, let $\mfg_\alpha \subset \mfg$ be the $\alpha$-eigenspace for the adjoint $\mft$-action on $\mfg$, i.e.,
+	\[
+		\mfg_\alpha:= \{ x\in \mfg\; \vert\; [h,x] = \alpha(h)x \textrm{ for any }h\in \mft\}.
+	\]
+\end{notn}
+
+\begin{rem}
+	Note that $\mfg_0 = \mft$ (because $\mft$ is maximal) and $[\mfg_\alpha,\mfg_\beta] \subset \mfg_{\alpha+\beta}$ (because of the Jacobi identity).
+\end{rem}
+
+\begin{prop}[Root Space Decomposition\footnote{Some authors, including Humphreys, prefer the name \emph{Cartan decomposition}. But there is a completely different Cartan decomposition in the study of real Lie algerbas.}]
+	Let $\mfg$ be a finite-dimensional semisimple Lie algebra with a fixed Cartan subalgebra $\mft$. Then we have a direct sum decomposition
+	\[
+		\mfg = \mft \oplus \bigoplus_{\alpha\in \Phi} \mfg_\alpha,
+	\]
+	where $\Phi\subset \mft^*\setminus 0$ is the finite set containing those nonzero $\alpha$ such that $\mfg_\alpha$ is nonempty. Moreover, if $\alpha\in \Phi$, then $-\alpha \in \Phi$ and $\mfg_\alpha$ is 1-dimensional.
+\end{prop}
+
+\begin{prop}
+	There exists a (non-unique) subset $\Phi^+ \subset \Phi$ such that:
+	\begin{itemize}
+		\item 
+			We have a disjoint decomposition $\Phi = \Phi^+ \sqcup -\Phi^+$;
+		\item
+			If $\alpha,\beta\in \Phi^+$ and $\alpha+\beta\in \Phi$\footnote{I forgot to mention this condition in the class.
+			}, then $\alpha+\beta\in \Phi^+$.
+	\end{itemize}
+\end{prop}
+
+\begin{notn}
+	From now on, we fix such a subset $\Phi^+$. Write $\Phi^- = -\Phi^+$.
+\end{notn}
+
+\begin{defn}
+	(For above choices), elements in $\Phi$ are called \textbf{roots} of $\mfg$. Elements in $\Phi^+$ (resp. $\Phi^-$) are called \textbf{positive roots} (resp. \textbf{negative roots}). For $\alpha\in \Phi^+$, we say $\alpha$ is a \textbf{(positive) simple root} if it cannot be written as the sum of two positive roots. Let $\mathsf{\Delta} \subset \Phi^+$ be the subset of simple roots.
+\end{defn}
+
+\begin{prop}
+	The subset $\mathsf{\Delta} \subset \mft^*$ is a basis. In particular, any positive root can be uniquely written as a linear combination of simple roots with non-negative coefficients.
+\end{prop}
+
+\begin{defn}
+	Define 
+	\[
+		\mfb:= \mft \oplus \bigoplus_{\alpha\in \Phi^+} \mfg_\alpha,\; \mfn:= \bigoplus_{\alpha\in \Phi^+} \mfg_\alpha
+	\]
+	which are Lie subalgebras of $\mfg$. We call $\mfb$ the \textbf{Borel subalgebra} of $\mfg$ (that corresponds to the choice of $\Phi^+$) and $\mfn$ the \textbf{nilpotent radical} of $\mfb$.
+\end{defn}
+
+\begin{rem}
+	In general, a Borel subalgebra $\mfb$ of any Lie algebra $\mfg$ is defined to be a maximal \emph{solvable} subalgebra of it. Here solvable means the sequence $D^1(\mfb):=\mfb$, $D^{n+1}(\mfb):=[D^n(\mfb),D^n(\mfb)]$ satisfies $D^n(\mfb)=0$ for $n>>0$. It is known that all Borel subalgebras are conjugate to each other.
+
+	The subalgebra $\mfn\subset \mfb$ is called the nilpotent radical because it contains exactly nilpotent elements in $\mfb$, i.e., those elements $x$ such that $(\ad_x)^{\circ n}=0$ for $n>>0$.
+
+	Note that we have $\mft \simeq \mfb/\mbn$.
+\end{rem}
+
+\begin{exe}
+	\red{This is not a homework!} For $\mfg=\sl_n$ and its standard Cartan subalgebra (Example \ref{exam-Cartan-sln}).
+	\begin{itemize}
+	 	\item[(1)]
+	 		Find an explicit description of $\Phi$ and $\mfg_\alpha$.
+	 	\item[(2)]
+	 		Show there is a unique choice of $\Phi^+$ such that the corresponding $\mfb$ is the subspace of upper triangulated matrices.
+	 	\item[(3)] 
+	 		For the choice of $\Phi^+$ in (2), find all the simple roots and write each root as a linear combination of these simple roots.
+	 \end{itemize}  
+\end{exe}
+
+\section{Root system}
+
+\begin{defn}
+	Let $E$ be a finite-dimensional Euclidean space and $\Phi\subset E$ be a finite subset such that $0\notin \Phi$. We say $(E,\Phi)$ is a \textbf{root system} if the following is satisfied:
+	\begin{itemize}
+		\item 
+			The subset $\Phi$ spans $E$;
+		\item 
+			For any $\alpha\in \Phi$, $\mathbb{R}\alpha\cap \Phi = \{\pm \alpha\}$;
+		\item
+			For $\alpha,\beta\in \Phi$, the number $2\frac{ (\beta,\alpha) }{(\alpha,\alpha)}$ is an integer;
+		\item
+			The subset $\Phi$ is closed under reflection along any $\alpha\in \Phi$, i.e., for $\alpha,\beta\in \Phi$, the element $\beta-2\frac{ (\beta,\alpha) }{(\alpha,\alpha)} \alpha$ is contained in $\Phi$.
+	\end{itemize}
+\end{defn}
+
+\begin{defn}
+	Let $(E,\Phi)$ be a root system. The \textbf{dual root system} is defined to be $(E^*,\check \Phi)$, where $E^*$ is the dual Euclidean space of $E$ and $\check\Phi$ consists of those $\check \alpha$ for $\alpha\in \Phi$ defined by $\check\alpha(-)=2\frac{ (-,\alpha) }{(\alpha,\alpha)}$.
+
+\end{defn}
+
+\begin{exe}
+	\red{This is not a homework!} Show the double-dual of a root system is itself.
+\end{exe}
+
+Let us return to the notations in the last section. Let $E_\mBQ:= \mBQ \Phi$ be the $\mBQ$-vector space spaned by $\Phi$ (such that we have $E_\mBQ \otimes_\mBQ k \simeq \mft^*$). Write $E:= E_\mBQ \otimes_{\mBQ} \mBR$\footnote{
+	In the lecture, I wrote $E \otimes_\mBR k \simeq \mft^*$ which is only valid if we are given a homomorphism $\mBR \to k$.
+}We are going to show $(E,\Phi)$ is a root system. For this purpose, we need to define an inner product on $E$.
+
+\begin{defn}
+	Let $\mfg$ be any finite-dimensional Lie algebra. The \textbf{Killing form} on $\mfg$ is the bilinear form $\Kil: \mfg \times \mfg \to k$, $\Kil(x,y):= \tr( \ad(x)\circ \ad(y) )$.
+\end{defn}
+
+\begin{prop}
+	The Killing form is symmetric and ($\ad$-)invariant, i.e., 
+	\begin{itemize}
+		\item 
+			For $x,y\in \mfg$, $\Kil(x,y) = \Kil(y,x)$;
+		\item
+			For $x,y,z\in \mfg$, $\Kil(\ad_z(x),y) + \Kil(x,\ad_z(y))=0$.
+	\end{itemize}
+\end{prop}
+
+\begin{prop}
+	If $\mfg$ is simple, then any symmetric invariant bilinear form on $\mfg$ is of the form $c\Kil$ for $c\in k$.
+\end{prop}
+
+\begin{warn}
+	The similar claim is false if $k$ is not algebraically closed.
+\end{warn}
+
+
+\begin{thm}[Cartan--Killing Criterion]
+	The Lie algebra $\mfg$ is semisimple iff its Killing form is non-degenerate. Moreover, in this case, the restriction of $\Kil$ on $\mft$ is also non-degenerate.
+\end{thm}
+
+\begin{constr}
+	Since $\Kil|_{\mft}$ is non-degenerate, it induces an isomorphism $\mft \xrightarrow{\sim} \mft^*$ sending $x$ to the unique element $x^*$ such that $x^*(-)=\Kil(x,-)$. Consider the inverse $\mft^* \xrightarrow{\sim} \mft$ of this isomorphism, which also corresponds to a non-degenerate bilinear form on $\mft^*$.
+\end{constr}
+
+\begin{lem}
+	The restriction of the above bilinear form on $E_\mBQ\subset \mft^*$ is $\mBQ$-valued and positive-definite. In particular, it induced a inner product on $E=E_\mBQ\otimes_{\mBQ}\mBR$.
+\end{lem}
+
+\begin{convn}
+	From now on, we always view $E$ as an Eucilidean space via the above inner product.
+\end{convn}
+
+\begin{thm}
+	The pair $(E,\Phi)$ defined above is a root system.
+\end{thm}
+
+Note that for any $\check\alpha \in \check \Phi$, viewed as an element in $E^*=\mathsf{Hom}(E,\mBR)$, its restriction on $E_\mBQ \subset E$ is $\mBQ$-valued. It follows that $\check\Phi$ is contained in $E_\mBQ^*$ (via the identification $E_\mBQ^* \otimes_\mBQ \mBR \simeq E^*$). Hence we can also view $\check \Phi$ as a subset of $\mft\simeq E_\mBQ^* \otimes_\mBQ k$.
+
+\begin{defn}
+	For any root $\alpha\in \Phi$, define the correponding \textbf{coroot} to be $\check \alpha \in \check \Phi \subset \mft$.
+\end{defn}
+
+\begin{rem}
+	There is a (unique if stated properly) semisimple Lie algebra corresponding to the dual root system $(E^*,\check\Phi)$, known as the \emph{Langlands dual} Lie algebra $\check \mfg$ of $\mfg$.
+
+\end{rem}
+
+\begin{thebibliography}{Yau}
+
+
+\bibitem[Hum]{Hum} Humphreys, James E. Representations of Semisimple Lie Algebras in the BGG Category $\mathcal{O} $. Vol. 94. American Mathematical Soc., 2008.
+
+\bibitem[Ser]{Ser} Serre, Jean-Pierre. Complex semisimple Lie algebras. Springer Science \& Business Media, 2000.
+
+
+\end{thebibliography}
+
+\end{document} 
+
+

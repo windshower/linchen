@@ -1,0 +1,474 @@
+
+\input{header}
+
+\begin{document}
+
+
+\title{Lecture 4}
+
+\date{Mar 18, 2024}
+
+\maketitle
+
+
+	After the preparations of the first three lectures, we can finally say a few words about what this course is actually about.
+
+	From now on, we fix the following notations. Let $G$ be a connected semisimple algebraic group with Lie algebra $\mfg$. We fixed $\mfg \supset \mfb \supset \mft$ and let $G\supset B \supset T$ be the corresponding closed connected algebraic subgroups\footnote{In general, for an algebraic group $G$ and $\mfg=\Lie(G)$, there is a 1-1 correspondence between the set of closed connected algebraic subgroups of $G$ and the set of Lie subalgebras of $\mfg$. Warning: This is only true in characteristic $0$.
+	}\footnote{As in the study of semisimple Lie algebras, $B$ is a \textbf{Borel subgroup} of $G$, which is defined to be a maximal connected solvable subgroup of $G$; $T$ is called \textbf{Cantan subgroup} of $G$, which is defined to be a maximal connected torus inside $G$.} of $G$.
+
+	We can consider the right multiplication action of $B$ on $G$. This is a free action and thereby the quotient $G/B$ exists\footnote{In future lectures, we will revisit its definition.}. This quotient is a projective smooth $k$-scheme, and actually does not depend on the choice of $B$. It is known as the \textbf{flag variety}\footnote{Example: for $G=\SL_2$, $\Fl_G$ is isomorphic to the projective line $\mBP^1$.} of $G$, usually denoted by $\Fl_G$.
+
+	Now the main goal of this course is to exhibit the following phenomenon: representations of the Lie algebra $\mfg$ is closely related to the geometry of $\Fl_G$. In particular, we will see that the structure of the category $\mCO$ is related to the orbits of the \emph{left} $B$-action on $\Fl_G\simeq G/B$.
+
+
+\section{Blocks}
+
+	Let's be back to the study of the category $\mCO$. The main goal of this and the next lectures is to split the category $\mCO$ into blocks 
+\[
+	\mCO \simeq \bigoplus_{\chi\in \Spec(Z(\mfg))} \mCO_\chi
+\]
+and study each block. Here $Z(\mfg) \subset U(\mfg)$ is the center of the associative algebra $U(\mfg)$. 
+
+Note that any $M\in \mfg\hmod$ can be viewed as a $Z(\mfg)$-module, which is the same as a quasi-coherent sheaf on $\Spec(Z(\mfg))$. We have:
+
+\begin{thm}
+	\label{thm-block}
+	Let $M\in \mCO$, then the corresponding quasi-coherent sheaf on $\Spec(Z(\mfg))$ is supported on a 0-dimensional subvariety.
+\end{thm}
+
+\begin{rem}
+	Equivalently, the theorem says the annihilator $I:=\{ f\in Z(\mfg)\,\vert\, f\cdot M=0 \}$ of $M$ has a finite codimension, i.e., $\dim(Z(\mfg)/I)<\infty$.
+\end{rem}
+
+Before we prove the above theorem, we make the following definition and state a corollary of it.
+
+\begin{defn}
+	For any closed point $\chi\in \Spec(Z(\mfg))$, let $\mCO_\chi \subset \mCO$ be the full subcategory containing those $M\in \mCO$ that is set-theoretically supported on $\chi$. We call $\mCO_\chi$ a \textbf{block} of $\mCO$.
+\end{defn}
+
+\begin{rem}
+	In a more representation-theoretic language: a closed point $\Spec(Z(\mfg))$ is the same as a character $\chi: Z(\mfg) \to k$. Then for $M\in \mCO$, it is set-theoretically supported on $\chi$ iff $\ker(\chi)^n \cdot M = 0$ for $n>>0$.
+
+\end{rem}
+
+\begin{cor}
+	We have
+	\[
+		\mCO \simeq \bigoplus_{\chi\in \Spec(Z(\mfg))} \mCO_\chi.
+	\]
+	In other words, any $M\in \mCO$ admits a unique finite decomposition $M = \oplus_\chi M_\chi$ such that $M_\chi \in \mCO_\chi$. Also, for $M = \oplus_\chi M_\chi$ and $N = \oplus_\chi N_\chi$, we have
+	\[
+		\Hom_\mCO( M,N ) \simeq \oplus_\chi \Hom_{\mCO_\chi} ( M_\chi, N_\chi ).
+	\]
+\end{cor}
+
+\proof
+	Let us first construct the decomposition. By the theorem, we have a \emph{finite} decomposition of $Z(\mfg)$-modules $M = \oplus_\chi M_\chi$, where
+	\[
+		M_\chi \simeq M/(\ker(\chi)^n\cdot M)
+	\]
+	for $n>>0$. Since $\ker(\chi)$ is contained in the center of $U(\mfg)$, the subspace $\ker(\chi)^n\cdot M \subset M$ is preserved by the $U(\mfg)$-action and in particular is a sub-$\mfg$-module of $M$. It follows that both $\ker(\chi)^n\cdot M $ and $M_\chi$ are objects in $\mCO$. Since $\ker(\chi)^n$ annihilates $M_\chi$, the latter is contained in $\mCO_\chi$. Moreover, the projection $M\to M_\chi$ is clearly $\mfg$-linear. This implies $M = \oplus_\chi M_\chi$ is a decomposition in $\mCO$.
+
+	For $\chi\neq \chi'$, there is no nonzero $\mfg$-linear map $M_\chi \to N_{\chi'}$ because there is no nonzero $Z(\mfg)$-linear map between them. 
+\qed
+
+\begin{rem}
+	In the future, we will see the decomposition $\mCO \simeq \bigoplus_{\chi\in \Spec(Z(\mfg))} \mCO_\chi$ also holds for the derived categories. In other words, we can replace $\Hom_\bullet(-,-)$ in above by $\Ext^i_\bullet(-,-)$.
+\end{rem}
+
+
+
+\proof[Proof of Theorem \ref{thm-block}]
+	Note that if an ideal $I\subset Z(\mfg)$ annihilates two $\mfg$-modules, then $I^2$ annihilates any extension of them. By [Prop. 31, Lec. 2], any $M\in \mCO$ is a quotient of a finite successive extension of Verma modules. It follows that we can assume $M=M_\lambda$ is a Verma module. 
+
+	We will use the following lemma.
+
+\begin{lem}
+	\label{lem-central-characer-Verma}
+	For any element $z\in Z(\mfg)$ and Verma module $M_\lambda$, the action of $z$ on $M_\lambda$ is given by a scaler. In other words, there exists a unique scaler $\xi_{z,\lambda}\in k$ such that
+	\[
+		z\cdot v = \xi_{z,\lambda}v
+	\]
+	for any $v\in M_\lambda$.
+\end{lem}
+	
+	Let us first finish the proof using the lemma. By the definition of actions, the map 
+	\[
+		\chi:=\xi_{-,\lambda}:Z(\mfg) \to k
+	\]
+	has to be a homomorphism between $k$-algebras. In other words, $\chi$ is a character of $Z$ and the lemma says $M_\lambda \in \mCO_\chi$, i.e., $M_\lambda$ is annilated by the 1-codimensional ideal $\ker(\chi)$.
+
+\proof[Lemma \ref{lem-central-characer-Verma}]
+	Since $z$ is an element in the center, the map $z\cdot - :M_\lambda \to M_\lambda$ is a $U(\mfg)$-linear map. In particular, it is $U(\mft)$-linear and thereby preserves the weight subspaces of $M_\lambda$. Consider the higheset weight subspace, which is spanned by the vector $v_\lambda\in M_\lambda$. This subspace is preserved by the action of $z$, hence there exists a unique scaler $\xi_{z,\lambda}\in k$ such that
+	\[
+		z\cdot v_\lambda = \xi_{z,\lambda}v_\lambda.
+	\]
+	Recall $M_\lambda$ is generated by $v_\lambda$. Hence any $v\in M_\lambda$ can be written as $u\cdot v_\lambda$ for some $u\in U(\mfg)$. Then we have
+	\[
+		z\cdot v = z \cdot (u \cdot v_\lambda) = u\cdot (z\cdot v_\lambda) = \xi_{z,\lambda} u\cdot v_\lambda = \xi_{z,\lambda}v
+	\]
+	as desired. Here we used the assumption that $z$ is contained in the center.
+
+
+\qed[Lemma \ref{lem-central-characer-Verma}]
+
+\qed[Theorem \ref{thm-block}]
+
+\section{The Harish--Chandra isomorphism: preparation}
+
+The scaler $\xi_{z,\lambda}$ in Lemma \ref{lem-central-characer-Verma} can be calculated as follows.
+
+\begin{constr}
+	The trivial modules define homomorphisms between associative algebras $U(\mfn^\pm) \surj k$. Consider the $k$-linear map
+	\[
+		U(\mfg) \simeq U(\mfn^-) \ot_{U(\mfn^-)} U(\mfg) \ot_{U(\mfn)} U(\mfn) \surj k \ot_{U(\mfn^-)} U(\mfg) \ot_{U(\mfn)} k
+	\]
+	induced by these homomorphisms. By the PBW theorem, the RHS can be identified as $U(\mft)= \Sym(\mft)$. In other words, we obtain a $k$-linear surjection 
+	\begin{equation} \label{eqn-Ug-to-Ut}
+		U(\mfg) \surj \Sym(\mft).
+	\end{equation}
+\end{constr}
+
+To have a better feeling about this projection, please do the following exercise.
+
+\begin{exe} 
+	This is \red{Homework 2, Problem 1}. Let $\mfg=\sl_2$ and $e,h,f$ be the standard basis. Consider $\Omega:=ef+fe+\frac{1}{2}h^2\in U(\sl_2)$. Calculate its image in $\Sym(\mft)=k[h]$ under the map (\ref{eqn-Ug-to-Ut}).
+\end{exe}
+
+\begin{lem}
+	\label{lem-HC-map}
+	The composition 
+	\[
+		\phi:Z(\mfg) \inj U(\mfg) \surj \Sym(\mft)
+	\]
+	is a homomorphism and makes the following diagram commute
+	\[
+		\xymatrix{
+			Z(\mfg) 
+				\ar[r]^-\phi
+				\ar[rd]_-{\chi=\xi_{-,\lambda}}
+			& \Sym(\mft) \ar[d]^-{\ev_\lambda} \\
+			& k_\lambda,
+		}
+	\]
+	where $\ev_\lambda$ is taking the value of a function $f\in \Sym(\mft)\simeq \Fun(\mft^*)$ at $\lambda\in \mft^*$.
+\end{lem}
+
+\proof
+	Note that $\chi$ and $\ev_\lambda$ are homomorphisms. Also, the map $\prod_{\lambda\in \mft^*} \ev_\lambda: \Sym(\mft) \to \prod_{\lambda\in \mft^*} k_\lambda$ is injective. Hence we only need to show the above diagram commutes as \emph{vector spaces}.
+
+	Note that the PBW theorem also implies
+	\[
+		U(\mfb)\ot_{U(\mfn)} k \simeq \Sym(\mft)
+	\]
+	as $U(\mfb)$-modules, where the $U(\mfb)$-module on the RHS is provided by the homomorphism $U(\mfb) \to U(\mft)\simeq \Sym(\mft)$. It follows that the map (\ref{eqn-Ug-to-Ut}) is equal to
+	\[
+		U(\mfg) \to k \ot_{U(\mfn^-)} U(\mfg) \ot_{U(\mfb)} \Sym(\mft) \simeq \Sym(\mft).
+	\]
+	Then $\ev_\lambda\circ \phi$ is given by
+	\[
+		Z(\mfg)\inj U(\mfg) \surj k \ot_{U(\mfn^-)} U(\mfg) \ot_{U(\mfb)} k_\lambda \simeq k_\lambda,
+	\]
+	where as before we view $k_\lambda$ as a $U(\mfb)$-module via $U(\mfb)\surj \Sym(\mft)$.
+
+	On the other hand, by definition, $\chi$ is the composition
+	\[
+		Z(\mfg) \inj U(\mfg) \xrightarrow{-\cdot v_\lambda} M_\lambda \xrightarrow{\mathsf{pr}} k_\lambda
+	\]
+	where $\mathsf{pr}$ is the projection to the highest weight subspace. Recall
+	\[
+		M_\lambda \simeq U(\mfg) \ot_{U(\mfb)} k_\lambda
+	\]
+	and via this identification, the projection $\mathsf{pr}$ is
+	\[
+		U(\mfg) \ot_{U(\mfb)} k_\lambda \surj k \ot_{U(\mfn^-)} U(\mfg) \ot_{U(\mfb)} k_\lambda \simeq k_\lambda.
+	\]
+	It follows $\chi$ is also given by
+	\[
+		Z(\mfg) \inj U(\mfg) \surj U(\mfg) \ot_{U(\mfb)} k_\lambda \surj k \ot_{U(\mfn^-)} U(\mfg) \ot_{U(\mfb)} k_\lambda \simeq k_\lambda.
+	\]
+	
+\qed
+
+
+\begin{notn}
+	The homomorphism $\phi$ corresponds to a morphism between $k$-schemes, which we denote by
+	\[
+		\varpi: \mft^* \to \Spec(Z(\mfg)).
+	\]
+	Using this notation, Lemma \ref{lem-central-characer-Verma} says
+	\[
+		M_\lambda \in \mCO_{\varpi(\lambda)}.
+	\]
+	In fact, it implies the \emph{schematic support} of $M_\lambda$ is the point $\varpi(\lambda)\in \mft^*$.
+\end{notn}
+
+\begin{rem}
+	The map $\varpi: \mft^* \to \Spec(Z(\mfg))$ is not an isomorphism because two Verma modules can belong to the same block.
+\end{rem}
+
+\begin{warn}
+	The embedding $\mft\to \mfg$ also induces an injection $\Sym(\mft) \inj U(\mfg)$, but the center $Z(\mfg)$ is \emph{not} contained in the image of it. This can be seen e.g. from the following exercise.
+\end{warn}
+
+\begin{exe}
+	This is \red{Homework 2, Problem 2}. Let $\kappa:\mfg\times\mfg \to k$ be any nondegenerate symmetric invariant bilinear form on $\mfg$. For any basis $x_1,\cdots,x_n$ of $\mfg$ and its dual basis $x_1^*,\cdots,x_n^*$ with respect to the form $\kappa$\footnote{By definition, this means $\kappa(x_i,x_j^*)_{i,j}$ is the unit matrix.}, consider the \textbf{Casimir element}
+	\[
+		\Omega_\kappa = \sum_{i=1}^n x_i \cdot x_i^* \in U(\mfg).
+	\]
+	\begin{itemize}
+		\item[(1)]
+			Prove: the Casimir element $\Omega_\kappa$ does not depend on the choice of the basis, and is contained in the center $Z(\mfg)$.
+		\item[(2)]
+			For $\mfg=\sl_2$, $\kappa=\Kil$ and the canonical basis $e,h,f$, find $\Omega_\Kil$ and prove it is not contained in $\Sym(\mft) \subset U(\mfg)$.
+	\end{itemize}
+\end{exe}
+
+\begin{exam}
+	\label{exam-rho-shift}
+	On the other hand, recall there is a nontrivial map $M_{-l-2} \to M_l$ for $l\in \mBZ^{\ge 0}$. It follows that $\varpi(-l-2)=\varpi(l)$ where we identify $\mft^*$ with $\Spec(k[h])$. Since $ \mBZ^{\ge 0} \subset \Spec(k[h])$ is a dense subset\footnote{Note that we are using the Zariski topology on $\Spec(k[h])$. Equivalently, this means any polynomial in $k[h]$ that vanishes at $h\in \mBZ^{\ge 0}$ is $0$.}, we obtain $\varpi(-l-2)=\varpi(l)$ for any $l\in \mft^*$. In other words, the image of $\phi:Z(\sl_2) \to \Sym(\mft)\simeq k[h]$ is invariant under the change of variable $h\mapsto -h-2$.
+
+	Note that this can serve as a sanity-check for your calculation of $\Omega_\Kil$ in the above exercise.
+\end{exam}
+
+\section{Recollection: the Weyl group}
+
+In the above example, $Z(\sl_2)$ is actually isomorphic to the subalgebra of $k[h]$ containing exactly those polynomials that are invariant under $h\mapsto -h-2$. We will prove this for general $\mfg$. Namely $Z(\mfg)$ is isomorphic to a certain invariance of $\Sym(\mft)$. Let us first define the desired symmetry on $\Sym(\mft)$.
+
+Recall the following definition.
+
+\begin{defn}
+	Let $(E,\Phi)$ be a root system. The \textbf{Weyl group} $W\subset \GL_E$ is the subgroup generated by the reflections $s_\alpha$, where $s_\alpha(\beta) = \beta - \frac{2(\alpha,\beta)}{(\alpha,\alpha)} \alpha$.
+
+	If $(E,\Phi)$ corresponds to a semisimple Lie algebra $\mfg$, we also say $W$ is the Weyl group of $\mfg$ (and even of the algebraic group $G$).
+\end{defn}
+
+\begin{rem}
+	By definition, $W$ preserves $\Phi$ (this is an axiom of root systems) and any element $w\in W$ is determined by its action on $\Phi$ (because $\Phi$ spans $E$). It follows that $W$ is a finite subgroup because $\Phi$ is finite.
+\end{rem}
+
+
+
+\begin{rem}
+	It also follows that $W$ preserves $E_\mBQ\subset E$ where recall $E_\mBQ$ is the $\mBQ$-vector space spanned by $\Phi$. Hence we obtain a linear $W$-action on $\mft^* \simeq k\ot_\mBQ E_\mBQ$. This action is often denoted as
+	\[
+		W\times \mft^* \to \mft^*,\; (w,\lambda)\mapsto w(\lambda).
+	\]
+	Passing to dual vector spaces, we obtained a linear $W$-action on $\mft$.
+\end{rem}
+
+\begin{rem}
+	The Weyl groups of $(E,\Phi)$ and $(E^*,\check\Phi)$ are isomorphic such that $s_\alpha$ corresponds to $s_{\check \alpha}$.
+\end{rem}
+
+\begin{prop}
+	Let $N_G(T)$ be the normalizer of $T$ inside $G$. Then we have a canonical isomorphism
+	\[
+		W\simeq N_G(T)/T
+	\]
+	such that the $W$-action on $\mft$ is identified with the adjoint action of $N_G(T)/T$ on $\Lie(T)$\footnote{We haven't defined normalizers for algebraic groups, nor the quotient group $N_G(T)/T$ and its action on $\Lie(T)$. But nothing surprising happens here.}.
+\end{prop}
+
+\begin{rem}
+	Weyl groups are \emph{(crystallographic) Coxeter groups}. Namely, if we choose positive roots $\Phi^+\subset \Phi$ and simple roots $\mathsf{\Delta}\subset \Phi^+$. Then
+	\[
+		W  = \langle s_\alpha, \alpha\in \mathsf{\Delta} \,\vert\, s_\alpha^2=1, (s_\alpha s_\beta)^{m_{\alpha\beta}}=1, \alpha\neq \beta \rangle
+	\]
+	where $m_{\alpha\beta}\in \{2,3,4,6\}$. Elements $s_\alpha$, $\alpha\in \Delta$ are called \textbf{simple reflections}.
+\end{rem}
+
+\begin{exam}
+	For $\mfg=\sl_n$, $W$ is isomorphic to the symmetric group $\Sigma_n$ and the simple reflections are $(i,i+1)$ for $i=1,\cdots,n-1$. The $\Sigma_n$-action on $\mft$ is the standard one.
+\end{exam}
+
+\begin{exam}
+	For $\mfg=\sl_2$, the nontrivial element $s\in W=\Sigma_2$ acts on $\mft^* = \Spec(k[h])$ as $h\mapsto -h$. Note that this is not the reflection in Example \ref{exam-rho-shift}.
+\end{exam}
+
+\begin{defn}
+	Let 
+	\[
+		\rho = \frac{1}{2}\sum_{\alpha\in \Phi^+} \alpha
+	\]
+	be the half-sum of all positive roots. The \textbf{dotted action} of $W$ on $\mft^*$, denoted by
+	\[
+		W\times \mft^* \to \mft^*,\; (w,\lambda)\mapsto w\cdot \lambda,
+	\]
+	is defined to be $w\cdot \lambda := w(\lambda+\rho)-\rho$.
+\end{defn}
+
+\begin{constr}
+	The dotted $W$-action on $\mft^*$ is not $k$-linear (e.g. the fixed point is $-\rho\in \mft^*$). Instead, each $w\cdot -: \mft^* \to \mft^*$ is an affine transformation. In particular, it is a morphism between $k$-schemes and corresponds to a homomorphism $\Sym(\mft)\gets \Sym(\mft)$. This defines a \emph{right} action of $W$ on $\Sym(\mft)$. The standard \textbf{dotted} $W$-action on $\Sym(\mft)$ is obtained by taking inverse.
+\end{constr}
+
+\section{The Harish-Chandra isomorphism: statement}
+
+
+\begin{thm}[Harish-Chandra]
+	\label{thm-HC}
+	The homomorphism $\phi: Z(\mfg) \to \Sym(\mft)$ induces an isomorphism
+	\[
+		\phi_\HC: Z(\mfg)  \xrightarrow{\sim} \Sym(\mft)^{W_\bullet}
+	\]
+	from $Z(\mfg)$ to the invariance of $\Sym(\mft)$ with respect to the dotted $W$-action.
+
+\end{thm}
+ 
+	We will prove this theorem next time. For now, let us state some corollaries of it.
+
+\begin{cor}
+	\label{cor-HC}
+	The map $\varpi:\mft^* \to \Spec(Z(\mfg))$ induces an isomorphism
+	\[
+		\mft^*/\!/W_\bullet \xrightarrow{\sim} \Spec(Z(\mfg))
+	\]
+	from the (GIT) quotient of $\mft^*$ by $W_\bullet$ to $\Spec(Z(\mfg))$.
+\end{cor}
+
+\begin{rem}
+	In algebraic geometry, the quotient of a scheme $X$ by an algebraic group $H$, defined to be the coequalizer $H\mt X \rightrightarrows X$, does not always exist as a scheme. Mostly for this reason, people defined the notion of \emph{stacks} such that quotients always exist as stacks.
+
+	However, the quotients inside the category of schemes and the category of stacks are different whenever the action is not free. Hence people call the former \emph{categorical quotient} and the latter \emph{quotient stack}. 
+
+	On the other hand, the \emph{GIT quotient}, or \emph{geometric invariant theory quotient} is a variant of the categorical quotient when we restrict to the categories of \emph{affine schemes}. For $X=\Spec(A)$ is affine, the GIT quotient is defined to be $X/\!/H:=\Spec(A^H)$. Therefore the above corollary is just a rephrasing of the theorem.
+
+	Note however in general GIT quotient is \emph{not} the categorical quotient \footnote{Warning: Wikipedia falsely claims this. Maybe they mean the categorical quotient considered in the category of \emph{affine} schemes. But this is not the standard terminology.}. For example, the categorical quotient $G/B$ is projective rather than affine.
+
+	It is known that $\mft^*/\!/W_\bullet$ is also the categorical quotient\footnote{If you know some algebraic geometry, try proving this by yourself.}. But we keep this notation because $\mft^*/W_\bullet$ is reserved for the quotient stack (at least by modern mathematicians).
+\end{rem}
+
+\begin{prop}[Linkage principle]
+	Verma modules $M_\lambda$ and $M_\mu$ belong to the same block iff $\mu = w\cdot \lambda$ for some $w\in W$. In particular, there are only finitely many Verma modules and irreducible objects\footnote{Recall $M_\lambda$ has a unique irreducible quotient $L_\lambda$, and all irreducible objects of $\mCO$ are of this form. See [Thm. 25, Prop. 31, Lec. 2].} in each block.
+\end{prop}
+
+\begin{rem}
+	In fact, the proposition follows from Corollary \ref{cor-HC} once we know $\mft^*/\!/ W_\bullet$ is a ``well-behaved'' quotient. Namely, we need:
+	\begin{itemize}
+		\item $W$ acts transitively along each fiber of the map $\mft^* \to \mft^*/\!/ W_\bullet$.
+	\end{itemize}
+	Note however that this is not true for general GIT quotients (e.g. $G/\!/B = \pt$)\footnote{Even worse $G\to G/\!/N$ is not surjective because $G/N$ is not affine. This counterexample actually plays a role in the geometric study of Eisenstein series.}. But we will see next time that this is indeed true for the $W$-action on $\mft^*$. And we will prove $\mft^* \to \mft^*/\!/ W_\bullet$ is indeed surjective.
+
+	Also, next time, we will actually first prove the ``if'' part of the corollary and use it to show $\phi$ factors through the $W_\bullet$-invariance.
+\end{rem}
+
+
+\begin{exe}
+	This is \red{Homework 2, Problem 3}. Let $\mfg=\sl_2$. Prove $Z(\sl_2)\simeq k[\Omega_\Kil]$ where $\Omega_\Kil$ is the Casimir element. You can use Theorem \ref{thm-HC} for this exercise.
+\end{exe}
+
+
+\begin{comment}
+
+\section{The algebra \texorpdfstring{$\gr^\bullet Z(\mfg)$}{gr Z(g)}}
+
+\begin{constr}
+	The PBW filtration on $U(\mfg)$ induces a filtration on $Z(\mfg)$ with $\mbF^{\le i} Z(\mfg):= Z(\mfg)\cap \mbF^{\le i}U(\mfg)$. Note that $\gr^\bullet Z(\mfg)$ is a subalgebra of $\gr^\bullet U(\mfg) \simeq \Sym^\bullet(\mfg)$.
+\end{constr}
+
+We want to understand the commutative algebra $Z(\mfg)$. At a first approximation, let us study $\gr^\bullet Z(\mfg)$.
+
+\begin{constr}
+	\label{constr-adj-action-sym}
+	Recall $\Sym^\bullet(\mfg)$ has a natural $\mfg$-module structure constructed as follows. For any $V\in \mfg$, there is a natural $\mfg$-module structure on $V^{\otimes n}$ given by 
+	\[
+		\mfg \mt V^{\otimes n} \to V^{\otimes n},\; (x, \ot_i v_i)\mapsto \sum_i ( v_1\ot \cdots\ot v_{i-1}\ot (x\cdot v_i) \ot v_{i+1}\cdots \ot v_n ).
+	\]
+	This action is compatible with the symmetric group $\Sigma_n$-action on $V^{\otimes n}$ and thereby induces a $\mfg$-module structure on $\Sym^n(\mfg)$. Taking direct sum, we obtain a $\mfg$-module structure on $\Sym^\bullet(V)$. 
+
+	In the case $V=\mfg$, to distinguish with the multiplication structure on $\Sym^\bullet(\mfg)$, we denote this action by
+	\[
+		\mfg \times \Sym^\bullet(\mfg) \to \Sym^\bullet(\mfg) ,\; (x,u)\mapsto \ad_x(u),
+	\]
+	and call it the \textbf{adjoint action}.
+
+	Note that by definition, for $x\in \mfg$ and $u,v\in \Sym^\bullet(\mfg)$, we have
+	\[
+		\ad_x(u\cdot v) = \ad_x(u)\cdot v + u\cdot \ad_x(v).
+	\]
+	In particular, the \emph{$\mfg$-invariance} 
+	\[
+		\Sym^\bullet(\mfg)^\mfg:= \{ u\in \Sym^\bullet(\mfg)\,\vert\, \ad_x(u)=0\textrm{ for any }x\in \mfg \}
+	\]
+	is a subalgebra of $\Sym^\bullet(\mfg)$.
+\end{constr}
+
+\begin{lem}
+	\label{lem-Zg-fil}
+	There is a unique dotted isomorphism making the following diagram commute
+	\[
+		\xymatrix{
+			\gr^\bullet Z(\mfg) \ar@{.>}[r]^-\simeq \ar[d]^-\subset
+			& \Sym^\bullet(\mfg)^\mfg \ar[d]^-\subset \\
+			\gr^\bullet U(\mfg) \ar[r]^-\simeq 
+			& \Sym^\bullet(\mfg),
+		}
+	\]
+	where the bottom isomorphism is given by the PBW theorem.
+\end{lem}
+
+To prove this lemma, we use the following exercise:
+
+\begin{exe}
+	This is \red{Homework 1, Problem 4}. Prove: the adjoint $\mfg$-action on $U(\mfg)$, i.e.,
+	\[
+		\mfg \times U(\mfg) \to U(\mfg),\; (x,u)\mapsto \ad_x(u)=[x,u],
+	\]
+	preserves each $\mbF^{\le n}U(\mfg)$, and the induced $\mfg$-action on $\gr^\bullet(U(\mfg)) \simeq \Sym^\bullet(\mfg)$ is the adjoint action in Construction \ref{constr-adj-action-sym}.
+
+
+\end{exe}
+
+
+\proof[Proof of Lemma \ref{lem-Zg-fil}]
+	By the above exercise, we have a short exact sequence of \emph{finite-dimensional} $\mfg$-modules:
+	\[
+		0 \to \mbF^{\le n-1} U(\mfg) \to \mbF^{\le n} U(\mfg)  \to \Sym^n(\mfg) \to 0.
+	\]
+	Since $\mfg\hmod_\mathsf{fd}$ is semisimple, this short exact sequence splits. Hence taking $\mfg$-invariance, we obtain\footnote{
+		Warning: in general, taking invariance is only \emph{left exact}. (Memory method: it is given by $\Hom_{\mfg}(k,-)$.) Hence we need the existence of a splitting.
+	}
+	\[
+		0 \to \mbF^{\le n-1} Z(\mfg) \to \mbF^{\le n} Z(\mfg) \to \Sym^n(\mfg)^\mfg \to 0
+	\]
+	This gives the desired isomorphism $\gr^n Z(\mfg) \simeq \Sym^n(\mfg)^\mfg$.
+
+
+\qed[Lemma \ref{lem-Zg-fil}]
+
+	We want to further explore the structure of $\Sym^\bullet(\mfg)^\mfg$, e.g., giving a pure combinatorial (=root system) description of it. This is known as the \textbf{Chevalley isomorphism}
+
+\begin{thm}[Chevalley]
+		There is a canonical isomorphism between commutative algebras
+		\[
+			\Sym^\bullet(\mfg)^\mfg \simeq \Sym^\bullet(\mft)^W.
+		\]
+\end{thm}
+
+	In above, $W$ is the \emph{Weyl group} of $\mfg$. We need review its properties before we can prove the above theorem.
+
+
+
+
+
+\begin{thebibliography}{Yau}
+
+\bibitem[B]{B} Borel, Armand. Linear algebraic groups. Vol. 126. Springer Science \& Business Media, 2012.
+
+\bibitem[Bou]{Bou} Bourbaki, Nicolas. Groupes et Algebres de Lie: Elements de Mathematique. Hermann, 1968.
+
+
+\bibitem[H]{H} Humphreys, James E. Linear algebraic groups. Vol. 21. Springer Science \& Business Media, 2012.
+
+\bibitem[L]{L} Lusztig, George. Introduction to quantum groups. Springer Science \& Business Media, 2010.
+
+\bibitem[M]{M} Milne, James S. Algebraic groups: the theory of group schemes of finite type over a field. Vol. 170. Cambridge University Press, 2017.
+
+
+\bibitem[Sp]{Sp} Springer, Tonny Albert. "Linear algebraic groups." In Algebraic Geometry IV: Linear Algebraic Groups Invariant Theory, pp. 1-121. Berlin, Heidelberg: Springer Berlin Heidelberg, 1998.
+
+\end{thebibliography}
+\end{comment}
+
+\end{document} 
+
+
