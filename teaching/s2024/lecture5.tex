@@ -226,6 +226,8 @@
 		where the right-top corner is the invariance for the \emph{linear} $W$-action on $\Sym(\mft)$.
 	\end{lem}
 
+	Combining the above two lemmas, we obtain:
+
 	\begin{cor}
 		There is a unique dotted graded homomorphism making the following diagram commute
 		\[
@@ -334,7 +336,7 @@
 		\]
 		Then $\{\omega_\alpha\}$ is a basis of $\mft^*$ and $P^+= \mBZ^{\ge 0}\{\omega_\alpha\}$. A direct calculation shows that $\{\lambda^n\,\vert\, \lambda\in P^+ \}$ span $\Sym^n(\mft^*)$. Hence the sums
 		\[
-			b_{\lambda,n}:= \sum_{w\in W} w( \lambda^n )
+			b_{\lambda,n}:= \sum_{w\in W} w( \lambda^n ),\; \lambda \in P^+, n\ge 0
 		\]
 		span $\Sym(\mft^*)^W$.
 		
@@ -344,7 +346,7 @@
 			For any $\lambda\in P^+$, there is a unique finite-dimensional irreducible $\mfg$-module $L_\lambda$ with higheset weight $\lambda$.
 		\end{thm}
 
-		Consider the function $a_{\lambda,n}\in \Fun(\mfg) $ defined by
+		For $\lambda \in P^+, n\ge 0$, consider the function $a_{\lambda,n}\in \Fun(\mfg) $ defined by
 		\[
 			a_{\lambda,n}(x):=\tr(x^n; L_\lambda),
 		\]
@@ -354,11 +356,11 @@
 		Now the following exercise implies each $b_{\lambda,n}$ is contained in the image of $\phi_\cl$. Indeed, this follows from induction on $\lambda$ with respect to the partial ordering $\prec$\footnote{Recall $\lambda'\preceq\lambda$ iff $\lambda-\lambda' \in \mBZ^{\ge 0}\Phi^+$. See [Defn. 22, Lect. 2].}.
 
 		\begin{exe}
-			This is \red{Homework 2, Problem 5}. The function $\phi_\cl(a_{\lambda,n})$, i.e., $a_{\lambda,n}|_{\mft}$ is given by
+			This is \red{Homework 2, Problem 5}. Let $\lambda \in P^+$ be a dominant integral weight and $n\ge 0$. Prove there exists scalars $c_{\lambda'} \in k$, $\lambda' \prec \lambda$ such that
 			\[
-				a_{\lambda,n}|_{\mft} = \frac{1}{\#\mathsf{Stab}_W(\lambda)}b_{\lambda,n} + \sum_{\lambda' \prec \lambda} c_{\lambda'}b_{\lambda',n},
+				\phi_\cl(a_{\lambda,n}) = a_{\lambda,n}|_{\mft} = \frac{1}{\#\mathsf{Stab}_W(\lambda)}b_{\lambda,n} + \sum_{\lambda' \prec \lambda} c_{\lambda'}b_{\lambda',n},
 			\]
-			where $\mathsf{Stab}_W(\lambda)\subset W$ is the stablizer of the $W$-action at $\lambda$ and $c_{\lambda'}$ are certain scalers.
+			where $\mathsf{Stab}_W(\lambda)\subset W$ is the stablizer of the $W$-action at $\lambda$.
 
 		\end{exe}
 
