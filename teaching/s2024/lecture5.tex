@@ -44,7 +44,7 @@
 	for any $\lambda\in \mft^*$. In fact, we only need to prove this for a Zariski dense subset of $\mft^*$. Let us first give this dense subset. The following result is obvious after drawing a picture.
 
 	\begin{lem}
-		Let $\alpha\in \Delta$ be a simple root. The subset $\{ \lambda\in \mft^*\,\vert\, \langle \lambda+\rho, \check\alpha \rangle \in \mBZ^{\ge 0} \}$\footnote{In other words, $\lambda+\rho$ is \textbf{dominant and integral}.} is a Zariski dense subset of $\mft^*$.
+		Let $\alpha\in \Delta$ be a simple root. The subset $\{ \lambda\in \mft^*\,\vert\, \langle \lambda+\rho, \check\alpha \rangle \in \mBZ^{\ge 0} \}$ is a Zariski dense subset of $\mft^*$.
 	\end{lem}
 
 	\begin{exam}
@@ -310,7 +310,7 @@
 	\end{rem}
 
 	\begin{warn}
-		I do not know any group-theoretic proof of \eqref{eqn-square}. This is because not $\mfb \to \mfg/G$ (the quotient stack) does not factor through $\mft$: two elements in $\mfb$ that have the same image in $\mft$ are not necessarily conjugate to each other.
+		I do not know any group-theoretic proof of \eqref{eqn-square}. This is because not $\mfb \to \mfg/G$ (the quotient stack) does not factor through $\mft$: two elements in $\mfb$ that have the same image in $\mft$ are not necessarily conjugate to each other. In fact, the $0$-fiber of the map $\mfg \to \mfg/\!/G$ contains exactly the nilpotent elements in $\mfg$.
 	\end{warn}
 
 	\begin{thm}[Chevalley]
@@ -395,6 +395,14 @@
 				The map $\mfg \to  \mfg/\!/G$ is flat.
 		\end{itemize}
 	\end{prop}
+
+	In fact, we have:
+
+	\begin{thm}[Chevalley--Shephard--Todd]
+		The scheme $ \mft/\!/W $ is an affine space whose dimension is equal to that of $\mft$.
+	\end{thm}
+
+	This is true for any finite group acting on an affine space as long as the action is given by reflections. You should convince yourself this is true in the case $\mfg=\sl_n$.
 
 
 	

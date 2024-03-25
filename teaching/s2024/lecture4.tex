@@ -37,7 +37,7 @@ Note that any $M\in \mfg\hmod$ can be viewed as a $Z(\mfg)$-module, which is the
 \end{thm}
 
 \begin{rem}
-	Equivalently, the theorem says the annihilator $I:=\{ f\in Z(\mfg)\,\vert\, f\cdot M=0 \}$ of $M$ has a finite codimension, i.e., $\dim(Z(\mfg)/I)<\infty$.
+	What we really means here is the annihilator $I:=\{ f\in Z(\mfg)\,\vert\, f\cdot M=0 \}$ of $M$ has a finite codimension, i.e., $\dim(Z(\mfg)/I)<\infty$\footnote{Since $M$ is \emph{not} a finite type $Z(\mfg)$-module, there is no consensus definition of its schematic support. One may extend the finite type case and \emph{define} the schematic support as $\Spec ( Z(\mfg)/I )$, which is what I did in the class. One can show the underlying topological space is indeed the set-theoretic support, i.e., containing those prime ideals $\mfp\subset Z(\mfg)$ such that $M_\mfp\neq 0$. Indeed, as in the proof of the theorem, we reduce to the case when $M$ is a Verma module, where the claim is manifest.}. 
 \end{rem}
 
 Before we prove the above theorem, we make the following definition and state a corollary of it.
@@ -357,117 +357,6 @@ Recall the following definition.
 \end{exe}
 
 
-\begin{comment}
-
-\section{The algebra \texorpdfstring{$\gr^\bullet Z(\mfg)$}{gr Z(g)}}
-
-\begin{constr}
-	The PBW filtration on $U(\mfg)$ induces a filtration on $Z(\mfg)$ with $\mbF^{\le i} Z(\mfg):= Z(\mfg)\cap \mbF^{\le i}U(\mfg)$. Note that $\gr^\bullet Z(\mfg)$ is a subalgebra of $\gr^\bullet U(\mfg) \simeq \Sym^\bullet(\mfg)$.
-\end{constr}
-
-We want to understand the commutative algebra $Z(\mfg)$. At a first approximation, let us study $\gr^\bullet Z(\mfg)$.
-
-\begin{constr}
-	\label{constr-adj-action-sym}
-	Recall $\Sym^\bullet(\mfg)$ has a natural $\mfg$-module structure constructed as follows. For any $V\in \mfg$, there is a natural $\mfg$-module structure on $V^{\otimes n}$ given by 
-	\[
-		\mfg \mt V^{\otimes n} \to V^{\otimes n},\; (x, \ot_i v_i)\mapsto \sum_i ( v_1\ot \cdots\ot v_{i-1}\ot (x\cdot v_i) \ot v_{i+1}\cdots \ot v_n ).
-	\]
-	This action is compatible with the symmetric group $\Sigma_n$-action on $V^{\otimes n}$ and thereby induces a $\mfg$-module structure on $\Sym^n(\mfg)$. Taking direct sum, we obtain a $\mfg$-module structure on $\Sym^\bullet(V)$. 
-
-	In the case $V=\mfg$, to distinguish with the multiplication structure on $\Sym^\bullet(\mfg)$, we denote this action by
-	\[
-		\mfg \times \Sym^\bullet(\mfg) \to \Sym^\bullet(\mfg) ,\; (x,u)\mapsto \ad_x(u),
-	\]
-	and call it the \textbf{adjoint action}.
-
-	Note that by definition, for $x\in \mfg$ and $u,v\in \Sym^\bullet(\mfg)$, we have
-	\[
-		\ad_x(u\cdot v) = \ad_x(u)\cdot v + u\cdot \ad_x(v).
-	\]
-	In particular, the \emph{$\mfg$-invariance} 
-	\[
-		\Sym^\bullet(\mfg)^\mfg:= \{ u\in \Sym^\bullet(\mfg)\,\vert\, \ad_x(u)=0\textrm{ for any }x\in \mfg \}
-	\]
-	is a subalgebra of $\Sym^\bullet(\mfg)$.
-\end{constr}
-
-\begin{lem}
-	\label{lem-Zg-fil}
-	There is a unique dotted isomorphism making the following diagram commute
-	\[
-		\xymatrix{
-			\gr^\bullet Z(\mfg) \ar@{.>}[r]^-\simeq \ar[d]^-\subset
-			& \Sym^\bullet(\mfg)^\mfg \ar[d]^-\subset \\
-			\gr^\bullet U(\mfg) \ar[r]^-\simeq 
-			& \Sym^\bullet(\mfg),
-		}
-	\]
-	where the bottom isomorphism is given by the PBW theorem.
-\end{lem}
-
-To prove this lemma, we use the following exercise:
-
-\begin{exe}
-	This is \red{Homework 1, Problem 4}. Prove: the adjoint $\mfg$-action on $U(\mfg)$, i.e.,
-	\[
-		\mfg \times U(\mfg) \to U(\mfg),\; (x,u)\mapsto \ad_x(u)=[x,u],
-	\]
-	preserves each $\mbF^{\le n}U(\mfg)$, and the induced $\mfg$-action on $\gr^\bullet(U(\mfg)) \simeq \Sym^\bullet(\mfg)$ is the adjoint action in Construction \ref{constr-adj-action-sym}.
-
-
-\end{exe}
-
-
-\proof[Proof of Lemma \ref{lem-Zg-fil}]
-	By the above exercise, we have a short exact sequence of \emph{finite-dimensional} $\mfg$-modules:
-	\[
-		0 \to \mbF^{\le n-1} U(\mfg) \to \mbF^{\le n} U(\mfg)  \to \Sym^n(\mfg) \to 0.
-	\]
-	Since $\mfg\hmod_\mathsf{fd}$ is semisimple, this short exact sequence splits. Hence taking $\mfg$-invariance, we obtain\footnote{
-		Warning: in general, taking invariance is only \emph{left exact}. (Memory method: it is given by $\Hom_{\mfg}(k,-)$.) Hence we need the existence of a splitting.
-	}
-	\[
-		0 \to \mbF^{\le n-1} Z(\mfg) \to \mbF^{\le n} Z(\mfg) \to \Sym^n(\mfg)^\mfg \to 0
-	\]
-	This gives the desired isomorphism $\gr^n Z(\mfg) \simeq \Sym^n(\mfg)^\mfg$.
-
-
-\qed[Lemma \ref{lem-Zg-fil}]
-
-	We want to further explore the structure of $\Sym^\bullet(\mfg)^\mfg$, e.g., giving a pure combinatorial (=root system) description of it. This is known as the \textbf{Chevalley isomorphism}
-
-\begin{thm}[Chevalley]
-		There is a canonical isomorphism between commutative algebras
-		\[
-			\Sym^\bullet(\mfg)^\mfg \simeq \Sym^\bullet(\mft)^W.
-		\]
-\end{thm}
-
-	In above, $W$ is the \emph{Weyl group} of $\mfg$. We need review its properties before we can prove the above theorem.
-
-
-
-
-
-\begin{thebibliography}{Yau}
-
-\bibitem[B]{B} Borel, Armand. Linear algebraic groups. Vol. 126. Springer Science \& Business Media, 2012.
-
-\bibitem[Bou]{Bou} Bourbaki, Nicolas. Groupes et Algebres de Lie: Elements de Mathematique. Hermann, 1968.
-
-
-\bibitem[H]{H} Humphreys, James E. Linear algebraic groups. Vol. 21. Springer Science \& Business Media, 2012.
-
-\bibitem[L]{L} Lusztig, George. Introduction to quantum groups. Springer Science \& Business Media, 2010.
-
-\bibitem[M]{M} Milne, James S. Algebraic groups: the theory of group schemes of finite type over a field. Vol. 170. Cambridge University Press, 2017.
-
-
-\bibitem[Sp]{Sp} Springer, Tonny Albert. "Linear algebraic groups." In Algebraic Geometry IV: Linear Algebraic Groups Invariant Theory, pp. 1-121. Berlin, Heidelberg: Springer Berlin Heidelberg, 1998.
-
-\end{thebibliography}
-\end{comment}
 
 \end{document} 
 
