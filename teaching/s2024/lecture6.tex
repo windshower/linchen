@@ -365,23 +365,34 @@
 		\end{itemize}
 	\end{exe}
 
+	\begin{rem}
+		By symmetry, $M_{-2\alpha_1-\alpha_2}$ has length 2, and contains $M_{-2\alpha_1-2\alpha_2}$ as a submodule.
+	\end{rem}
+
 	\begin{exe}
-		This is \red{Homework 3, Problem 3}. We continue with the last exercise. Let $v_{-\alpha_1}$ be the highest weight vector of $M_{-\alpha_1}$. Let $e_1,e_2,f_1,f_2$ be as in the proof of [Lem. 4, Lect. 5] such that $(e_1,f_1,\check \alpha_1)$ and $(e_2,f_2,\check \alpha_2)$ are $\sl_2$-triples. 
+		This is \red{Homework 3, Problem 3}. We continue with the case $\mfg = \sl_3$.
 		\begin{itemize}
 			\item[(1)]
-				Prove: $M_{-\alpha_1}$ contains $M_{-\alpha_1-2\alpha_2}$ as a submodule and $[M_{-\alpha_1}: L_{-\alpha_1-2\alpha_2}] = 1$.
+				Prove: $M_0$ contains $M_{-\alpha_1}$ and $M_{-\alpha_2}$ as submodules and $[M_0: L_{-\alpha_1}]=[M_0: L_{-\alpha_2}]=1$.
 			\item[(2)]
-				Prove: $e_1 f_1 f_2 \cdot v_{-\alpha_1} = -f_2 \cdot v_{-\alpha_1}$ and $e_2 f_1 f_2 \cdot v_{-\alpha_1} = f_1 \cdot v_{-\alpha_1}$.
+				Prove: $M_{-\alpha_2}$ contains $M_{-2\alpha_1-\alpha_2}$ as a submodule and $[M_{-\alpha_2}: L_{-2\alpha_1-\alpha_2}] = 1$.
 			\item[(3)]
-				Prove: $M_{-\alpha_1}$ contains $M_{-2\alpha_1-\alpha_2}$ as a submodule\footnote{Hint: the highest weight vector is $(f_1f_2+f_2f_1)\cdot v_{-\alpha_1}$.} and $[M_{-\alpha_1}: L_{-2\alpha_1-\alpha_2}] = 1$.
+				Prove: there exists a (unique) dotted arrow making the following diagram commutes\footnote{Hint: show $f_1^2 f_2 \cdot v_0 = u \cdot v_{-\alpha_1}$ for some $u$. Here $v_0$ is the highest weight of $M_0$, $v_{-\alpha_1} = f_1 \cdot v_0$ is the highest weight of $M_{-\alpha_1}$, and $f_i\in \mfn^-$ is the root vector corresponding to $\alpha_i$.}:
+				\[
+					\xymatrix{
+						& M_{-\alpha_1} \ar[r]^-\subset
+						& M_0 \\
+						M_{-2\alpha_1-\alpha_2} \ar[rrr]^-\subset \ar@{.>}[ru]
+						& & & M_{-\alpha_2}. \ar[lu]^-\subset
+					}
+				\]
 			
 		\end{itemize}
 	\end{exe}
 
 	\begin{exe}
-		This is \red{Homework 3, Problem 4}. We continue with the last two exercises. Prove: for $\lambda,\mu \in W\cdot 0$, $[M_\lambda: L_\mu] \neq 0$ iff $\lambda \succeq \mu$.
+		This is \red{Homework 3, Problem 4}. We continue with the case $\mfg = \sl_3$. Prove: for $\lambda,\mu \in W\cdot 0$, $[M_\lambda: L_\mu] \neq 0$ iff $\lambda \succeq \mu$.
 	\end{exe}
-
 
 
 	You may want to play with the above example for more time. E.g., can you find upper or lower bounds, or even the exact value, of $\length(M_0)$?
