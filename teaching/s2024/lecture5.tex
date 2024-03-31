@@ -306,7 +306,14 @@
 	\end{rem}
 
 	\begin{rem}
-		Since the projection $\mfb\to \mft$ has a splitting $\mft \to \mfb$. The above claim implies $\mft \to \mfg \to \mfg/\!/G$ factors through $\mft/\!/ W$. We can also prove this using group-theoretic method. Namely, consider the normalizer $N_G(T)$ of $T$ insider $G$. Recall we have $W\simeq N_G(T)/T$ such that the linear $W$-action on $\mft$ can be identified with the adjoint action of $N_G(T)/T$. Then the morphism $\mft \to  \mfg/\!/G$ factors through $\mft/\!/ W$ because $N_G(T)$ is a subgroup of $G$.
+		Since the projection $\mfb\to \mft$ has a splitting $\mft \to \mfb$. The above claim implies $\Spec(\phi_\cl)$ can be characterized as the following dotted arrow
+		\[
+			\xymatrix{
+				\mfg \ar[r]  & \mfg/\!/G  \\
+				\mft \ar[r] \ar[u] & \mft/\!/W. \ar@{.>}[u]
+			}
+		\]
+ 		We can also prove the existence of this map using group-theoretic method. Namely, consider the normalizer $N_G(T)$ of $T$ insider $G$. Recall we have $W\simeq N_G(T)/T$ such that the linear $W$-action on $\mft$ can be identified with the adjoint action of $N_G(T)/T$. Then the morphism $\mft \to \mfg\to  \mfg/\!/G$ factors through $\mft/\!/ W$ because $N_G(T)$ is a subgroup of $G$.
 	\end{rem}
 
 	\begin{warn}
@@ -368,47 +375,9 @@
 
 	Combining all the previous discussion, we finish the proof of Theorem \ref{thm-HC}.
 
-\section{More on the quotient \texorpdfstring{$\mft/\!/W$}{t//W}}
-
-	We state some results on $\mft/\!/W\simeq \mft/\!/W_\bullet$ without proof.
-
-	\begin{prop}[{\!\!\cite[Sect. 1.10]{H2}}]
-		The morphism $\varpi:\mft \to \mft/\!/W_\bullet$ is surjective, and $W_\bullet$ acts transitively on the fiber at each closed point.
-	\end{prop}
-
-	\begin{rem}
-		In other words, any character $\chi:Z(\mfg) \to k$ is the central character $\chi_\lambda$ for some Verma module $V_\lambda$, and $\chi_\lambda =\chi_\mu$ iff $\mu=w\cdot \lambda$ for some $w\in W$.
-	\end{rem}
-
-	\begin{cor}[Linkage principle]
-	Verma modules $M_\lambda$ and $M_\mu$ belong to the same block iff $\mu = w\cdot \lambda$ for some $w\in W$. In particular, there are only finitely many Verma modules and irreducible objects\footnote{Recall $M_\lambda$ has a unique irreducible quotient $L_\lambda$, and all irreducible objects of $\mCO$ are of this form. See [Thm. 25, Prop. 31, Lec. 2].} in each block.
-	\end{cor}
-
-	\begin{prop}[{\!\!\cite[Sect. 7]{G}}]
-		We have
-		\begin{itemize}
-			\item[(1)]
-				The schemes $ \mft/\!/W \simeq \mfg/\!/G$ are smooth.
-			\item[(2)]
-				The map $\mft \to  \mft/\!/W$ is flat.
-			\item[(3)]
-				The map $\mfg \to  \mfg/\!/G$ is flat.
-		\end{itemize}
-	\end{prop}
-
-	In fact, we have:
-
-	\begin{thm}[Chevalley--Shephard--Todd]
-		The scheme $ \mft/\!/W $ is an affine space whose dimension is equal to that of $\mft$.
-	\end{thm}
-
-	This is true for any finite group acting on an affine space as long as the action is given by reflections. You should convince yourself this is true in the case $\mfg=\sl_n$.
-
-
+	
 	
 \begin{thebibliography}{Yau}
-
-	\bibitem[G]{G} Gaitsgory, Dennis. Course Notes for Geometric Representation Theory, 2005, available at \url{https://people.mpim-bonn.mpg.de/gaitsgde/267y/catO.pdf}.
 
 	\bibitem[H1]{H1} Humphreys, James E. Introduction to Lie algebras and representation theory. Vol. 9. Springer Science \& Business Media, 2012.
 
