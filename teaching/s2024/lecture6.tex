@@ -353,11 +353,26 @@
 		For any $\lambda \in \mft^*$, $\Hom_\mCO(L_\lambda,L_\lambda) = k\cdot \Id$ is 1-dimensional.
 	\end{lem}
 
+\section{The \texorpdfstring{$\sl_3$}{sl3} case}
+
+	The following exercises are about the \textbf{principle block} $\mCO_{\varpi(0)}$ for $\mfg=\sl_3$.
+
 	\begin{exe}
+		\label{exe-H3P2}
 		This is \red{Homework 3, Problem 2}. Consider $\mfg = \sl_3$ and its standard Borel $\mfb$ and Cartan subalgebras $\mft$. Let $\alpha_1$ and $\alpha_2$ be the two simple positive roots.
 		\begin{itemize}
 			\item[(1)]
-				Prove $W\cdot 0 = \{ 0, -\alpha_1,-\alpha_2,-2\alpha_1-\alpha_2,-\alpha_1-2\alpha_2, -2\alpha_1-2\alpha_2 \}$.
+				Prove: the elements in $W\cdot 0$ is given by
+				\begin{center}
+					\begin{tabular}{|c |c| c| c| c| c|}
+					\hline 
+					0 & $s_1\cdot 0$ & $s_2\cdot 0$ & $s_1s_2 \cdot 0$ & $s_2 s_1 \cdot 0$ & $w_0 \cdot 0$ \\
+				\hline
+						0 & $-\alpha_1$ & $-\alpha_2$ & $-2\alpha_1-\alpha_2$ & $-\alpha_1-2\alpha_2$ & $-2\alpha_1-2\alpha_2$. \\
+			\hline
+				\end{tabular}
+			\end{center}
+			Here $w_0 = s_1 s_2 s_1 = s_2 s_1 s_2$ is the \textbf{longest element} in $W$.
 			\item[(2)]
 				Prove: $M_{-2\alpha_1-2\alpha_2}$ is irreducible.
 			\item[(3)]
@@ -394,9 +409,30 @@
 		This is \red{Homework 3, Problem 4}. We continue with the case $\mfg = \sl_3$. Prove: for $\lambda,\mu \in W\cdot 0$, $[M_\lambda: L_\mu] \neq 0$ iff $\lambda \succeq \mu$.
 	\end{exe}
 
+	\begin{rem}
+		You may want to play with the above example for more time. E.g., can you find upper or lower bounds, or even the exact value, of $\length(M_0)$?
+	\end{rem}
 
-	You may want to play with the above example for more time. E.g., can you find upper or lower bounds, or even the exact value, of $\length(M_0)$?
+	Let us draw the set $W\cdot 0$ for $\sl_3$ in a directed graph:
+	\[
+		\xymatrix{
+			& s_1\cdot 0 \ar[rr]
+			& &  0 \\
+			s_1s_2\cdot 0 \ar[ru] \ar[rrrr]
+			& & & & s_2\cdot 0 \ar[lu] \\
+			& w_0\cdot 0 \ar[rr] \ar[lu]
+			& & s_2s_1\cdot 0. \ar[ru] \ar[lluu]
+		}
+	\]
+	Here an edge between two vertices means there \emph{exists} an injective map between the corresponding Verma modules. This defines a partial order $\preceq_\subset$ on $W\cdot 0$\footnote{Question: why there is no nontrivial loop?} such that $\lambda\preceq_\subset \mu$ iff $M_{\lambda} \subset M_\mu$. The above exercises claim this partial order is exactly the partial order $\preceq$ defined using positive roots. 
 
+	Note that
+	\begin{itemize}
+		\item $M_0$ contains any other Verma module in this block as a submodule;
+		\item $M_{w_0\cdot 0}$ is contained in any other Verma module in this block and is irreducible.
+		\item All the generating relation is of the form $w' \cdot 0 \to w\cdot 0$ with $w'=s_\alpha w$, $\alpha\in \Phi^+$ and $l(w')> l(w)$. Here $l(w)$ is the \textbf{length} of an element $w\in W$, defined as the minimal length of any expression of $w$ as products of \emph{simple} reflections. Note that $w_0$ is actually $s_{\alpha_1+\alpha_2}$.
+	\end{itemize}
+	All these results remain true for general $\mfg$, and even for any other block $\mCO_\chi$ after suitable modifications. These are the main contents of the following lectures.
 
 	
 \begin{thebibliography}{Yau}
