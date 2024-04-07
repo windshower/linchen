@@ -1,0 +1,466 @@
+
+\input{header}
+
+\begin{document}
+
+
+\title{Lecture 7}
+
+\date{Apr 8, 2024}
+
+\maketitle
+
+\section{When is \texorpdfstring{$[M_\lambda:L_\mu]\neq0$}{[M:L] nonzero}?}
+
+We start with the following basis observation.
+
+\begin{lem}
+	\label{lem-naive-BGG}
+	Let $\lambda\in \mft^*$. If $[M_\lambda:L_\mu]\neq0$, then $\mu\in W\cdot \lambda$ and $\mu\preceq \lambda$.
+\end{lem}
+
+\proof
+	The modules $M_\lambda$ and $L_\mu$ should be contained in the same block; the weights of $L_\mu$ should be a subset of those of $M_\lambda$.
+
+\qed
+
+	Recall in [Lem. 4, Lect. 5], we proved that for a weight $\lambda\in \mft^*$ and a \emph{simple} root $\alpha\in \Delta$, if $\langle \lambda+\rho,\check \alpha\rangle \in \mBZ^{\ge 0}$, then $M_{s_\alpha\cdot \lambda} \subset M_\lambda$. Note that this condition is equivalent to $s_\alpha \cdot \lambda \preceq \lambda$. It follows that we have a partial inverse of Lemma \ref{lem-naive-BGG}:
+
+\begin{lem}
+	\label{lem-Verma-weak}
+	Let $\lambda\in \mft^*$ be a weight and $\alpha\in \Delta$ be a \emph{simple} root. If $s_\alpha \cdot \lambda \preceq \lambda$, then $M_{s_\alpha\cdot \lambda} \subset M_\lambda$ and in particular, $[M_{\lambda}:L_{s_\alpha\cdot \lambda}] \neq 0$.
+\end{lem}
+
+It turn out this result remains true for \emph{any} positive root $\alpha\in \Phi^+$.
+
+\begin{thm}[Verma]
+	\label{thm-Verma}
+	Let $\lambda\in \mft^*$ be a weight and $\alpha\in \Phi^+$ be \emph{any} positive\footnote{Since $s_\alpha=s_{-\alpha}$, the statement is true for any root. However, the equivalence $\langle \lambda+\rho,\check \alpha\rangle \in \mBZ^{\ge 0} \Leftrightarrow s_\alpha \cdot \lambda \preceq \lambda$ needs $\alpha$ to be positive.} root. If $s_\alpha \cdot \lambda \preceq \lambda$, then $M_{s_\alpha\cdot \lambda} \subset M_\lambda$ and in particular, $[M_{\lambda}:L_{s_\alpha\cdot \lambda}] \neq 0$.
+\end{thm}
+
+\begin{rem}
+	As indicated by the $\sl_3$-case, the proof of Verma's theorem for general roots should be more involved than the proof for simple roots. Unfortunately we do not have enough time to discuss this proof. We refer the interested readers to \cite[Sect. 4.5-4.7]{H}.
+\end{rem}
+
+	Verma's theorem gives a sufficient condition for $[M_\lambda:L_\mu]\neq0$. Namely, if there is a chain 
+	\begin{equation}
+		\label{eqn-Bruhat-for-weights}
+		\mu \preceq s_{\alpha_1}\cdot \mu \preceq (s_{\alpha_2}s_{\alpha_1})\cdot \mu \preceq \cdots \preceq (s_{\alpha_n} \cdots s_{\alpha_2}s_{\alpha_1})\cdot \mu = \lambda,
+	\end{equation}
+	with $s_{\alpha_i}\in \Phi^+$, then 
+	\[
+		M_\mu \subset M_{s_{\alpha_1}\cdot \mu} \subset \cdots \subset M_\lambda,
+	\]
+	and in particular $[M_\lambda: L_\mu] \neq 0$. It turns out this condition is also necessary.
+
+\begin{defn}
+	Let $\lambda,\mu \in \mft^*$. We write $\mu\preceq_\subset \lambda$\footnote{This notation is not standard. Some authors prefer to denote the usual partial order on $\mft^*$ (defined by positive roots) by $\le$ (rather than $\preceq$) and leave symbol $\preceq$ for the partial order in this definition. But it is hard to distinguish these notations on blackboards.} if there exists a chain like \eqref{eqn-Bruhat-for-weights}.
+\end{defn}
+
+\begin{rem}
+	It is easy to see $(\mft^*, \preceq_\subset)$ is a partially ordered set. Moreover, if $\mu$ and $\lambda$ are $\preceq_\subset$-comparable, then $\mu \in W\cdot \lambda$.
+\end{rem}
+
+\begin{thm}[BGG]
+	\label{thm-BGG}
+	Let $\lambda,\mu \in \mft^*$. If $[M_\lambda:L_\mu]\neq0$, then $\mu \preceq_\subset \lambda$.
+\end{thm}
+
+\begin{rem}
+	Unfortunately we do not have enough time to discuss the algebraic proofs of the BGG theorem. We refer the interested readers to \cite[Sect. 5]{H} for a proof using Jantzen sum formula. However, we will provide a geometric proof in future lectures, at least when the stablizer of $W_\bullet$ at $\lambda$ is trivial.
+\end{rem}
+
+\begin{cor}[Verma, BGG]
+	For $\lambda,\mu \in \mft^*$, the following conditions are equivalent:
+	\begin{itemize}
+		\item[(i)]
+			$\mu \preceq_\subset \lambda$;
+		\item[(ii)]
+			$M_\mu \subset M_\lambda$;
+		\item[(iii)]
+			$[M_\lambda:L_\mu] \neq 0$.
+	\end{itemize}
+\end{cor}
+
+	Our main goal for this lecture is to explain the content of the above theorems.
+
+\begin{warn}
+	Note that $\mu \preceq_\subset \lambda$ implies $\mu \le \lambda$ and $\mu \in W\cdot \lambda$. The contrary happens to be true for $\sl_2$ and $\sl_3$, but is false already for $\sl_4$. This can be seen via Example \ref{exam-Burhat-is-coarser} below.
+\end{warn}
+
+\section{\texorpdfstring{$\dim \Hom_\mCO( M_\mu,M_\lambda ) \le 1$}{At most one morphism between Verma modules}}
+	Let me first explain why I wrote $M_\mu \subset M_\lambda$ rather than ``$M_\lambda$ contains $M_\mu$ as a submodule''. Such notation would not be appropriate unless such embedding is unique if exists. This is indeed the case.
+
+\begin{prop}
+	\label{prop-Hom-Verma}
+	For $\lambda,\mu \in \mft^*$, we have
+	\begin{itemize}
+		\item[(1)]
+			Any nonzero morphism $\phi: M_\mu \to M_\lambda$ is injective;
+		\item[(2)]
+			$\dim \Hom_\mCO( M_\mu,M_\lambda ) \le 1$.
+	\end{itemize}
+\end{prop}
+
+To prove the proposition, we need the following result:
+
+\begin{prop}
+	\label{prop-simplesub-Verma}
+	For $\lambda \in \mft^*$, the Verma module $M_\lambda$ contains a unique irreducible submodule.
+\end{prop}
+
+\proof
+	Suppose $M_\lambda$ has two distinct irrducible submodules $L$ and $L'$. We must have $L\cap L' = 0$. Recall $M_\lambda \simeq U(\mfn^-)$ is $\mfn^-$-modules. Hence these submodules correspond to nonzero left ideals of $R=U(\mfn^-)$. However, this contracts with the following elementary lemma.
+
+	\begin{lem}
+		Let $R$ be a left Noetherian ring that contains no zero-divisor. Then any nonzero left ideals have nontrivial intersection.
+	\end{lem}
+	
+	\proof
+		We can assume the two ideals are $I$ and $Rx$ for some nonzero element $x\in R$. Suppose $I\cap Rx =0$. Consider $I_n:= I + Ix +\cdots Ix^n$. Using induction, it is easy to show $I_{n-1}\subset I_n$ but $I_{n-1}\neq I_n$. This contradicts with the assumption that $R$ is left Noetherian.
+
+	\qed
+
+\qed[Proposition \ref{prop-simplesub-Verma}]
+
+\begin{exam}
+	For $\mfg=\sl_2$, the unique irreducible submodule of $M_l$ is isomorphic to $M_{-l-2}$ if $l\in \mBZ^{\ge 0}$, and is $M_l$ itself otherwise.
+\end{exam}
+
+\proof[Proof of Proposition \ref{prop-Hom-Verma}]
+	(1) follows from the facts that $U(\mfn^-)$ has no zero-divisor. Let $\phi_1,\phi_2:M_\mu \to M_\lambda$ be two nonzero morphisms. We only need to show $\phi_1 = c\phi_2$ for some scalar. By (1), both morhisms are injective. Let $L$ be the unique irreducible submodule of $M_\mu$. We obtain two injective morphisms $L \to M_\mu \rightrightarrows M_\lambda$. Since $L$ is irreducible, the image of each morphism must be the unique irreducible submodule $L'$ of $M_\lambda$. Recall $\dim \Hom_\mCO(L,L')\le 1$ ([Lem. 29, Lect. 6]). Hence there exists a scalar $c$ such that $\phi_1|_L = c\phi_2|_L$. But this implies $\phi_1 = c\phi_2$ because otherwise $\phi_1 - c\phi_2$ would be injective by (1).
+
+\qed[Proposition \ref{prop-Hom-Verma}]
+
+Combining the two propositions, we actually have:
+
+\begin{cor}
+	For $\lambda \in \mft^*$, the unique irreducible submodule of $M_\lambda$ is also a Verma module.
+\end{cor}
+
+\proof
+	Let $L_\mu \inj M_\lambda$ be the unique irreducible submodule. The composition $M_\mu \surj L_\mu \inj M_\lambda$ must be injective by Proposition \ref{prop-Hom-Verma}(1). It follows that $M_\mu\simeq L_\mu$.
+
+\qed
+
+
+
+\section{Dominant and antidominant weights}
+
+	The following combinatorial results characterize the maximal and minimal elements for the poset $(\mft^*,\preceq_\subset)$. 
+
+	\begin{propdefn}
+		For $\lambda \in \mft^*$, the following conditions are equivalent:
+		\begin{itemize}
+			\item[(i)]
+				$\lambda$ is a maximal element with respect to the partial order $\preceq_\subset$;
+			\item[(ii)]
+				For any positive root $\alpha\in \Phi^+$, $\langle \lambda+\rho, \check\alpha \rangle \notin \mBZ^{< 0}$.
+			\item[(iii)]
+				For any positive root $\alpha\in \Phi^+$, $\lambda \nprec s_\alpha \cdot \lambda$;
+			\item[(iv)]
+				For any $w\in W$, $\lambda \nprec w \cdot \lambda$.
+		\end{itemize}
+		We say $\lambda$ is \textbf{dot-dominant}\footnote{This terminology is also not standard. Some authors (including \cite{H}) just say \emph{$\lambda$ is dominant}, while others (including BGG and \cite{G}) say \emph{$\lambda+\rho$ is dominant}. To avoid ambiguity, many people advocate to adopt the second convention and use the equivalent words ``\emph{$\lambda$ is dot-dominant}''.} if it satisfies the above conditions.
+	\end{propdefn}
+
+	It is easy to see (i)$\Leftrightarrow$(ii)$\Leftrightarrow$(iii)$\Leftarrow$(iv). For a complete proof, see \cite[Sect. 3.4-3.5]{H}. Also see \cite[Sect. 3.7]{G} for a quick proof when $\lambda$ is either integral or generic.
+	
+	Dually, we have
+	\begin{propdefn}
+		For $\lambda \in \mft^*$, the following conditions are equivalent:
+		\begin{itemize}
+			\item[(i)]
+				$\lambda$ is a minimal element with respect to the partial order $\preceq_\subset$;
+			\item[(ii)]
+				For any positive root $\alpha\in \Phi^+$, $\langle \lambda+\rho, \check\alpha \rangle \notin \mBZ^{> 0}$.
+			\item[(iii)]
+				For any positive root $\alpha\in \Phi^+$, $\lambda \nsucc s_\alpha \cdot \lambda$;
+			\item[(iv)]
+				For any $w\in W$, $\lambda \nsucc w \cdot \lambda$.
+		\end{itemize}
+		We say $\lambda$ is \textbf{dot-antidominant} if it satisfies the above conditions.
+	\end{propdefn}
+
+	\begin{exam}
+		For $\mfg=\sl_2$ and the coordinate $l=\langle \lambda,\check\alpha\rangle$, $\lambda$ is dot-dominant iff $l\neq -2,-3,\cdots$, while it is dot-antidominant iff $l\neq 0,1,\cdots$.
+	\end{exam}
+
+	\begin{exam}
+		For $\mfg=\sl_3$ and the positive simple roots $\alpha_1,\alpha_2$, a weight $\lambda= c_1\alpha_1+c_2\alpha_2$ is dot-dominant iff $2c_1-c_2$, $2c_2-c_1 \neq -2,-3,\cdots$, while it is dot-antidominant iff $2c_1-c_2$, $2c_2-c_1 \neq 0,1,\cdots$.
+		
+	\end{exam}
+
+
+	Note that the Verma--BGG theorem implies the following result, which we can prove directly.
+
+	\begin{prop}
+		If $\lambda\in \mft^*$ is dot-antidominant, then $M_\lambda$ is irreducible.
+	\end{prop}
+
+	\proof
+		By Lemma \ref{lem-naive-BGG}, if $[M_\lambda:L_\mu]\neq 0$, then $\mu = w\cdot \lambda\preceq \lambda$ for some $w\in W$. Since $\lambda$ is dot-antidominant, we have $ w\cdot \lambda \nprec \lambda$. Hence we must have $w\cdot \lambda=\lambda$. In this case, we have $[M_\lambda:L_\lambda]=1$ by considering the highest weight subspaces.
+
+	\qed
+
+	Dot-dominant Verma modules also have categorical meaning:
+
+	\begin{prop}
+		\label{prop-dom-Verma-projective}
+		If $\lambda\in \mft^*$ is dot-dominant, then $M_\lambda$ is projective, i.e., $\Hom_\mCO(M_\lambda,-)$ is exact.
+	\end{prop}
+
+	\proof
+		We only need to prove $M_\lambda$ is a projective object in the block $\mCO_{\varpi(\lambda)}$. This follows from the following calculation:
+
+		\begin{lem}
+			If $\lambda\in \mft^*$ is dot-dominant, then $\Hom_{\mCO_{\varpi(\lambda)}}(M_\lambda,N) \to N_{\weight=\lambda}$ is an isomorphism. 
+		\end{lem}
+
+		\proof
+			The map in question is the composition 
+			\[
+				\Hom_{\mCO_{\varpi(\lambda)}}(M_\lambda,N) \simeq \Hom_\mfb( k_\lambda,N ) \to \Hom_\mft( k_\lambda,N ) \simeq  N_{\weight=\lambda}.
+			\]
+			Hence we only need to show any $\mft$-linear map $k_\lambda \to N$ is $\mfb$-linear, i.e., any $\lambda$-weight vector $v$ of $N$ is annihilated by $\mfn$. By the linkage-principle, any weight $\mu$ of $N$ satisfies $\mu \preceq w\cdot \lambda$ for some $w\in W$. Since $\lambda$ is dot-dominant, we have $w\cdot \lambda\nsucc \lambda$ and therefore $\mu \nsucc \lambda$. This implies $\mfn\cdot v = 0$ because weights of $\mfn\cdot v$ would be higher than $\lambda = \weight(v)$.
+
+
+	\qed
+
+	\qed[Proposition \ref{prop-dom-Verma-projective}]
+
+	\section{Structure of \texorpdfstring{$\mCO_\chi$}{Ochi}}
+
+	The blocks $\mCO_{\varpi(\lambda)}$ behave differently when $\lambda$ various. To describe this phenomenon, we need to review some conditions on $\lambda$.
+
+	\begin{defn}
+		\label{defn-integral-weight}
+		For $\lambda \in \mft^*$, we say:
+		\begin{itemize}
+			\item 
+				$\lambda$ is \textbf{integral} if $\langle \lambda,\check\alpha \rangle \in \mBZ$ for any $\alpha\in \Phi$.
+			\item 
+				$\lambda$ is \textbf{dot-regular} if $w\cdot \lambda \neq \lambda$ for any $w\neq \Id$.
+			\item
+				$\lambda$ is \textbf{dot-singular} if it is not dot-regular.
+			\item
+				$\lambda$ is \textbf{generic} if $\langle \lambda,\check\alpha \rangle \notin \mBZ$ for any $\alpha\in \Phi$.
+		\end{itemize}
+	\end{defn}
+
+	\begin{exam}
+		For $\mfg=\sl_2$ and the coordinate $l=\langle \lambda,\check\alpha\rangle$, $\lambda$ is integral iff $l$ is an integer; it is dot-regular iff $l\neq -1$; it is generic iff $l$ is not an integer.
+	\end{exam}
+
+	\begin{exam}
+		For $\mfg=\sl_3$ and the positive simple roots $\alpha_1,\alpha_2$, a weight $\lambda= c_1\alpha_1+c_2\alpha_2$ is integral iff $2c_1-c_2$ and $2c_2-c_1$ are integers; it it dot-regular iff $2c_1-c_2$ and $2c_2-c_1$ are nonzero; it is generic iff $2c_1-c_2$ and $2c_2-c_1$ are not integers.
+	\end{exam}
+
+	\begin{rem}
+		By the theory of Weyl chambers, a weight $\lambda$ is dot-regular iff $s_\alpha\cdot \lambda \neq \lambda$ for any $\alpha\in \Phi$, which is equivalent to $\langle \lambda,\check\alpha \rangle \neq 0$. In particular any generic weight is dot-regular.
+	\end{rem}
+
+	\begin{rem}
+		One can show $\lambda\in \mft^*$ is dot-regular iff the morphism $\varpi:\mft^* \to \Spec(Z(\mfg))\simeq \mft^*/\!/W$ is regular (=smooth) at the point $\lambda$.
+	\end{rem}
+
+	\begin{rem}
+		Note that for any $w\in W$, $\lambda$ is integral (resp. dot-regular, dot-singular, generic) iff $w(\lambda)$ is so. Indeed, this follows from $\langle \lambda,\check\alpha \rangle  = \langle w(\lambda),w(\check\alpha) \rangle $ and $\langle \rho,\check\alpha\rangle =1$.
+	\end{rem}
+
+	Note that by definition each linkage class $W\cdot \lambda$ contains at least a dot-(anti)dominant element. However, the $\sl_2$-case implies such element is not unique. As we will soon see, if $\lambda$ is integral, such dot-(anti)dominant element is unique. In general, the number of dot-(anti)dominant elements in $W\cdot \lambda$ depends on the residue class of $\lambda$.
+
+	\begin{defn}
+		We define\footnote{Some authors use the notations $\Lambda_\sc$ for $\Lambda$ and $\Lambda_\ad$ for $\Lambda_r$ because they are exactly the lattices appearing in the \emph{root data} of $G_\sc$ and $G_\ad$.}:
+		\begin{itemize}
+			\item Let $\Lambda \subset \mft^*$ be the subset of integral weights.
+			\item Let $\Lambda_r:= \mBZ \Phi \subset \mft^*$ be the subset of $\mBZ$-spans of roots.
+		\end{itemize}
+	\end{defn}
+
+	\begin{rem}
+		Using the axioms of root systems, it is easy to see $\Lambda_r \subset \Lambda$, and they are lattices in $\mft^*$. In other words, they are free abelian groups of rank $\dim(\mft^*)$ and $\Lambda_r\ot_\mBZ k \simeq \Lambda\ot_\mBZ k \simeq \mft^*$.
+
+		In general, these two lattices are different. For example, for $\mfg=\sl_2$ and the coordinate $l=\langle \lambda,\check\alpha\rangle$, $\Lambda_r = 2\mBZ$ while $\Lambda = \mBZ$.
+	\end{rem}
+
+	\begin{notn}
+		For $\lambda\in \mft^*$, we write $[\lambda]\in \mft^*/\Lambda$ for its residue class.
+	\end{notn}
+
+	We have the following combinatorial results, see \cite[Sect. 3.4-3.5]{H} for their proofs.
+
+	\begin{thm}
+		For $[\lambda]\in \mft^*/\Lambda$, let $\Phi_{[\lambda]} \subset \Phi$ be the subset of roots $\alpha$ such that $\langle \lambda,\check \alpha \rangle \in \mBZ$ and $W_{[\lambda]}\subset W$ be the subgroup of elements $w$ such that $w(\lambda) - \lambda \in\Lambda_r$\footnote{It is clear that $\Phi_{[\lambda]}$ only depends on the residue class $[\lambda]$. For $W_{[\lambda]}$, it is enough to show $w(\lambda)-\lambda \in \Lambda_r$ whenever $\lambda\in \Lambda$. This can be reduced to the case $w=s_\alpha$, and a direct calculation shows the claim is true.}. Then $( \mBR\Phi_{[\lambda]}, \Phi_{[\lambda]} )$ is a root system and $W_{[\lambda]}$ is the Weyl group of it.
+	\end{thm}
+
+	\begin{lem}
+		For $\lambda\in \mft^*$, if $\mu \in W_{[\lambda]}\cdot \lambda$, then $\Phi_{[\mu]}=\Phi_{[\lambda]}$ and $W_{[\mu]}=W_{\lambda}$.
+ 	\end{lem}
+
+
+	\begin{lem}
+		\label{lem-unique-dominant}
+		For $\lambda \in \mft^*$, the orbit $W_{[\lambda]}\cdot \lambda$ contains exactly one dot-dominant (resp. dot-antidominant) element.
+ 	\end{lem}
+
+ 	\begin{rem}
+ 		Note that $\Phi_{[\lambda]}=\Phi$ and $W_{[\lambda]}= W$ if $\lambda$ is integral.
+ 	\end{rem}
+
+ 	\begin{rem}
+ 		It is easy to see if $\lambda,\mu \in\mft^*$ are $\preceq_\subset$-comparable, then $\mu \in W_{[\lambda]}\cdot \lambda$. Hence Lemma \ref{lem-unique-dominant} implies for any $\lambda  \in\mft^*$, there is a unique dot-dominant (resp. dot-antidominant) weight $\lambda^+$ (resp. $\lambda^-$) such that $\lambda \preceq_\subset \lambda^+$ (resp. $\lambda^-\subset \lambda$).
+ 	\end{rem}
+
+ 
+
+ 	\begin{cor}
+ 		\label{cor-dominant-contains-other}
+ 		We have:
+ 		\begin{itemize}
+ 			\item[(1)]
+ 				If $\lambda\in \mft^*$ is dot-dominant, then $M_\mu \subset M_\lambda$ for any $\mu\in W_{[\lambda]}\cdot \lambda$.
+ 			\item[(2)]
+ 				If $\lambda\in \mft^*$ is dot-antidominant, then $M_\mu \supset M_\lambda$ for any $\mu\in W_{[\lambda]}\cdot \lambda$.
+ 		\end{itemize}
+ 	\end{cor}
+
+
+
+ 	Let us look at some examples.
+
+	\begin{exam}
+		The negative half sum $-\rho$ is integral and dot-singular, and is both dot-dominant and dot-antidominant. It follows that $M_{-\rho}$ is irreducible and projective. Note that $M_{-\rho}$ is the only irreducible object in the block $\mCO_{\varpi(-\rho)}$ and $\Hom(M_{-\rho},M_{-\rho}) = k\cdot\Id$ ([Lem. 29, Lect. 6]). These formally imply
+		\[
+			\Hom_{\mCO_{\varpi(-\rho)}}(M_{-\rho},-): \mCO_{\varpi(-\rho)} \to \Vect_{\fd}
+		\]
+		is an equivalence.
+
+		The block $\mCO_{\varpi(-\rho)}$ is the so-called \textbf{most singular block}. The structure of the most singular block is boring.
+	\end{exam}
+
+	\begin{rem}
+		Any generic weight $\lambda \in \mft^*$ is dot-regular, and is both dot-dominant and dot-antidominant. It follows that there are $\# W$ Verma modules in a generic block $\mCO_{\varpi(\lambda)}$ and each of them is both irreducible and projective. These formally imply $\mCO_{\varpi(\lambda)}$ is semisimple and contains $\# W$ irreducible objects.
+
+		The structure of any generic block is boring.
+	\end{rem}
+
+	
+	\begin{rem}
+		The $0$ weight is integral and dot-regular. It is the unique dot-dominant element in the orbit $W\cdot 0$. The unique dot-antidominant element is
+		\[
+			w_0\cdot 0 = w_0(\rho) -\rho = -2\rho \in W\cdot 0.
+		\]
+		Here recall $w_0$ is the \textbf{longest element} in $W$, which is the unique element sending $\Phi^+$ to $\Phi^-$.
+
+		The block $\mCO_{\varpi(0)}$ is the so-called \textbf{principle block}. As we have seen in the $\sl_3$-case, the structure of the principle block is interesting.
+	\end{rem}
+
+	\begin{prop}
+		If $\lambda$ is integral, then $\mCO_{\varpi(\lambda)}$ is indecomposable.
+	\end{prop}
+
+	\proof
+		We can assume $\lambda$ is dot-antidominant. Suppose $\mCO_{\varpi(\lambda)}\simeq \mCO_1\oplus \mCO_2$. Recall any Verma module $M_\mu$ is indecomposable because it has a \emph{unique} irreducible quotient. It follows that each $M_\mu$ in the block $\mCO_{\varpi(\lambda)}$ is contained either in $\mCO_1$ or $\mCO_2$. However, by Corollary \ref{cor-dominant-contains-other}, and $M_\lambda$ is contained in each $M_\mu$ as a submodule. It follows that all Verma modules in the block are contained either in $\mCO_1$ or $\mCO_2$. This implies either $\mCO_2\simeq 0$ or $\mCO_1\simeq 0$.
+
+	\qed
+
+	\begin{exe}
+		This is \red{Homework 3, Problem 5}. For any weight $\lambda\in \mft^*$, let $\mCO_\lambda \subset \mCO$ be the full subcategory containing those objects $M$ whose composition factors are of the form $L_\mu$ for $\mu \in W_{[\lambda]}\cdot \lambda$. Prove:
+		\begin{itemize}
+			\item[(1)]
+				Each $\mCO_\lambda$ is indecomposable.
+			\item[(2)] 
+				For $M\in \mCO$, suppose we have a decomposition $M\simeq M_1\oplus M_2$ as $\mft$-modules such that the set $\weight(M_1)-\weight(M_2):=\{ \lambda_1-\lambda_2\,\vert\, \lambda_i\in \weight(M_i) \}$ has empty intersection with $\Lambda_r$, then this is also a decomposition of $\mfg$-modules.
+			\item[(3)]
+				For any central character $\chi$ of $Z(\mfg)$, we have a direct sum decomposition
+				\[
+					\mCO_\chi \simeq \bigoplus_{\lambda\in \varpi^{-1}(\chi) \textrm{ is dot-antidominant }} \mCO_\lambda.
+				\]
+			\item[(4)]
+				Conclude that 
+				\[
+					\mCO \simeq \bigoplus_{\lambda\textrm{ is dot-antidominant }} \mCO_\lambda.
+				\]
+		\end{itemize}
+	\end{exe}
+
+	\begin{rem}
+		Some authors (including \cite{H}) prefer to call the full subcategories $\mCO_\lambda$ the blocks of $\mCO$. This is different from our convention when $\lambda$ is not integral. We made this choice because we will give geometric incarnations to $\mCO_{\varpi(\lambda)}$ even for non-integral $\lambda$.
+	\end{rem}
+
+	\section{The Bruhat order}
+
+	Let $\lambda$ be a integral, dot-regular and dot-antidominant weight. As suggested by the $\sl_3$-case, the block $\mCO_{\varpi(\lambda)}=\mCO_\lambda$ is interesting. This block contains $\# W$ Verma modules, labelled by weights $W\cdot \lambda$. In this subsection, we can give a more combinatorial description of the partial order $\preceq_\subset$ when restricted to $W\cdot \lambda$. 
+
+	Recall the following definition:
+	\begin{defn}
+		For $w\in W$, its \textbf{length} is defined to be
+		\[
+			\ell(w):= \# \{ \alpha\in \Phi^+\,\vert\, w(\alpha)\in \Phi^-\}.
+		\]
+	\end{defn}
+
+	\begin{exam}
+		We have $\ell(\Id)=0$.
+	\end{exam}
+
+	The following results are well-known (see. e.g. \cite[Sect. 0.3-0.4]{H}).
+	\begin{propdefn}
+		For $w\in W$, the length $\ell(w)$ is the length of the shortest presentation $w=s_{1}s_{2}\cdots s_{\ell}$ such that each $s_i$ is a \emph{simple} reflection (coresponding to a simple positive root). In particular $\ell(w) = \ell(w^{-1})$. Any such presentation with $\ell=\ell(w)$ is called a \textbf{reduced presentation} of $w$.
+	\end{propdefn}
+
+	\begin{lem}
+		For any reflection $s_\alpha$, $\alpha\in \Phi$, the numbder $\ell(ws_\alpha) - \ell(w)$ is positive (resp. negative) iff $w(\alpha)$ is positive (resp. negative).
+	\end{lem}
+
+	\begin{lem}
+		There exists a \textbf{longest element} $w_0\in W$ such that $w_0(\Phi^+) = \Phi^-$. By definition, $w_0 =w_0^{-1}$ and $\ell(w_0) = \# \Phi^+ =\dim(\mfn) $.
+	\end{lem}
+
+	\begin{propdefn}
+		For $w,w'\in W$, the following conditions are equivalent:
+		\begin{itemize}
+			\item[(a)]
+				There exists a chain $w'=w_{[0]}, w_{[1]},\cdots,w_{[m]}=w$ such that $w_{[i+1]} = s_{\alpha_i} w_{[i]}$ for $\alpha_i\in \Phi$ and $\ell(w_{[i+1]}) > \ell(w_{[i]})$;
+			\item[(b)]
+				There exists a chain $w'=w_{[0]}, w_{[1]},\cdots,w_{[m]}=w$ such that $w_{[i+1]} = w_{[i]}s_{\alpha_i} $ for $\alpha_i\in \Phi$ and $\ell(w_{[i+1]}) > \ell(w_{[i]})$;
+			\item[(c)]
+				There exists a reduced presentation $w=s_1s_2\cdots s_\ell$ such that $w'=s_{i_1}\cdots s_{i_m}$ for a substring $1\le i_1<\cdots<i_m\le \ell$;
+		\end{itemize}
+		We write $w' \le w$ if they satisfy the above conditions. This defines a partial order on $W$, which is called the \textbf{Bruhat order}. 
+	\end{propdefn}
+
+	\begin{rem}
+		By definition, for any $w\in W$, we have $1\le w\le w_0$.
+	\end{rem}
+
+	We will review more properties of the Burhat order when we need them. For now, we state the following combinatorial result. For a proof, see \cite[Sect. 5.2]{H}.
+
+	\begin{prop}
+		Let $\lambda$ be a integral, dot-regular and dot-antidominant weight. Then $w'\cdot \lambda \preceq_\subset w\cdot \lambda$ iff $w' \le w$.
+	\end{prop}
+
+	\begin{warn}
+		There is a critical typo in \cite[Sect. 5.2]{H}. See the online erratum to the book.
+	\end{warn}
+
+	\begin{exam}
+		\label{exam-Burhat-is-coarser}
+		For $\mfg = \sl_4$ and $W\simeq \Sigma_4$, consider $w'=(1423)$ and $w=(2341)$. It is easy to check $w'\le w$ is false while $w'\cdot \lambda \preceq w\cdot \lambda$ is true. In particular, $\preceq$ and $\preceq_\subset$ are different partial orders.
+
+	\end{exam}
+
+
+\begin{thebibliography}{Yau}
+	
+	\bibitem[G]{G} Gaitsgory, Dennis. Course Notes for Geometric Representation Theory, 2005, available at \url{https://people.mpim-bonn.mpg.de/gaitsgde/267y/catO.pdf}.
+
+	\bibitem[H]{H} Humphreys, James E. Representations of Semisimple Lie Algebras in the BGG Category $\mathcal{O} $. Vol. 94. American Mathematical Soc., 2008.
+
+\end{thebibliography}
+
+
+\end{document} 
+
+
