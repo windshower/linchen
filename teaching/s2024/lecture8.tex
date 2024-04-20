@@ -170,7 +170,7 @@
 \end{conje}
 
 \begin{rem}
-	According to the Verma--BGG theorem, $[M_{w'\cdot 0}: L_{w\cdot 0}]\neq 0$ iff $w\cdot 0 \preceq_\subset w'\cdot 0$. By (the dominant version of) [Prop. 51, Lect. 7], this condition is equivalent to $w\ge w'$. Hence the conjecture would imply $h_{w',w}(1)\neq 0$ iff $w'\le w$. Note that by definition, the ``only if'' part is true.
+	According to the Verma--BGG theorem, $[M_{w'\cdot 0}: L_{w\cdot 0}]\neq 0$ iff $w\cdot 0 \preceq_\subset w'\cdot 0$. By (the dominant version of) [Proposition 5.8, Lecture 7], this condition is equivalent to $w\ge w'$. Hence the conjecture would imply $h_{w',w}(1)\neq 0$ iff $w'\le w$. Note that by definition, the ``only if'' part is true.
 
 \end{rem}
 
@@ -483,13 +483,13 @@
 	\end{lem}
 
 	\begin{rem}
-		If $\lambda$ is dot-dominant, then the above functor is represented by the Verma module $M_\lambda$. See [Lem. 22, Lect. 7]. The proof below is a slight modification of that proof.
+		If $\lambda$ is dot-dominant, then the above functor is represented by the Verma module $M_\lambda$. See [Lemma 3.7, Lecture 7]. The proof below is a slight modification of that proof.
 	\end{rem}
 
 	\proof
 		For any $n\in \mBZ^{>0}$, let $I_{\lambda,n}\subset U(\mfg)$ be the left ideal genetated by the following elements:
 		\begin{itemize}
-			\item The element $t-\lambda(t)$ for any $t\in \mfh$;
+			\item The element $t-\lambda(t)$ for any $t\in \mft$;
 			\item The element $x_1x_2\cdots x_n$ for $x_i\in \mfn^+$.
 		\end{itemize}
 		Let $M_{\lambda,n}:=U(\mfg)/I_{\lambda,n}$ be the quotient $U(\mfg)$-module. Note that $M_{\lambda,1}$ is just the Verma module. It is easy to see $M_{\lambda,n}\in \mCO$. Let $M_{\lambda,n,\chi}\in \mCO_\chi$ be the corresponding direct summand in the block $\mCO_\chi$.
@@ -511,7 +511,7 @@
 	\qed
 
 	\proof[Proof of Thoerem \ref{thm-enough-proj}]
-		By the contragradient duality, we only need to prove $\mCO$ has enough projectives. By the block decomposition, we only need to prove $\mCO_\chi$ has enough projectives. Using dévissage, we only need to show any irreducbile $L_\lambda\in \mCO_\chi$ admits a surjection $P\surj L_\lambda$ with $P$ being projective. We need the following lemma:
+		By the contragradient duality, we only need to prove $\mCO$ has enough projectives. By the block decomposition, we only need to prove $\mCO_\chi$ has enough projectives. Using dévissage, we only need to show any irreducbile $L_\lambda\in \mCO_\chi$ admits a surjection $P\surj L_\lambda$ with $P$ being projective.
 
 		Let $P\in \mCO_\chi$ represents the functor in Lemma \ref{lem-weigth-reprentable}, i.e., $\Hom_{\mCO_\chi}(P,M) \simeq M^{\weight = \lambda}$. This functor is exact and therefore $P$ is projective. Taking $M:= L_\lambda$, any nonzero highest weight vector of $L_\lambda$ gives a nonzero morphism $P\to L_\lambda$. Since $L_\lambda$ is irreducible, this morphism is surjective as desired.
 		

@@ -24,7 +24,7 @@ We start with the following basis observation.
 
 \qed
 
-	Recall in [Lem. 4, Lect. 5], we proved that for a weight $\lambda\in \mft^*$ and a \emph{simple} root $\alpha\in \Delta$, if $\langle \lambda+\rho,\check \alpha\rangle \in \mBZ^{\ge 0}$, then $M_{s_\alpha\cdot \lambda} \subset M_\lambda$. Note that this condition is equivalent to $s_\alpha \cdot \lambda \preceq \lambda$. It follows that we have a partial inverse of Lemma \ref{lem-naive-BGG}:
+	Recall in [Lemma 1.3, Lecture 5], we proved that for a weight $\lambda\in \mft^*$ and a \emph{simple} root $\alpha\in \Delta$, if $\langle \lambda+\rho,\check \alpha\rangle \in \mBZ^{\ge 0}$, then $M_{s_\alpha\cdot \lambda} \subset M_\lambda$. Note that this condition is equivalent to $s_\alpha \cdot \lambda \preceq \lambda$. It follows that we have a partial inverse of Lemma \ref{lem-naive-BGG}:
 
 \begin{lem}
 	\label{lem-Verma-weak}
@@ -128,7 +128,7 @@ To prove the proposition, we need the following result:
 \end{exam}
 
 \proof[Proof of Proposition \ref{prop-Hom-Verma}]
-	(1) follows from the facts that $U(\mfn^-)$ has no zero-divisor. Let $\phi_1,\phi_2:M_\mu \to M_\lambda$ be two nonzero morphisms. We only need to show $\phi_1 = c\phi_2$ for some scalar. By (1), both morhisms are injective. Let $L$ be the unique irreducible submodule of $M_\mu$. We obtain two injective morphisms $L \to M_\mu \rightrightarrows M_\lambda$. Since $L$ is irreducible, the image of each morphism must be the unique irreducible submodule $L'$ of $M_\lambda$. Recall $\dim \Hom_\mCO(L,L')\le 1$ ([Lem. 29, Lect. 6]). Hence there exists a scalar $c$ such that $\phi_1|_L = c\phi_2|_L$. But this implies $\phi_1 = c\phi_2$ because otherwise $\phi_1 - c\phi_2$ would be injective by (1).
+	(1) follows from the facts that $U(\mfn^-)$ has no zero-divisor. Let $\phi_1,\phi_2:M_\mu \to M_\lambda$ be two nonzero morphisms. We only need to show $\phi_1 = c\phi_2$ for some scalar. By (1), both morhisms are injective. Let $L$ be the unique irreducible submodule of $M_\mu$. We obtain two injective morphisms $L \to M_\mu \rightrightarrows M_\lambda$. Since $L$ is irreducible, the image of each morphism must be the unique irreducible submodule $L'$ of $M_\lambda$. Recall $\dim \Hom_\mCO(L,L')\le 1$ ([Lemma 2.7, Lecture 6]). Hence there exists a scalar $c$ such that $\phi_1|_L = c\phi_2|_L$. But this implies $\phi_1 = c\phi_2$ because otherwise $\phi_1 - c\phi_2$ would be injective by (1).
 
 \qed[Proposition \ref{prop-Hom-Verma}]
 
@@ -257,7 +257,7 @@ Combining the two propositions, we actually have:
 	\end{exam}
 
 	\begin{rem}
-		By the theory of Weyl chambers, a weight $\lambda$ is dot-regular iff $s_\alpha\cdot \lambda \neq \lambda$ for any $\alpha\in \Phi$, which is equivalent to $\langle \lambda,\check\alpha \rangle \neq 0$. In particular any generic weight is dot-regular.
+		By the theory of Weyl chambers, a weight $\lambda$ is dot-regular iff $s_\alpha\cdot \lambda \neq \lambda$ for any $\alpha\in \Phi$, which is equivalent to $\langle \lambda+\rho,\check\alpha \rangle \neq 0$. In particular any generic weight is dot-regular.
 	\end{rem}
 
 	\begin{rem}
@@ -330,7 +330,7 @@ Combining the two propositions, we actually have:
  	Let us look at some examples.
 
 	\begin{exam}
-		The negative half sum $-\rho$ is integral and dot-singular, and is both dot-dominant and dot-antidominant. It follows that $M_{-\rho}$ is irreducible and projective. Note that $M_{-\rho}$ is the only irreducible object in the block $\mCO_{\varpi(-\rho)}$ and $\Hom(M_{-\rho},M_{-\rho}) = k\cdot\Id$ ([Lem. 29, Lect. 6]). These formally imply
+		The negative half sum $-\rho$ is integral and dot-singular, and is both dot-dominant and dot-antidominant. It follows that $M_{-\rho}$ is irreducible and projective. Note that $M_{-\rho}$ is the only irreducible object in the block $\mCO_{\varpi(-\rho)}$ and $\Hom(M_{-\rho},M_{-\rho}) = k\cdot\Id$ ([Lemma 2.7, Lecture 6]). These formally imply
 		\[
 			\Hom_{\mCO_{\varpi(-\rho)}}(M_{-\rho},-): \mCO_{\varpi(-\rho)} \to \Vect_{\fd}
 		\]
