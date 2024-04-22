@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1713536929 "lecture3.tex" "lecture3.pdf" "lecture3" 1713536931
+["pdflatex"] 1713662064 "lecture3.tex" "lecture3.pdf" "lecture3" 1713662066
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1480098666 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc" 1480098668 3341 78e600b269762aa2a25a5293cc4535c0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc" 1480098668 3275 8d7166dfdbc31ffdc8aba0c31b3bd5c8 ""
@@ -261,11 +261,11 @@
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1523934516 4220280 10cab8fbd7c5a7c52aba9917e190d018 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "header.tex" 1713536857 10363 9b52dd4615d08f97f4b4bad0fc017609 ""
-  "lecture3.aux" 1713536930 1804 7ca32000954571e3566af64cbadf157f ""
-  "lecture3.out" 1713536930 412 90d05c3e8d49a9f691cdccd01641c89f ""
-  "lecture3.tex" 1713536926 27860 ca19e38f8fed6deb53a9410be25d4410 ""
+  "lecture3.aux" 1713662066 1804 7ca32000954571e3566af64cbadf157f ""
+  "lecture3.out" 1713662066 412 90d05c3e8d49a9f691cdccd01641c89f ""
+  "lecture3.tex" 1713662064 27907 a9ca2e600c3157ff9db0b17aa5bc2c29 ""
   (generated)
   "lecture3.aux"
   "lecture3.out"
-  "lecture3.log"
   "lecture3.pdf"
+  "lecture3.log"

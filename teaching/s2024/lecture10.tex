@@ -1,0 +1,90 @@
+
+\input{header}
+
+\begin{document}
+
+
+\title{Lecture 10}
+
+\date{Apr 29, 2024}
+
+\maketitle
+
+	From this lecture on, we turn to the geometric side of the localization theory. The main player will be (algebraic) D-modules on the flag variety $G/B$. In this lecture, we introduce the basics of D-modules. There are many good references for this theory. For example, \cite{HTT} is a thorough textbook, while \cite{B} is a short notes.
+
+\section{Recollection: sheaf of differential operators}
+
+	Recall the following definitions in algebraic geometry.
+
+	\begin{defn}
+		Let $A$ be a $k$-algebra and $M$ be an $A$-module. A \textbf{$k$-derivation} of $A$ into $M$ is a $k$-linear map $D:A\to M$ satisfying the \textbf{Lebniz rule}
+		\[
+			D(f\cdot g) = f\cdot D (g) + g\cdot D (f).
+		\]
+		Let $\Der_k(A,M)$ be the set of such $k$-derivations. This is naturally an $A$-module.
+	\end{defn}
+
+	\begin{propdefn}
+		The functor $A\hmod \to A\hmod$, $M\mapsto \Der_k(A,M)$ is represented by an $A$-module $\Omega^1_{A/k}$, i.e.,
+		\[
+			\Hom_A( \Omega^1_{A/k}, M ) \simeq \Der_k(A,M).
+		\]
+		We call $\Omega^1_{A/k}$ the \textbf{module of (Kähler) differentials} of $A$ over $k$. In particular, the identity map on $\Omega^1_{A/k}$ corresponds to a $k$-derivative $d: A\to \Omega^1_{A/k}$, which we call the \textbf{universal $k$-derivative} of $A$.
+	\end{propdefn}
+
+	\begin{constr}	
+		For any homomorphism $f:A\to B$ and $M\in B\hmod$, there is an obvious $A$-linear map
+		\[
+			\Der_k(B,M) \to \Der_k(A,M),
+		\]
+		where in the RHS we view $M$ as an $A$-module by restricting along $f$. The two sides are represented by $\Omega^1_{B/k}$ and $B\ot_A \Omega^1_{A/k}$ respectively. It follows that there is a $B$-linear map
+		\[
+			B\ot_A \Omega^1_{A/k} \to \Omega^1_{B/k}.
+		\]
+	\end{constr}
+
+	\begin{lem}
+		If $f:A\to B$ is a localization map, then $B\ot_A \Omega^1_{A/k} \to \Omega^1_{B/k}$ is an isomorphism.
+	\end{lem}
+
+	\begin{constr}
+		Let $X$ be a $k$-scheme. The above lemma implies 
+		\[
+			\Omega^1_{X/k}(U):=\Omega^1_{\mCO_X(U)/k}
+		\]
+		defines a quasi-coherent $\mCO_X$-module $\Omega^1_{X/k}$. We call it the \textbf{sheaf of (Kähler) differentials}, or the \textbf{cotangent sheaf}, of $X$ over $k$.
+	\end{constr}
+
+	\begin{lem}
+		If $X$ is a smooth $k$-scheme of dimension $n$, then $\Omega^1_{X/k}$ is locally free of rank $n$.
+	\end{lem}
+
+	\begin{constr}
+		Let $X$ be a smooth $k$-scheme. The above lemme implies $\Omega^1_{X/k}$ is a vector bundle and in particular dualizable. We define the \textbf{tangent sheaf} $\mCT_X$ of $X$ over $k$ to be the dual vector bundle. By definition, we have
+		\[
+			\mCT_X(U) \simeq \Der_k( \mCO_X(U), \mCO_X(U)).
+		\]
+	\end{constr}
+
+	\begin{rem}
+		The \textbf{tangent space} $T_{X,x}$ introduced in [Section 3, Lecture 3] can be identified with the stalk of $\mCT_X$ at $x$.
+	\end{rem}
+
+	
+
+
+\begin{thebibliography}{Yau}
+
+	\bibitem[B]{B} Bernstein, Joseph. Algebraic theory of D-modules, 1984, abailable at \url{https://gauss.math.yale.edu/~il282/Bernstein_D_mod.pdf}.
+
+	\bibitem[G]{G} Gaitsgory, Dennis. Course Notes for Geometric Representation Theory, 2005, available at \url{https://people.mpim-bonn.mpg.de/gaitsgde/267y/catO.pdf}.
+
+	\bibitem[H]{H} Humphreys, James E. Representations of Semisimple Lie Algebras in the BGG Category $\mathcal{O} $. Vol. 94. American Mathematical Soc., 2008.
+
+	\bibitem[HTT]{HTT} Hotta, Ryoshi, and Toshiyuki Tanisaki. D-modules, perverse sheaves, and representation theory. Vol. 236. Springer Science \& Business Media, 2007.
+\end{thebibliography}
+
+
+\end{document} 
+
+

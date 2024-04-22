@@ -96,9 +96,9 @@
 	\end{lem}
 
 	\proof
-		By assumption $\gr^i M$ is a Verma module $M_\mu$ and the composition $M_\lambda \to M \to \gr^i M$ is nonzero. This implies $\lambda\preceq \mu$. Sinnce $\lambda$ is a highest weight of $M$. We get $\lambda= \mu$. This implies $M_\lambda \to M \to \gr^i M$ is an isomorphism because it preserves the nonzero highest weight vectors. This proves (1).
+		By assumption $\gr^i M$ is a Verma module $M_\mu$ and the composition $M_\lambda \to M \to \gr^i M$ is nonzero. This implies $\lambda\preceq \mu$. Since $\lambda$ is a highest weight of $M$. We get $\lambda= \mu$. This implies $M_\lambda \to M \to \gr^i M$ is an isomorphism because it preserves the nonzero highest weight vectors. This proves (1).
 
-		For (2), we have a short exact seqeunce $0 \to \mbF^{\le i-1} M \to M/M_\lambda \to M/\mbF^{\le i}M \to 0$. By assumption, $\mbF^{\le i-1} M$ has a standard filtration of length $i-1$, and $M/\mbF^{\le i}M $ has one of length $m-i$. It follows that $M/M_\lambda$ admits a standard filtration with length $(i-1)+(m-i)=m-1$.
+		For (2), we have a short exact sequence $0 \to \mbF^{\le i-1} M \to M/M_\lambda \to M/\mbF^{\le i}M \to 0$. By assumption, $\mbF^{\le i-1} M$ has a standard filtration of length $i-1$, and $M/\mbF^{\le i}M $ has one of length $m-i$. It follows that $M/M_\lambda$ admits a standard filtration with length $(i-1)+(m-i)=m-1$.
 
 	\qed
 
@@ -302,13 +302,13 @@
 	\begin{constr}
 		Let $\lambda$ and $\mu$ be weights such that $\mu - \lambda$ is integral. Then the $W$-orbit (for the linear action) $W(\mu-\lambda)$ contains a unique dominant integral weigth $\nu$. Consider the finite-dimensional $\mfg$-module $L_\nu$. We write
 		\[
-			T_{\lambda,\mu}:= T_{\varpi(\lambda), L_\nu, \varpi(\mu)} : \mCO_{\varpi(\lambda)} \to \mCO_{\varpi(\mu)}.
+			T_\lambda^\mu:= T_{\varpi(\lambda), L_\nu, \varpi(\mu)} : \mCO_{\varpi(\lambda)} \to \mCO_{\varpi(\mu)}.
 		\] 
 		Note that $w_0(-\nu)$ is also dominant and integral. By definition, we have
 		\[
-			T_{\mu,\lambda} = T_{\varpi(\mu), L_{-w_0(\nu)}, \varpi(\lambda)},
+			T_\mu^\lambda = T_{\varpi(\mu), L_{-w_0(\nu)}, \varpi(\lambda)},
 		\]
-		which is both left and right adjoint to $T_{\lambda,\mu}$ because $L_{-w_0(\nu)} \simeq L_\nu^*$\footnote{Here $L_\nu^*$ is the usual linear dual of $L_\mu$. It is not the contragradient dual. Note that $w_0(\nu)$ is indeed the lowest weight of $L_\mu$.}
+		which is both left and right adjoint to $T_\lambda^\mu$ because $L_{-w_0(\nu)} \simeq L_\nu^*$\footnote{Here $L_\nu^*$ is the usual linear dual of $L_\mu$. It is not the contragradient dual. Note that $w_0(\nu)$ is indeed the lowest weight of $L_\mu$.}
 	\end{constr}
 
 	Recall the following definition:
@@ -414,11 +414,11 @@
 
 
 	\begin{constr}
-		Let $\mu$ be any dot-antidominant integral weight. The functor $T_{-\rho}^\mu:\mCO_{\varpi(-\rho)} \to \mCO_{\varpi(\mu)}$ is \emph{not} covered by the above theorems (although its adjoint $T_\mu^{-\rho}$ is). Recall the most singular block $\mCO_{\varpi(-\rho)}$ is semi-simple ([Example 4.16, Lecture 7]) and contains a unique irreducible object $L_{-\rho}$, which is both projective and injective. It follows that 
+		Let $\mu$ be any dot-antidominant integral weight. The functor $T_{-\rho}^\mu:\mCO_{\varpi(-\rho)} \to \mCO_{\varpi(\mu)}$ is \emph{not} covered by the above theorems (although its adjoint $T_\mu^{-\rho}$ is). Recall the most singular block $\mCO_{\varpi(-\rho)}$ is semi-simple and contains a unique irreducible object $L_{-\rho}$, which is both projective and injective ([Example 4.16, Lecture 7]). It follows that 
 		\[
 			\Xi_{\mu}:= T_{-\rho}^\mu(L_{-\rho})
 		\]
-		is both injective and projective.
+		is both projective and injective.
 	\end{constr}
 
 	\begin{exe}
