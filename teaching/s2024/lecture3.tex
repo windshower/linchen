@@ -146,21 +146,31 @@ In this lecture, we give a quick review of the theory of algebraic groups. This 
 	\[
 		D(f\cdot g) = f\cdot D (g) + g\cdot D (f).
 	\]
-	Let $\Der_k(A,M)$ be the set of such $k$-derivations. This is naturally an $A$-module.
+	Let $\Der(A,M)$ be the set of such $k$-derivations. This is naturally an $A$-module.
+\end{defn}
+
+\begin{defn}
+	Let $X$ be a $k$-scheme and $\mCM$ be an $\mCO_X$-module. A \textbf{$k$-derivation} of $\mCO_X$ into $\mCM$ is a $k$-linear morphism $D:\mCO_X \to \mCM$ such that for any open subscheme $U\subset X$, $D(U): \mCO_X(U) \to \mCM(U)$ is a $k$-derivation. Let $\Der(\mCO_X,\mCM)$ be the space of $k$-derivations.
+
 \end{defn}
 
 \begin{constr}
-	Let $X=\Spec(A)$ be an affine scheme and $x:\Spec(k) \to X$ be given by a homomorphism $\phi:A\to k$. View $k$ as an $A$-module via this homomorphism and denote it by $k_x$. For any $D\in \Der_k(A,k_x)$, the map 
+	Let $X=\Spec(A)$ be an affine scheme and $x:\Spec(k) \to X$ be given by a homomorphism $\phi:A\to k$. View $k$ as an $A$-module via this homomorphism and denote it by $k_x$. For any $D\in \Der(A,k_x)$, the map 
 	\[
 		A\to k[\epsilon]/\epsilon^2,\; f\mapsto \phi(f)+D(f)\epsilon
 	\]
 	is a homomorphism and thereby gives a map $\Spec(k[\epsilon]/\epsilon^2) \to X$, which is an element in $T_x X$. It is easy to see this gives a bijection
 	\[
-		\Der_k(A,k_x) \simeq T_x X.
+		\Der(A,k_x) \simeq T_x X.
 	\]
 	In particular, we obtain an $A$-module structure on $T_x X$. Note that the action of $A$ factors through $A\surj k_x$.
-\end{constr}
 
+	For general $k$-scheme, the above construction gives a bijection
+	\[
+		\Der(\mCO_X,k_x) \simeq T_x X,
+	\]
+	where $k_x$ is viewed as the skyscrapter sheaf at $x$. Indeed, this follows from the obvious fact that $T_xX$ only depends on a Zariski neighborhood of $x$ in $X$.
+\end{constr}
 
 \begin{constr}
 	Let $f:X\to Y$ be a morphism between $k$-schemes. Let $x\in X$ and $y:=f(x)\in Y$ be $k$-points. There is an obvious $k$-linear map
@@ -201,28 +211,61 @@ In this lecture, we give a quick review of the theory of algebraic groups. This 
 	For $G=\GL_n$, we have $\Lie(\GL_n) \simeq \gl_n$. In particular, $\Lie(\GL_n)$ is naturally a Lie algebra. We have similar results for other classical subgroups of $\GL_n$.
 \end{exam}
 
-We state the following result without proof:
+\begin{rem}
+	Consider the multiplication map $m: G\mt G\to G$ and its differential $dm: \Lie(G\mt G)\to \Lie (G)$. Via the identification $\Lie(G)\oplus \Lie(G)\simeq \Lie(G\mt G)$, we obtain a binary operation on $\Lie(G)$:
+	\[
+		\Lie(G)\oplus \Lie(G) \simeq \Lie(G\mt G) \xrightarrow{dm} \Lie(G).
+	\]
+	By definition, this binary operation is associative and $0\in \Lie(G)$ is the unit of it. Hence it sends $(\partial_1,\partial_2)$ to $\partial_1+\partial_2$. This is the algebraic analogue of the formula $\exp(t u)\cdot \exp(t v) = \exp(t (u+v))(1 + O(t^2))$, $u,v\in \Lie(G)$ that appears in the study of Lie groups.
+
+	In particular, we have a short exact sequence of groups:
+	\begin{equation}
+		\label{eqn-SES-Lie}
+		0 \to \Lie(G) \to G(k[\epsilon]) \to G(k) \to 0,
+	\end{equation}
+	where the group structure on $\Lie(G)$ is given by $(\partial_1,\partial_2)\mapsto \partial_1+\partial_2$.
+\end{rem}
 
 \begin{thm}	
 	There is a canonical functor $\Grp_k \to \Lie_k$ sending $G$ to $\Lie(G)$ equipped with a natural Lie bracket, such that for $G=\GL_n$, the Lie bracket on $\Lie(\GL_n)$ is given by that on $\gl_n$.
 \end{thm}
 
 \begin{rem}
-	The above functor $\Grp_k \to \Lie_k$ is unique if stated properly. See \cite[Theorem 10.23]{M}.
+	There are several equivalent ways to construct the Lie bracket on $\Lie(G)$. Below are two of them:
+	\begin{itemize}
+		\item 
+			The Hopf algebra approach: given $\partial_1,\partial_2\in \Lie(G)$, viewed as $k$-derivations $\mCO_G \to k_e$, consider the composition\footnote{For non-affine $G$, we use the morphisms between $\mCO_X$-modules $\mCO_G \xrightarrow{\Delta} \mathsf{mult}_*(\mCO_G \ot \mCO_G) \xrightarrow{ \partial_1 \ot\partial_2 -\partial_2\ot\partial_1 }\mathsf{mult}_*(k_e \ot k_e) \simeq k_e$.}
+			\[
+				\mCO_G \xrightarrow{\Delta} \mCO_G \ot \mCO_G \xrightarrow{ \partial_1 \ot\partial_2 -\partial_2\ot\partial_1 } k_e.
+			\]
+			One can show this is also a $k$-derivation. Then we define $[\partial_1, \partial_2]\in \Lie(G)$ to be the element corresponding to this $k$-derivation. The axioms of Hopf algebras imply this is indeed a Lie bracket. This is the algebraic analogue of the formula $\exp(t u)\cdot \exp(t v)\cdot \exp(-t u)\cdot \exp(-t v) = \exp(t^2 [u,v])(1+ O(t^3))$, $u,v\in \Lie(G)$ that appears in the study of Lie groups.
+
+		\item
+			The adjoint representation approach: the isomorphism $\Lie(G)\simeq \Der(\mCO_G,k_e)$ can be generalized to $\Lie(G)\ot R\simeq \Der(\mCO_G,R_e)$ that are functorial in $R\in \CAlg_k$. It follows that the short exact sequence \eqref{eqn-SES-Lie} can be generalized to short exact sequences
+			\[
+				0 \to \Lie(G)\ot R \to G(R[\epsilon]) \to G(R) \to 0
+			\]
+			that are functorial in $R$. Note that we have a canonical splitting $G(R) \to G(R[\epsilon])$ induced by the \emph{embedding} $R\to R[\epsilon]$. These splittings provide adjoint actions of $ G(R)$ on $\Lie(G)\ot R$ that are functorial in $R$. In other words, we have a homomorphism between algebraic groups:
+			\begin{equation}
+				\label{eqn-Adjiont-action}
+				\Ad: G\to \GL_{\Lie(G)}.
+			\end{equation}
+			The differential of this homomorphism at the unit element $e$ gives a $k$-linear map
+			\[
+				\ad: \Lie(G) \to \gl_{\Lie(G)}.
+			\]
+			Then we define $[\alpha_1,\alpha_2]:= \ad(\alpha_1)(\alpha_2)$. One can show this is indeed a Lie bracket. Note that by construction $\ad$ is indeed the adjoint presentation of $\Lie(G)$.
+	\end{itemize}
+
+\end{rem}
+
+\begin{rem}
+	The functor $\Grp_k \to \Lie_k$ is unique if stated properly. See \cite[Theorem 10.23]{M}.
 \end{rem}
 
 \begin{warn}
 	It is not true that every Lie algebra can be obtained from algebraic groups. See \cite[I, \S 5, Exercise 6]{Bou} for a counterexample.
 \end{warn}
-
-\begin{rem}
-	Consider the multiplication map $m: G\mt G\to G$ and its differential $dm: \Lie(G\mt G)\to \Lie (G)$. One can show that the composition
-	\[
-		\Lie(G)\oplus \Lie(G) \simeq \Lie(G\mt G) \xrightarrow{dm} \Lie(G)
-	\]
-	sends $(\partial_1,\partial_2)$ to $\partial_1+\partial_2$.	This is the algebraic analogue of the formula $\exp(t u)\cdot \exp(t v) = \exp(t (u+v)) + O(t^2)$, $u,v\in \Lie(G)$ that appears in the study of Lie groups.
-
-\end{rem}
 
 \begin{rem}
 	Let $G$ be an affine algebraic group and $\mfg:=\Lie(G)$ be its Lie algebra. The Hopf algebras $\mCO_G$ and $U(\mfg)$ are related as follows.
@@ -236,7 +279,7 @@ We state the following result without proof:
 	\[
 		U(\mfg)^* \simeq \hat\mCO_G
 	\]
-	as commutative topological Hopf algebras.
+	as commutative topological Hopf algebras such that $(\mbF^{\le k}U(\mfg))^* \simeq  \hat\mCO_G/\mfm^k\hat\mCO_G$. Note that this gives another way to define the Lie bracket on $\Lie(G)$.
 \end{rem}
 
 \begin{exam}
@@ -270,6 +313,11 @@ In this section, $G$ is an affine algebraic group.
 
 \begin{exam}
 	Any $V$ can be equipped with a trivial $G$-module structure such that the homomorphisms $G(A) \to \GL_V(A)$ are trivial.
+\end{exam}
+
+\begin{exam}
+	The homomorphism \eqref{eqn-Adjiont-action} defines a $G$-module structure on its Lie algebra $\Lie(G)$. We call it the \textbf{adjoint representation} of $G$.
+
 \end{exam}
 
 \begin{prop}
@@ -339,9 +387,6 @@ In this section, $G$ is an affine algebraic group.
 	\end{itemize}
 \end{constr}
 
-\begin{lem}
-	The adjoint representation $\Lie(G)\in \Lie(G)\hmod$ has a canonical lift to an object in $\Rep(G)$. We call it the \textbf{adjoint action of $G$ on $\Lie(G)$}.
-\end{lem}
 
 \begin{rem}
 	On the level of $k$-points, the conjugate action of $G(k)$ on $G$ induces an (abstract) action of $G(k)$ on $\Lie(G)$. This can be generalized to an action of $G(A)$ on $A\ot\Lie(G)$ for any $A\in \CAlg_k$ and thereby obtain the desired $G$-module structure on $\Lie(G)$.
@@ -398,213 +443,6 @@ In this section, $G$ is an affine algebraic group.
 	Let $G$ be any semisimple algebraic group with Lie algebra $\mfg$. Then the abelian categories $\Rep(G)$ and $\mfg\hmod_\mathsf{fd}$ are semisimple\footnote{I.e., any object can be written as a direct sum of simple objects.}. Simple objects in $\Rep(G)$ are finite-dimensional, and an object $V\in \Rep(G)$ is simple iff it is an simple object in $\mfg\hmod$.
 
 \end{thm}
-
-\begin{comment}
-\section{Finite dimensional representations}
-
-This section is actually a continuation of the last lecture. Recall the following theorem:
-
-\begin{thm}[Weyl]
-	The abelian category $\mfg\hmod_\mathsf{fd}$ of finite-dimensional $\mfg$-modules is semisimple\footnote{Recall this means any object $M\in \mfg\hmod_\mathsf{fd}$ is a direct sum of simple objects.}.
-\end{thm}
-
-The following lemma is also well-known:
-
-\begin{lem}
-	Finite-dimensional $\mfg$-modules are weight modules.
-\end{lem}
-
-\proof
-	By the preservation of Jordan decomposition (see \cite[Sect. 6.4]{H1}), for any finite-dimensional representation $\mfg\to \gl(V)$, semisimple (resp. nilpotent) elements of $\mfg$ are sent to semisimple (resp. nilpotent) elements in $\gl(V)$.
-\qed
-
-\begin{cor}
-	Finite-dimensional $\mfg$-modules are contained in $\mCO$.
-\end{cor}
-
-\begin{rem}
-	The dimension of weight spaces of finite-dimensional $\mfg$-modules can be calculated using \textbf{Weyl character formula}. We do not need this formula for now. In fact, there is a geometric proof of it that (hopefully) we will discuss later in this semester.
-\end{rem}
-
-
-
-\section{Blocks}
-
-The main goal of this and the next lectures is to split the category $\mCO$ into blocks 
-\[
-	\mCO \simeq \bigoplus_{\chi\in \Spec(Z(\mfg))} \mCO_\chi
-\]
-and study each block. Here $Z(\mfg) \subset U(\mfg)$ is the center of the associative algebra $U(\mfg)$. 
-
-Note that any $M\in \mfg\hmod$ can be viewed as a $Z(\mfg)$-module, which is the same as a quasi-coherent sheaf on $\Spec(Z(\mfg))$. We will prove:
-
-\begin{thm}
-	\label{thm-block}
-	Let $M\in \mCO$, then the corresponding quasi-coherent sheaf on $\Spec(Z(\mfg))$ is supported on a 0-dimensional subvariety.
-\end{thm}
-
-Once we prove the above theorem, we make the following definition:
-
-\begin{defn}
-	For any closed point $\chi\in \Spec(Z(\mfg))$, let $\mCO_\chi \subset \mCO$ be the full subcategory containing those $M\in \mCO$ that is set-theoretically supported on $\chi$. We call $\mCO_\chi$ a \textbf{block} of $\mCO$.
-\end{defn}
-
-
-\begin{rem}
-	In a more representation-theoretic language: a closed point $\Spec(Z(\mfg))$ is the same as a character $\chi: Z(\mfg) \to k$. Then for $M\in \mCO$, it is set-theoretically supported on $\chi$ iff $\ker(\chi)^n \cdot M = 0$ for $n>>0$.
-
-\end{rem}
-
-\begin{cor}
-	We have
-	\[
-		\mCO \simeq \bigoplus_{\chi\in \Spec(Z(\mfg))} \mCO_\chi.
-	\]
-	In other words, any $M\in \mCO$ admits a unique finite decomposition $M = \oplus_\chi M_\chi$ such that $M_\chi \in \mCO_\chi$. Also, for $M = \oplus_\chi M_\chi$ and $N = \oplus_\chi N_\chi$, we have
-	\[
-		\Hom_\mCO( M,N ) \simeq \oplus_\chi \Hom_{\mCO_\chi} ( M_\chi, N_\chi ).
-	\]
-\end{cor}
-
-\proof
-	The decomposition $M = \oplus_\chi M_\chi$ follows obviously from the theorem. For $\chi\neq \chi'$, there is no nonzero $\mfg$-linear map $M_\chi \to N_{\chi'}$ because there is no nonzero $Z(\mfg)$-linear map between them. 
-\qed
-
-\begin{rem}
-	In the future, we will see the decomposition $\mCO \simeq \bigoplus_{\chi\in \Spec(Z(\mfg))} \mCO_\chi$ also holds in the derived setting. This implies we can replace $\Hom_\bullet(-,-)$ in above by $\Ext^i_\bullet(-,-)$.
-\end{rem}
-
-To pvove Theorem \ref{thm-block}, we need (a lot of) preparations.
-
-\section{The algebra \texorpdfstring{$\gr^\bullet Z(\mfg)$}{gr Z(g)}}
-
-\begin{constr}
-	The PBW filtration on $U(\mfg)$ induces a filtration on $Z(\mfg)$ with $\mbF^{\le i} Z(\mfg):= Z(\mfg)\cap \mbF^{\le i}U(\mfg)$. Note that $\gr^\bullet Z(\mfg)$ is a subalgebra of $\gr^\bullet U(\mfg) \simeq \Sym^\bullet(\mfg)$.
-\end{constr}
-
-We want to understand the commutative algebra $Z(\mfg)$. At a first approximation, let us study $\gr^\bullet Z(\mfg)$.
-
-\begin{constr}
-	\label{constr-adj-action-sym}
-	Recall $\Sym^\bullet(\mfg)$ has a natural $\mfg$-module structure constructed as follows. For any $V\in \mfg$, there is a natural $\mfg$-module structure on $V^{\otimes n}$ given by 
-	\[
-		\mfg \mt V^{\otimes n} \to V^{\otimes n},\; (x, \ot_i v_i)\mapsto \sum_i ( v_1\ot \cdots\ot v_{i-1}\ot (x\cdot v_i) \ot v_{i+1}\cdots \ot v_n ).
-	\]
-	This action is compatible with the symmetric group $\Sigma_n$-action on $V^{\otimes n}$ and thereby induces a $\mfg$-module structure on $\Sym^n(\mfg)$. Taking direct sum, we obtain a $\mfg$-module structure on $\Sym^\bullet(V)$. 
-
-	In the case $V=\mfg$, to distinguish with the multiplication structure on $\Sym^\bullet(\mfg)$, we denote this action by
-	\[
-		\mfg \times \Sym^\bullet(\mfg) \to \Sym^\bullet(\mfg) ,\; (x,u)\mapsto \ad_x(u),
-	\]
-	and call it the \textbf{adjoint action}.
-
-	Note that by definition, for $x\in \mfg$ and $u,v\in \Sym^\bullet(\mfg)$, we have
-	\[
-		\ad_x(u\cdot v) = \ad_x(u)\cdot v + u\cdot \ad_x(v).
-	\]
-	In particular, the \emph{$\mfg$-invariance} 
-	\[
-		\Sym^\bullet(\mfg)^\mfg:= \{ u\in \Sym^\bullet(\mfg)\,\vert\, \ad_x(u)=0\textrm{ for any }x\in \mfg \}
-	\]
-	is a subalgebra of $\Sym^\bullet(\mfg)$.
-\end{constr}
-
-\begin{lem}
-	\label{lem-Zg-fil}
-	There is a unique dotted isomorphism making the following diagram commute
-	\[
-		\xymatrix{
-			\gr^\bullet Z(\mfg) \ar@{.>}[r]^-\simeq \ar[d]^-\subset
-			& \Sym^\bullet(\mfg)^\mfg \ar[d]^-\subset \\
-			\gr^\bullet U(\mfg) \ar[r]^-\simeq 
-			& \Sym^\bullet(\mfg),
-		}
-	\]
-	where the bottom isomorphism is given by the PBW theorem.
-\end{lem}
-
-To prove this lemma, we use the following exercise:
-
-\begin{exe}
-	This is \red{Homework 1, Problem 4}. Prove: the adjoint $\mfg$-action on $U(\mfg)$, i.e.,
-	\[
-		\mfg \times U(\mfg) \to U(\mfg),\; (x,u)\mapsto \ad_x(u)=[x,u],
-	\]
-	preserves each $\mbF^{\le n}U(\mfg)$, and the induced $\mfg$-action on $\gr^\bullet(U(\mfg)) \simeq \Sym^\bullet(\mfg)$ is the adjoint action in Construction \ref{constr-adj-action-sym}.
-
-
-\end{exe}
-
-
-\proof[Proof of Lemma \ref{lem-Zg-fil}]
-	By the above exercise, we have a short exact sequence of \emph{finite-dimensional} $\mfg$-modules:
-	\[
-		0 \to \mbF^{\le n-1} U(\mfg) \to \mbF^{\le n} U(\mfg)  \to \Sym^n(\mfg) \to 0.
-	\]
-	Since $\mfg\hmod_\mathsf{fd}$ is semisimple, this short exact sequence splits. Hence taking $\mfg$-invariance, we obtain\footnote{
-		Warning: in general, taking invariance is only \emph{left exact}. (Memory method: it is given by $\Hom_{\mfg}(k,-)$.) Hence we need the existence of a splitting.
-	}
-	\[
-		0 \to \mbF^{\le n-1} Z(\mfg) \to \mbF^{\le n} Z(\mfg) \to \Sym^n(\mfg)^\mfg \to 0
-	\]
-	This gives the desired isomorphism $\gr^n Z(\mfg) \simeq \Sym^n(\mfg)^\mfg$.
-
-
-\qed[Lemma \ref{lem-Zg-fil}]
-
-	We want to further explore the structure of $\Sym^\bullet(\mfg)^\mfg$, e.g., giving a pure combinatorial (=root system) description of it. This is known as the \textbf{Chevalley isomorphism}
-
-\begin{thm}[Chevalley]
-		There is a canonical isomorphism between commutative algebras
-		\[
-			\Sym^\bullet(\mfg)^\mfg \simeq \Sym^\bullet(\mft)^W.
-		\]
-\end{thm}
-
-	In above, $W$ is the \emph{Weyl group} of $\mfg$. We need review its properties before we can prove the above theorem.
-
-\section{Recollection: Weyl group}
-
-
-	Recall (see Lecture 1) $\mfg$ corresponds to a root system $(E,\Phi)$, where $E=E_\mBQ \ot_\mBQ \mBR$ is an Euclidean space and $E_\mBQ:=\mBQ \Phi$ is the $\mBQ$-vector subspace of $\mft^*$ spanned by the roots $\Phi$.
-
-	For each $\alpha\in \Phi$, we defined a reflection of $E$:
-	\[
-		s_\alpha(\beta):= \beta - 2\frac{(\alpha,\beta)}{(\alpha,\alpha)} \alpha.
-	\]
-
-\begin{defn}
-	The \textbf{Weyl group} of a root system $(E,\Phi)$ is the subgroup $W\subset \GL(E)$ generated by the reflections $s_\alpha$, $\alpha\in \Phi$.
-
-	For a semisimple Lie algebra $\mfg$, its \textbf{Weyl group} $W$ is the Weyl group of its root system.
-\end{defn}
-
-\begin{rem}
-	The action of $W$ on $E$ preserves $E_\mBQ$ and therefore induces actions on $\mft^*$ and $\mft$.
-\end{rem}
-
-\begin{exam}
-	The Weyl group of $\sl_n$ is the symmetric group $\Sigma_n$. It acts on the standard Cartan in the obvious way.
-\end{exam}
-
-	We state several well-known results about the Weyl group:
-
-\begin{prop}
-	Let $(E,\Phi)$ and $(E^*,\check \Phi)$ be root systems dual to each other. Then their Weyl groups are isomorphic, with $s_\alpha$ corresponding to $s_{\check \alpha}$.
-\end{prop}
-
-\begin{rem}
-	Weyl groups are \emph{(crystallographic) Coxeter groups}. Namely, if we choose positive roots $\Phi^+\subset \Phi$ and simple roots $\mathsf{\Delta}\subset \Phi^+$. Then
-	\[
-		W  = \langle s_\alpha, \alpha\in \mathsf{\Delta} \,\vert\, s_\alpha^2=1, (s_\alpha s_\beta)^{m_\alpha\beta}=1, \alpha\neq \beta \rangle
-	\]
-	where $m_{\alpha\beta}\in \{2,3,4,6\}$.
-\end{rem}
-\end{comment}
-
-	
-
-
 
 
 \begin{thebibliography}{Yau}

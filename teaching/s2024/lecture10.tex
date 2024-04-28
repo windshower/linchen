@@ -10,9 +10,9 @@
 
 \maketitle
 
-	From this lecture on, we turn to the geometric side of the localization theory. The main player will be (algebraic) D-modules on the flag variety $G/B$. In this lecture, we introduce the basics of D-modules. There are many good references for this theory. For example, \cite{HTT} is a thorough textbook, while \cite{B} is a short notes.
+	From this lecture on, we turn to the geometric side of the localization theory. The main player will be (algebraic) D-modules on the flag variety $G/B$. In this lecture, we define D-modules. There are many good references for this theory. For example, \cite{HTT} is a thorough textbook, while \cite{B} is a short notes.
 
-\section{Recollection: sheaf of differential operators}
+\section{Recollection: (co)tangent sheaves}
 
 	Recall the following definitions in algebraic geometry.
 
@@ -21,56 +21,728 @@
 		\[
 			D(f\cdot g) = f\cdot D (g) + g\cdot D (f).
 		\]
-		Let $\Der_k(A,M)$ be the set of such $k$-derivations. This is naturally an $A$-module.
+		Let $\Der(A,M)$ be the set of such $k$-derivations. This is naturally an $A$-module.
+	\end{defn}
+
+	\begin{defn}
+		Let $(X,\mCO_X)$ be any $k$-ringed space and $\mCM$ be an $\mCO_X$-module. A \textbf{$k$-derivation} of $\mCO_X$ into $\mCM$ is a $k$-linear morphism $D:\mCO_X \to \mCM$ such that for any open subscheme $U\subset X$, $D(U): \mCO(U) \to \mCM(U)$ is a $k$-derivation. Let $\Der(\mCO_X,\mCM)$ be the space of $k$-derivations.
 	\end{defn}
 
 	\begin{propdefn}
-		The functor $A\hmod \to A\hmod$, $M\mapsto \Der_k(A,M)$ is represented by an $A$-module $\Omega^1_{A/k}$, i.e.,
+		Let $X$ be a $k$-scheme. The functor $\mCO_X\hmod \to \Vect$, $\mCM \mapsto \Der(\mCO_X,\mCM)$ is represented by a quasi-coherent $\mCO_X$-module $\Omega_{X}^1$, i.e. 
 		\[
-			\Hom_A( \Omega^1_{A/k}, M ) \simeq \Der_k(A,M).
+			\Hom_{\mCO_X}(\Omega_{X}^1, \mCM) \simeq \Der(\mCO_X,\mCM).
 		\]
-		We call $\Omega^1_{A/k}$ the \textbf{module of (Kähler) differentials} of $A$ over $k$. In particular, the identity map on $\Omega^1_{A/k}$ corresponds to a $k$-derivative $d: A\to \Omega^1_{A/k}$, which we call the \textbf{universal $k$-derivative} of $A$.
+		We call $\Omega_{X}^1$ the \textbf{sheaf of differentials}, or the \textbf{cotangent sheaf}, of $X$ over $k$.
+
+		The identity map on $\Omega_{X}^1$ corresponds to a $k$-derivation 
+		\[
+			d:\mCO_X \to \Omega_{X}^1,
+		\]
+		which is called the \textbf{universal $k$-derivation} of $\mCO_X$.
+
+		When $X=\Spec(A)$ is affine, let $\Omega_{A}^1\in A\hmod$ be such that $\Omega_{X}^1 \simeq \wt{\Omega_{A}^1}$. We call $\Omega_{A}^1$ the \textbf{module of differentials} of $A$ over $k$.
 	\end{propdefn}
 
-	\begin{constr}	
-		For any homomorphism $f:A\to B$ and $M\in B\hmod$, there is an obvious $A$-linear map
+	\begin{exam}
+		\label{exam-cotangent-affine-space}
+		If $A=\Sym(V)$ for a $k$-vector space $V\in \Vect$, then $\Omega_{A}^1 \simeq A\ot_k V$ and $d: A\to \Omega_{A}^1$ sends $v\in V \subset \Sym(V)$ to $dv=1\ot v \in A\ot_k V $.
+	\end{exam}
+	
+	\begin{constr}
+		Let $f:X\to Y$ be a morphism between $k$-schemes. For any $\mCO_X$-module $\mCM$, consider the composition
 		\[
-			\Der_k(B,M) \to \Der_k(A,M),
+			\Der(\mCO_X,\mCM) \to \Der( f_* \mCO_X, f_* \mCM ) \to \Der( \mCO_Y, f_* \mCM )
 		\]
-		where in the RHS we view $M$ as an $A$-module by restricting along $f$. The two sides are represented by $\Omega^1_{B/k}$ and $B\ot_A \Omega^1_{A/k}$ respectively. It follows that there is a $B$-linear map
+		that sends a $k$-derivation $D: \mCO_X \to \mCM$ to $\mCO_Y \to f_* \mCO_X \xrightarrow{f_*(D)} f_* \mCM$. By definition, we obtain maps
 		\[
-			B\ot_A \Omega^1_{A/k} \to \Omega^1_{B/k}.
-		\]
+			\Hom_{\mCO_X}(\Omega_{X}^1, \mCM) \to \Hom_{\mCO_Y}(\Omega_{Y}^1, f_*\mCM) \simeq  \Hom_{\mCO_X}(f^*\Omega_{Y}^1, \mCM)
+		\] 
+		that are functorial in $\mCM$. This gives an $\mCO_X$-linear morphism
+		\begin{equation}
+			\label{eqn-functorial-cotangent}
+			f^*\Omega_{Y}^1\to \Omega_{X}^1.
+		\end{equation}
 	\end{constr}
 
 	\begin{lem}
-		If $f:A\to B$ is a localization map, then $B\ot_A \Omega^1_{A/k} \to \Omega^1_{B/k}$ is an isomorphism.
+		If $f: X\to Y$ is an open embedding, or more generally an étale morphism, then $f^*\Omega_{Y}^1\to \Omega_{X}^1$ is an isomorphism.
 	\end{lem}
 
-	\begin{constr}
-		Let $X$ be a $k$-scheme. The above lemma implies 
+	\begin{lem}
+		Let $f:X\to Y$ be a closed embedding corresponding to the ideal sheaf $\mCI \subset \mCO_Y$. Then we have 
 		\[
-			\Omega^1_{X/k}(U):=\Omega^1_{\mCO_X(U)/k}
+			f^*\mCI \xrightarrow{f^*(d)} f^*\Omega_{Y}^1\to \Omega_{X}^1 \to 0.
 		\]
-		defines a quasi-coherent $\mCO_X$-module $\Omega^1_{X/k}$. We call it the \textbf{sheaf of (Kähler) differentials}, or the \textbf{cotangent sheaf}, of $X$ over $k$.
+	\end{lem}
+
+	\begin{rem}
+		Since any affine scheme is a closed subscheme of $\Spec(\Sym(V))$ for some $V\in \Vect$, the above lemmas, together with Example \ref{exam-cotangent-affine-space}, allow us to calculate $\Omega_{X}^1$ for any $k$-scheme $X$.
+	\end{rem}
+
+	\begin{cor}
+		If $X$ is (locally) of finite type over $k$, then $\Omega^1_{X}$ is (locally) coherent.
+	\end{cor}
+
+	\begin{cor}
+		If $X$ is a smooth $k$-scheme of dimension $n$, then $\Omega^1_{X}$ is locally free of rank $n$.
+	\end{cor}
+
+	From now on, we always assume $X$ is a smooth $k$-scheme.
+
+	\begin{constr}
+		Let $X$ be a smooth $k$-scheme. Define $\Omega_X^n:=\bigwedge_{\mCO_X}^n (\Omega_X^1)$, i.e., the anti-symmetric quotient of $\Omega_X^1 \ot_{\mCO_X} \cdots \ot_{\mCO_X} \Omega_X^1$. As in the study of differential geometry, there is a unique complex
+		\[
+			\mCO_X \xrightarrow{d} \Omega_X^1 \xrightarrow{d} \Omega_X^2 \xrightarrow{d} \cdots
+		\]
+		such that $d(\alpha\wedge \beta) = d\alpha\wedge \beta + (-1)^m (\alpha\wedge d\beta)$, where $\alpha\in \Omega_X^m(U)$ is a $m$-form. This is the \textbf{de Rham complex} of $X$.
+
+	\end{constr}
+
+	\begin{constr}
+		Let $X$ be a smooth $k$-scheme. We define the \textbf{tangent sheaf} $\mCT_{X}$ of $X$ over $k$ to be the dual of $\Omega^1_{X}$, i.e., 
+		\[
+			\mCT_{X} := \mathcal{H}om_{\mCO_X}( \Omega^1_{X},\mCO_X ).
+		\]
+		Note that $\mCT_{X}$ is quasi-coherent, and for any open subset $U$, we have
+		\[
+			\mCT(U):= \Der( \mCO_U, \mCO_U).
+		\]
+		By definition, for $\partial\in \mCT(U)$ and $f\in \mCO(U)$, we have $\partial(f) = \langle \partial, df\rangle$.
+	\end{constr}
+
+	\begin{cor}
+		\label{cor-der-tensor}
+		We have equivalences between functors $\mCO_X\hmod \to \Vect$:
+		\[
+			\Der_k(\mCO_X,-) \simeq \Gamma(X, \mCT_X \ot_{\mCO_X} - ).
+		\]
+	\end{cor}
+
+	\begin{rem}
+		The \textbf{tangent space} $T_{X,x}$ introduced in [Section 3, Lecture 3] can be identified with the stalk of $\mCT_{X}$ at $x$.
+	\end{rem}
+
+	\begin{cor}
+		If $X$ is a smooth $k$-scheme of dimension $n$, then $\mCT_{X}$ is locally free of rank $n$.
+	\end{cor}
+
+	
+
+	\begin{constr}
+		Let $f:X\to Y$ be a morphism between smooth $k$-schemes. The morphism \eqref{eqn-functorial-cotangent} induces an $\mCO_X$-linear morphism
+		\[
+			df: \mCT_{X}\to f^*\mCT_{Y}.
+		\]
+
 	\end{constr}
 
 	\begin{lem}
-		If $X$ is a smooth $k$-scheme of dimension $n$, then $\Omega^1_{X/k}$ is locally free of rank $n$.
+		Let $X = X_1 \mt X_2$ be a smooth $k$-scheme. Then the $\mCO_X$-linear morphism
+		\[
+			(d\pr_1, d\pr_2): \mCT_{X}\to \pr_1^*\mCT_{X_1} \oplus \pr_2^*\mCT_{X_2}
+		\]
+		is an isomorphism.
 	\end{lem}
 
 	\begin{constr}
-		Let $X$ be a smooth $k$-scheme. The above lemme implies $\Omega^1_{X/k}$ is a vector bundle and in particular dualizable. We define the \textbf{tangent sheaf} $\mCT_X$ of $X$ over $k$ to be the dual vector bundle. By definition, we have
+		Let $X$ be a smooth $k$-scheme. For any open subset $U$ of $X$, $[D_1,D_2]:= D_1\circ D_2 - D_2\circ D_1$ defines a Lie bracket on $\Der( \mCO_U, \mCO_U)$. By defition, $\mCO_U$ is a representation of the obtained Lie algebra.
+
+		It follows that $\mCT_{X}$ is a \emph{sheaf of Lie algebras} on $X$, and $\mCO_X$ is a $\mCT_{X}$-module.
+	\end{constr}
+
+	\begin{warn}
+		The category $\mCO_X\hmod$ has a natural symmetric monoidal structure but $\mCT_{X}$ is \emph{not} a Lie algebra object in this symmetric monoidal category. In other words, the Lie bracket $[-,-]: \mCT_{X} \ot_k \mCT_{X} \to \mCT_{X}$ does not factor through $\mCT_{X} \ot_{\mCO_X} \mCT_{X} $.
+	\end{warn}
+
+	\begin{constr}
+		As in the study of differential geometry, for any local section $\partial\in \mCT(U)$, we can define the \textbf{contraction} operator
 		\[
-			\mCT_X(U) \simeq \Der_k( \mCO_X(U), \mCO_X(U)).
+			i_\partial: \Omega^{n+1}_X(U) \to \Omega^{n}_X(U)
+		\]
+		and the \textbf{Lie derivative} 
+		\[
+			\mCL_\partial:  \Omega^{n}_X(U)\to  \Omega^{n}_X(U).
+		\]
+		They satisfy all the identities in differential geometry. In particular, we have the \textbf{Cartan's magic formula}:
+		\[
+			\mCL_\partial(\omega) = i_\partial(d\omega) + d( i_\partial\omega ).
+		\]
+
+	\end{constr}
+
+	We have the following useful result, which allows us to apply the techniques in differential geometry to the study of $\mCT_X$ and $\Omega_X$. For a proof, see \cite[Theorem A.5.1]{HTT}.
+
+	\begin{propdefn}
+		Let $X$ be any $n$-dimensional smooth $k$-scheme and $p\in X$ be a closed point. Then there exists an affine open neighborhood $U$ of $p$ and functions $x_i\in \mCO(U)$, $i=1,\cdots,n$, such that
+		\begin{itemize}
+		 	\item[(i)] 
+		 		$\{dx_i\}$ is a free basis of $\Omega^1(U)$ as an $\mCO(U)$-module;
+		 	\item[(ii)] 
+		 		Let $\{\partial_i\}$ be the dual basis of $\mCT(U)$, then $[\partial_i,\partial_j] = 0$ and $\partial_i(x_j) = \delta_{ij}$.
+		 	\item[(iii)] 
+		 		The images of $x_i$ in the local ring $\mCO_{X,p}$ generate the maximal ideal $\mfm_{X,p}$.
+		 \end{itemize} 
+		 We call such a system $\{x_i\}$ an \textbf{étale coordinate system} of $X$ near $p$.
+	\end{propdefn}
+
+	\begin{rem}
+		(ii) actually follows from (i).
+	\end{rem}
+
+	\begin{rem}
+		The functions $x_i$ define an étale map $X\to \mBA^n$ sending $p\in X$ to the origin $0\in \mBA^n$.
+	\end{rem}
+
+
+
+
+\section{Tangent sheaf vs. Lie algebra}
+	
+	\begin{constr}
+		Let $X$ be a finite type $k$-scheme equipped with a \emph{right} action of an algebraic group $G$. Let $\mfg:=\Lie(G)$ be the Lie algebra of $G$. We construct a Lie algebra homomorphism
+		\[
+			a: \mfg\to \mCT(X)
+		\]
+		as follows. Consider the action map $\act: X\mt G \to X$ and the $\mCO_{X\mt G}$-linear morphisms
+		\[
+			\mCO_X \ot \mCT_{G} \simeq \pr_2^*\mCT_{G} \inj \mCT_{X\mt G} \xrightarrow{d\act} \act^*\mCT_{X}.
+		\]
+		By restricting along $X \xrightarrow{\Id\mt e} X\mt G$, we otain $\mCO_X$-linear morphisms
+		\[
+			\mCO_X \ot \mfg  \to \mCT_{X},
+		\]
+		which induces the desired $k$-linear map $a: \mfg \to \mCT(X)$.
+	\end{constr}
+
+	\begin{rem}
+		Using the language of differential geometry, for $x\in \mfg$, $a(x)$ is the vector field of the flow $\act(-,\exp(tx)): X \to X$. 
+	\end{rem}
+
+	\begin{lem}
+		The above map $a: \mfg \to \mCT(X)$ is a Lie algebra homomorphism.
+	\end{lem}
+
+	\proof
+		Unwinding the definitions, the corresponding map $\Der(\mCO_G,k_e ) \to \Der(\mCO_X,\mCO_X )$ sends a $k$-derivation $\partial: \mCO_G \to k_e$ to the composition\footnote{For non-affine $G$, we use the morphism between $\mCO_X$-modules: $\mCO_X \to \act_*(\mCO_G \ot \mCO_X) \xrightarrow{\partial\ot \Id} \act_*(k_e \ot \mCO_X) \simeq \mCO_X$.}
+		\[
+			a(\partial_1):\mCO_X \to \mCO_X \ot \mCO_G \xrightarrow{\Id \ot \partial} \mCO_X \ot k_e \simeq \mCO_X.
+		\]
+		Using the axioms of group actions, we can identify $a(\partial_1)\circ a(\partial_2)$ with
+		\[
+			\mCO_X \to \mCO_X \ot \mCO_G \xrightarrow{ \Id \ot \Delta } \mCO_X \ot \mCO_G \ot \mCO_G \xrightarrow{ \Id \ot \partial_1 \ot \partial_2 } \mCO_X \ot k_e \ot k_e \simeq \mCO_X.
+		\]
+		This implies 
+		\[
+			[a(\partial_1),a(\partial_2)] = a(\partial_1)\circ a(\partial_2) - a(\partial_2)\circ a(\partial_1) = a( [\partial_1, \partial_2] ),
+		\]
+		where the last equation is due to [Remark 4.5, Lecture 3].
+
+	\qed
+
+	\begin{rem}
+		Let $X$ be a finite type $k$-scheme equipped with a \emph{left} action of an algebraic group $G$. We can obtain a right $G$-action by precomposing with $g\mapsto g^{-1}$. It follows that we also have a Lie algebra homomorphism $a: \mfg\to \mCT(X)$. Using the language of differential geometry, for $x\in \mfg$, $a(x)$ is the vector field of the flow $\act(\exp(-tx),-): X \to X$. 
+
+	\end{rem}
+
+
+	\begin{exam}
+		Consider the left and right multplication actions of $G$ on itself. We obtain Lie algebra homomorphisms
+		\[
+			\mfg \xrightarrow{a_l} \mCT(G) \xleftarrow{a_r} \mfg.
+		\]
+		By construction, the image of $a_r$ consists of \emph{left} invariant vector fields on $G$, while the image of $a_l$ consists of \emph{right} invariant ones. 
+
+		It is easy to see that the images of $a_l: \mfg \to \mCT(G)$ and $a_r: \mfg \to \mCT(G)$ commute with respect to the Lie bracket, i.e., $[a_l(x), a_r(y)] = 0$ for $x,y\in \mfg$. Indeed, this follows by considering the $(G\mt G)$-action on $G$ given by $(g_1,g_2)\cdot x := g_1^{-1}xg_2$.
+
+		It is easy to show the obtained $\mCO_G$-linear maps, which we denote by the same symbols,
+		\[
+			\mCO_G \ot \mfg \xrightarrow{a_l} \mCT_G \xleftarrow{a_r} \mCO_G \ot \mfg
+		\]
+		are isomorphisms. Note that the stalks of the above maps at $e\in G$ are given by
+		\[
+			\mfg \xrightarrow{ -\Id } \mfg \xleftarrow{\Id} \mfg.
+		\]
+	\end{exam}
+
+
+	The following terminology is not standard\footnote{The standard terminology would be: $\mCM$ is a module for the \emph{Lie algebroid $\mCT_{X}$}.}.
+
+	\begin{defn}
+		Let $X$ be a smooth $k$-scheme. A \textbf{quasi-coherent $\mCT_{X}$-module} is a quasi-coherent $\mCO_X$-module $\mCM$ equipped with a $\mCT_{X}$-module structure such that 
+		\begin{itemize}
+			\item[(i)]
+				The map $\mCT_X\ot_k \mCM \to \mCM$ is $\mCO_X$-linear, where $\mCT_X\ot_k \mCM$ is viewed as an $\mCO_X$-module via the first factor.
+			\item[(ii)]
+				The map $\mCO_X \ot_k \mCM \to \mCM$ is $\mCT_{X}$-linear, where $\mCO_X \ot_k \mCM $ is viewed as an $\mCT_X$-module via the diagonal action.
+		\end{itemize}
+		Let $\mCT_X\hmod_\qc$ be the category of quasi-coherent $\mCT_{X}$-module, where morphisms are defined in the obvious way.
+	\end{defn}
+
+	\begin{rem}
+		Unwinding the definitions, (ii) means the action of $\mCT_X$ on $\mCM$ satisfies the \textbf{Lebniz rule}: for any local sections $\partial\in \mCT(U)$, $m\in \mCM(U)$ and $f\in \mCO(U)$, we have
+		\[
+			\partial( f\cdot m ) = f\cdot \partial(m)+\partial(f)\cdot m.
+		\]
+	\end{rem}
+
+	\begin{exam}
+		The structure sheaf $\mCO_X$, equipped with the standard $\mCT_X$-action, is a quasi-coherent $\mCT_X$-module.
+	\end{exam}
+
+	\begin{rem}
+		It is easy to show $\mCT_X\hmod_\qc$ is an abelian category and the forgetful functor $\mCT_X\hmod_\qc \to \mCO_X\hmod_\qc$ is exact.
+	\end{rem}
+
+
+	\begin{constr}
+		Let $X$ be a finite type $k$-scheme equipped with an action of an algebraic group $G$. We have a functor
+		\[
+			\Gamma: \mCT_X\hmod_\qc \to \mfg\hmod,\; \mCM \mapsto \mCM(X),
+		\]
+		where $\mCM(X)$ is viewed as a $\mfg$-module via the Lie algebra homomorphism $a:\mfg \to \mCT(X)$.
+	\end{constr}
+
+	\begin{rem}
+		One version of the localizaiton theory says for $X=G/B$, the above functor induces an equivalence
+		\[
+			\Gamma: \mCT_X\hmod_\qc \xrightarrow{\simeq} \mfg\hmod_{\chi_0},
+		\]
+		where $\chi_0=\varpi(0)$ is the central character of $M_0$.
+	\end{rem}
+
+\section{Differential operators}
+
+	Just like the associative algebra $U(\mfg)$ plays a significant role in the study of $\mfg$-modules, there is a sheaf of associative algebras, known as the sheaf of differential operators $\mCD_X$, that plays a similar role in the study of $\mCT_X$-modules\footnote{The sheaf $\mCD_X$ is so useful that $\mCD_X$-modules were introduced much earlier than $\mCT_X$-modules. The latter point of view was ignored until the study of general Lie algebroids.}.
+
+	\begin{defn}
+		\label{defn-diff}
+		Let $X$ be an affine smooth $k$-scheme. We define the notion of differential operator on $X$ inductively. 
+
+		A $k$-linear map $D: \mCO(X) \to \mCO(X)$ is a differential operator of order $-n$ ($n>0$) iff $D=0$.
+
+		A $k$-linear map $D: \mCO(X) \to \mCO(X)$ is a \textbf{differential operator of order $n$} ($n\ge 0$) if for any function $f\in \mCO(X)$, the $k$-linear map $[D,f]:=D\circ f- f\circ D$, i.e.,
+		\[
+			g \mapsto D(fg) - fD(g)
+		\]
+		is a differential operator of order $n-1$. 
+
+		Let $\mbF^{\le n}\mCD(X)$ be the space of differential operators of order $n$ on $X$, and $\mCD(X):= \cup_n \mbF^{\le n}\mCD(X)$ be the space of all differential operators on $X$.
+	\end{defn}
+
+	\begin{exam}
+		Multplication by any $f\in \mCO(X)$ is a differential operator of order $0$ and the map $\mCO(X) \to \mbF^{\le 0}\mCD(X) \simeq \gr^0 \mCD(X)$ is an isomorphism.
+	\end{exam}
+
+	\begin{exe}
+		\label{exe-diff-2}
+		This is \red{Homework 5, Problem 1}. Let $X$ be an affine smooth $k$-scheme. Prove: any $k$-derivation $\mCO(X) \to \mCO(X)$ is a differential operator of order $1$, and the obtained map $\mCO(X) \oplus \mCT(X) \to \mbF^{\le 1} \mCD(X)$ is an isomorphism.
+	\end{exe}
+
+
+
+	\begin{lem}
+		Let $X$ be an affine smooth $k$-scheme, and $D_1\in \mbF^{\le m}\mCD(X)$, $D_2\in \mbF^{\le n}\mCD(X)$ be differential operators. Prove:
+		\begin{itemize}
+			\item[(1)]
+				The composition $D_1\circ D_2$ is a differential operator of order $m+n$.
+			\item[(2)]
+				The commutator $[D_1,D_2]:=D_1\circ D_2 - D_2 \circ D_1$ is a differential operator of order $m+n-1$.		
+		\end{itemize}
+		In other words, $\mbF^\bullet\mCD(X)$ is a filtered associative algebra such that $\gr^\bullet \mCD(X)$ is commutative.
+	\end{lem}
+
+	\proof
+		Follow from the above exercise and induction.
+
+	\qed
+
+	\begin{rem}
+		\label{rem-check-diff}
+		For \emph{any} $k$-linear map $D: \mCO(X) \to \mCO(X)$ and functions $u,v\in \mCO(X)$, we have
+		\begin{equation}
+			\label{eqn-lebniz-for-commutator}
+			[D, uv] = [D,u]v + u[D,v].
+		\end{equation}
+		It follows that in Definition \ref{defn-diff}, we can replace ``for any function $f\in \mCO(X)$'' by ``for generators $f$ of $\mCO(X)$''.
+
+		Note that we also have
+		\begin{equation}
+			\label{eqn-lebniz-for-operator}
+			D(uv) = [D,u](v) + uD(v).
+		\end{equation}
+
+	\end{rem}
+
+	\begin{rem}
+		\label{rem-diff-disj}
+		For a disjoint union $V_1\sqcup V_2$ of affine smooth $k$-schemes, we have $\mbF^\bullet \mCD(V_1\sqcup V_2) \simeq \mbF^\bullet \mCD(V_1) \oplus  \mbF^\bullet \mCD(V_2)$. 
+	\end{rem}
+
+
+
+	\begin{warn}
+		Definition \ref{defn-diff} makes sense even when $X$ is singular, but the obtained algebra $\mCD(X)$ is ill-behaved and is not the correct algebra to consider. In modern point of view, for singular $X$, the ``correct'' $\mCD(X)$ should be a DG algebra.
+	\end{warn}
+
+\section{Sheaf of differential operators}
+
+	In this section, for any smooth $k$-scheme, we construct a sheaf $\mCD_X$ of filtered associative algebras such that for any affine open subscheme $U$, we have $\mCD_X(U) \simeq \mCD(U)$. The proofs in this section are technical and can be treated as blackboxes.
+
+	Throughout this section, let $V$ be a \emph{connected} affine smooth $k$-scheme and $f\in \mCO(V)$ be a nonzero function. Let $U\subset V$ be the affine open subscheme where $f\neq 0$, i.e. $\mCO(U) \simeq \mCO(V)_f$. Note that $U$ is also connected. We identify $\mCO(V)$ as a subalgebra of $\mCO(U)$.
+
+	\begin{lem}
+		\label{lem-extend-diff-op-unique}
+		Any differential operator $D\in \mCD(U)$ is determined by its restriction $D|_{\mCO(V)}: \mCO(V) \to \mCO(U)$.
+	\end{lem}
+
+	\proof
+		Let $D\in \mbF^{\le n} \mCD(U) $. We prove by induction in $n$. When $n<0$, there is nothing to prove. For $n\ge 0$, for any $g\in \mCO(V)$ and $m\ge 0$, we have
+		\begin{equation}
+			\label{eqn-D-local-proof-1}
+			D(g) = D(f^m \cdot \frac{g}{f^m}) = f^m \cdot D(\frac{g}{f^m}) + [D,f^m](  \frac{g}{f^m}).
+		\end{equation}
+		It follows that
+		\begin{equation}
+			\label{eqn-D-local-proof-2}
+			D(\frac{g}{f^m}) = \frac{D(g)}{f^m} - \frac{[D,f^m](  \frac{g}{f^m})}{f^m}.
+		\end{equation}
+		Note that $[D,f^m]\in \mbF^{\le n-1} \mCD(U)$ hence it is determined by $[D,f^m]|_{\mCO(V)} = [D|_{\mCO(V)}, f^m]$, which is determined by $D|_{\mCO(V)}$. Now \eqref{eqn-D-local-proof-2} implies $D$ is also determined by $D|_{\mCO(V)}$.
+
+	\qed
+
+	\begin{lem}
+		\label{lem-extend-diff-op-exist}
+		For any differential operator $D_0 \in \mbF^{\le n}\mCD(V)$, there is a unique differential operator $D\in \mbF^{\le n}\mCD(U)$ making the following diagram commute:
+		\[
+			\xymatrix{
+				\mCO(V) \ar[d] \ar[r]^-{D_0} & \mCO(V) \ar[d]  \\
+				\mCO(U) \ar@{.>}[r]^-D & \mCO(U).
+			}
+		\]
+	\end{lem}
+
+	\proof
+		The uniqueness follows from Lemma \ref{lem-extend-diff-op-unique}. It remains to show the existence. We prove by induction in $n$. When $n<0$, there is nothing to prove. For $n\ge 0$ and any $m\ge 0$, by induction hypothesis, there is a unique differential operator $[D_0,f^m]^\sharp\in  \mbF^{\le n-1}\mCD(U)$ that extends $[D_0,f^m]\in \mbF^{\le n-1}\mCD(V)$. Motivated by \eqref{eqn-D-local-proof-2}, for any $g\in \mCO(V)$, we define
+		\[
+			D(\frac{g}{f^m}) := \frac{D_0(g)}{f^m} - \frac{[D_0,f^m]^\sharp(  \frac{g}{f^m})}{f^m}.
+		\]
+
+		We need to show the map $D$ is well-defined, i.e., $D(\frac{g}{f^m}) = D(\frac{f^lg}{f^{l+m}})$ for any $l\ge 0$. Note that we have 
+		\[
+			D_0(f^l g) = f^l D_0(g) + [D_0,f^l](g).
+		\]
+		We also have $[D_0, f^{l+m}] = [D_0,f^l] f^m + f^m [D_0, f^l]$. This implies 
+		\[
+			[D_0, f^{l+m}]^\sharp = [D_0,f^l]^\sharp f^m + f^m [D_0, f^l]^\sharp.
+		\] 
+		Combining the above two equations, a direct calculation shows $D(\frac{g}{f^m}) = D(\frac{f^lg}{f^{l+m}})$ as desired.
+
+		It remains to show $D$ is a differential operator of order $n$. By Remark \ref{rem-check-diff}, we only need to show $[D,f^{-1}]$ and $[D,h]$, $h\in \mCO(V)$ are differential operators of order $n-1$. By \eqref{eqn-lebniz-for-commutator}, we have $0 = [D, f f^{-1}] = f [D, f^{-1}] + [D,f] f^{-1}$. Hence $[D, f^{-1}] = -f^{-1} [D,f] f^{-1}$. Therefore we only need to show $D':=[D,h]\in \mbF^{\le n-1} \mCD(U)$. Write $D'_0:=[D_0,h] \in  \mbF^{\le n-1} \mCD(V)$. A direct calculations shows $D'$ can be obtained from $D_0'$ using the same formula that defines $D$ from $D_0$, i.e.,
+		\[
+			D'(\frac{g}{f^m}) := \frac{D_0'(g)}{f^m} - \frac{[D_0',f^m]^\sharp(  \frac{g}{f^m})}{f^m}.
+		\]
+		Hence we win by induction in $n$ (again).
+
+	\qed
+
+	
+
+	\begin{lem}
+		\label{lem-uniform-bound-integral}
+		For any differential operator $D \in \mbF^{\le n}\mCD(U)$, there exists an integer $N\ge 0$ such that $f^ND$ and $Df^N$ send $\mCO(V)$ into $\mCO(V)$.
+	\end{lem}
+
+	\proof
+		We prove by induction in $n$. When $n<0$, there is nothing to prove. For $n\ge 0$,let $g_i\in \mCO(V)$, $i\in I$ be a \emph{finite} set of generators. By induction hypothesis, there exists an integer $N\ge 0$ such that $f^N[D,g_i]$ and $[D,g_i]f^N$ preserve $\mCO(V)$ for any $i\in I$. By \eqref{eqn-lebniz-for-commutator}, $f^N[D,g]$ and $[D,g]f^N$ preserve $\mCO(V)$ for any $g\in \mCO(V)$. By enlarging $N$, we can assume $f^N D(1) \in \mCO(V)$. Hence by \eqref{eqn-lebniz-for-operator}, $f^N D(g) = f^N[D,g](1)+ f^N g D(1) \in \mCO(V)$ and $D(f^{2N}g) = [D,f^N](f^N g) + f^{N} D(f^N g)\in \mCO(V)$.
+
+	\qed
+
+	\begin{constr}
+		\label{constr-qc-diff}
+		Let $\mbF^\bullet \mCD(V) \to \mbF^\bullet \mCD(U)$ be the map defined by Lemma \ref{lem-extend-diff-op-exist}. Recall $\mCD(U)$ is an $\mCO(U)$-bimodule and $\mCD(V)$ is an $\mCO(V)$-bimodule. It is easy to see the above map is compatible with the homomorphism $\mCO(V) \to \mCO(U)$. It follows that we have maps
+		\begin{equation}
+			\label{eqn-D-local}
+			\mCO(U) \ot_{\mCO(V)} \mbF^\bullet\mCD(V) \to \mbF^\bullet\mCD(U) \gets \mbF^\bullet \mCD(V) \ot_{\mCO(V)} \mCO(U),
+		\end{equation}
+		such that the rightward map is left $\mCO(U)$-linear while the leftward map is right $\mCO(U)$-linear.
+	\end{constr}
+
+	\begin{lem}
+		\label{lem-diff-Zar-loc}
+		The maps \eqref{eqn-D-local} are isomorphisms.
+	\end{lem}
+
+	\proof
+		We first show the maps are injective. Note that any element in $\mCO(U) \ot_{\mCO(V)} \mbF^\bullet\mCD(V) $ is a pure tensor $f^{-m} \ot D_0$ for some $m\ge 0$ and $D_0 \in \mbF^n\mCD(V)$. The rightward map sends it to $f^{-m} D_0\in  \mbF^n\mCD(U)$. If $f^{-m} D_0=0$, then $D_0=0$ because $\mCO(V)$ is integral. This proves the rightward map is injective. A similar argument shows the leftward map is injective.
+
+		To prove the maps are surjective, let $D\in  \mbF^{\le n}\mCD(U)$. By Lemma \ref{lem-uniform-bound-integral}, there exists $N\ge 0$ such that $D_0:=f^N D$ and $D_0':=D f^N$ preserve $\mCO(V)$. We view $D_0$ and $D_0'$ as elements in $\mbF^{\le n}\mCD(V)$. By Lemma \ref{lem-extend-diff-op-unique}, the rightward (resp. leftward) map sends $f^{-N}\ot D_0$ (resp. $D_0'\ot f^{-N}$) to $D$.
+
+	\qed
+
+	\begin{constr}
+		Let $X$ be a smooth $k$-scheme. By Lemma \ref{lem-diff-Zar-loc} and Remark \ref{rem-diff-disj}, for any $n$, there exists a unique sheaf $\mbF^{\le n} \mCD_X$ such that:
+		\begin{itemize}
+			\item 
+				For any affine open subscheme $U\subset X$,
+				\[
+					\mbF^{\le n} \mCD_X(U) := \mbF^{\le n} \mCD(U);
+				\]
+			\item
+				For $U\subset V\subset X$ as before, the connecting map $\mbF^{\le n} \mCD_X(V) \to \mbF^{\le n} \mCD_X(U)$ is given by the map $\mbF^{\le n}  \mCD(U)\to \mbF^{\le n}  \mCD(V)$ in Construction \ref{constr-qc-diff}.
+		\end{itemize}
+		We call $\mbF^{\le n} \mCD_X$ the \textbf{sheaf of differential operators of order $n$} on $X$.
+
+		Define the \textbf{sheaf of differential operators} on $X$ to be
+		\[
+			\mCD_X:= \cup_n \mbF^{\le n} \mCD_X.
+		\]
+		Note that $\mbF^\bullet\mCD_X$ is naturally a sheaf of filtered associtive $k$-algebras such that $\gr^\bullet \mCD_X$ is commutative.
+	\end{constr}
+
+	\begin{rem}
+		Unwinding the definitions, for any open subscheme $V\subset X$, $\mCD_X(V)$ can be identified with the algebra of $k$-linear morphisms $\mCO_V \to \mCO_V$ such that for any affine open subscheme $U\subset V$, the obtained map $\mCO(U)\to \mCO(U)$ is a differential operator.
+
+	\end{rem}
+
+	\begin{cor}
+		\label{cor-DX-gr0-gr1}
+		Let $X$ be a smooth $k$-scheme. We have natural isomorphisms $\mCO_X \simeq \mbF^{\le 0} \mCD_X$ and $\mCO_X\oplus \mCT_X \simeq \mbF^{\le 1} \mCD_X$.
+	\end{cor}
+
+	\begin{cor}
+		Let $X$ be a smooth $k$-scheme. Then $\mCD_X$ is naturally an $\mCO_X$-bimodule, and it is quasi-coherent for both the left and right $\mCO_X$-module structures.
+	\end{cor}
+
+\section{The PBW theorem for \texorpdfstring{$\mCD_X$}{DX}}
+
+	
+	\begin{constr}
+		Let $X$ be a smooth $k$-scheme. By Corollary \ref{cor-DX-gr0-gr1}, we have a homomorphism $\mCO_X \to \gr^0 \mCD_X$ and a morphism $\mCT_X \to \gr^1 \mCD_X$ between their modules. By the universal property of symmetric algebras, we obtain a graded homomorphism
+		\begin{equation}
+			\label{eqn-PBW-diff}
+			\Sym^\bullet_{\mCO_X} (\mCT_X) \to \gr^\bullet \mCD_X.
+		\end{equation}
+	\end{constr}
+	
+	The proof of the following theorem can be treated as a blackbox\footnote{In fact, for the purpose of \emph{this} course, we can define $\mCD_X$ to be the subsheaf of $\mCH om_k(\mCO_X,\mCO_X)$ generated by the images $\mCO_X$ and $\mCT_X$ under compositions. Then the PBW theorem becomes obvious. However, it is not obvious to show this definition coincides with ours.}.
+
+	\begin{thm}[{PBW for $\mCD_X$}]
+		The above graded homomorphism is an isomorphism.
+	\end{thm}
+
+	\proof
+
+		We can assume $X$ is affine and connected. Hence we only need to show 
+		\[
+			\Sym^n_{\mCO(X)} (\mCT(X)) \to \gr^n \mCD(X)
+		\]
+		is an isomorphism. We prove by induction in $n$. For $n< 0$, there is nothing to prove. For $n\ge 0$ and $D\in \mbF^{\le n} \mCD(X)$, consider the composition
+		\[
+			\mCO(X) \xrightarrow{[D,-]} \mbF^{\le n-1} \mCD(X) \surj \gr^{n-1} \mCD(X).
+		\]
+		By \eqref{eqn-lebniz-for-commutator}, this is a $k$-derivation of $\mCO(X)$ into $\gr^{n-1} \mCD(X)$, where the latter is viewed as an $\mCO(X)$-module via the homomorphism $\mCO(X) \to \gr^0\mCD(X)$. Moreover, this $k$-derivation only depends on the image of $D$ in $\gr^n \mCD(X)$. In other words, we have a $k$-linear map
+		\[
+			\gr^n \mCD(X) \to \Der_k( \mCO(X), \gr^{n-1} \mCD(X) ),\; D \mapsto [D,-].
+		\]
+		Note that $[gD,f]=g[D,f]$ for any $f,g\in \mCO(X)$. It follows that the above map is $\mCO(X)$-linear. By induction hypothesis and Corollary \ref{cor-der-tensor}, we have
+		\[
+			\Der_k( \mCO(X), \gr^{n-1} \mCD(X) ) \simeq  \mCT(X) \ot_{\mCO(X)}\gr^{n-1} \mCD(X)  \simeq \mCT(X) \ot_{\mCO(X)} \Sym_{\mCO(X)}^{n-1} (\mCT(X)).
+		\]
+		Composing with the multplication map
+		\[
+			\mCT(X) \ot_{\mCO(X)} \Sym_{\mCO(X)}^{n-1} (\mCT(X)) \to \Sym_{\mCO(X)}^{n} (\mCT(X)),
+		\]
+		we obtain an $\mCO(X)$-linear map
+		\[
+			\gr^n \mCD(X) \to   \Sym_{\mCO(X)}^{n} (\mCT(X)).
+		\]
+		By considering affine open subschemes, we obtain an $\mCO_X$-linear morphism 
+		\[
+			\gr^n \mCD_X \to \Sym_{\mCO_X}^m (\mCT_X).
+		\]
+		We claim it is inverse to \eqref{eqn-PBW-diff} up to multplication by $n$.
+
+		A direct calculation shows 
+		\[
+			\Sym_{\mCO(X)}^{n} (\mCT(X))\to \gr^n \mCD(X)\to   \Sym_{\mCO(X)}^{n} (\mCT(X))
+		\]
+		is given by multplication by $n$. Indeed, for $\partial_1,\cdots ,\partial_n\in \mCT(X)$, we have
+		\[
+			[\partial_1\cdots \partial_n ,f] \equiv \sum_{i=1}^n \partial_i(f) \partial_1\cdots \widehat{\partial_i} \cdots \partial_n  \;\;\in \;\; \gr^{\le n-1} \mCD(X).
+		\]
+		Hence $\partial_1\cdots \partial_n$ is sent to the element
+		\[
+			\sum_{i=1}^n \partial_i \otimes \partial_1\cdots \widehat{\partial_i} \cdots \partial_n \in \mCT(X) \ot_{\mCO(X)} \Sym_{\mCO(X)}^{n-1} (\mCT(X)),
+		\]
+		which is sent to $n \partial_1\cdots \partial_n \in \Sym_{\mCO(X)}^{n} (\mCT(X))$ as desired.
+
+		It remains to show
+		\begin{equation}
+			\label{eqn-proof-PBW-1}
+			 \gr^n \mCD_X \to \Sym_{\mCO_X}^m (\mCT_X) \to \gr^n \mCD_X 
+		\end{equation}
+		is given by multplication by $n$. Note that the problem is Zariski local in $X$, hence we can assume $X$ admits an étale coordinate system $x_1,\cdots,x_d$. Now let $D \in \mbF^{\le n}\mCD_X$ and 
+		\[
+			\sum_{i=1}^d \partial_i \ot D_i \in  \mCT(X) \ot_{\mCO(X)}\gr^{n-1} \mCD(X) 
+		\]
+		be its image. By definition, for any function $f\in \mCO(X)$, we have
+		\[
+			[D,f] \equiv \sum_{i=1}^d \partial_i(f) D_i  \;\;\in \;\; \gr^{n-1} \mCD(X)
+		\]
+		Taking $f=x_i$, we obtain $D_i \equiv [D,x_i]$. Therefore for any $f\in \mCO(X)$,
+		\begin{equation}
+			\label{eqn-proof-PBW-2}
+			[D,f] \equiv \sum_{i=1}^d \partial_i(f)  [D,x_i]  \;\;\in \;\; \gr^{n-1} \mCD(X)
+		\end{equation}
+		and the composition \eqref{eqn-proof-PBW-1} sends $D$ to $\sum_{i=1}^d \partial_i[D,x_i]$. It remains to show 
+		\[
+			nD \equiv \sum_{i=1}^d \partial_i[D,x_i] \;\; \in \;\; \gr^{n} \mCD(X)
+		\]
+		To prove this, we use induction in $n$ (again). For $n\le 0$, the claim is obvious. For $n>0$, we only need to show 
+		\begin{equation}
+			\label{eqn-proof-PBW-3}
+			n[D,f] \equiv \sum_{i=1}^d [\partial_i[D,x_i],f] \;\; \in \;\; \gr^{n-1} \mCD(X)
+		\end{equation}
+		for any $f\in \mCO(X)$. 
+
+		A direct calculation shows
+		\begin{equation}
+			\label{eqn-proof-PBW-4}
+			[\partial_i[D,x_i],f] = \partial_i[[D,f],x_i] + \partial_i(f)[D,x_i].
+		\end{equation}
+		By induction hypothesis, we have
+		\begin{equation}
+			\label{eqn-proof-PBW-5}
+			(n-1)[D,f] \equiv \sum_{i=1}^d \partial_i[[D,f],x_i] \;\; \in \;\; \gr^{n-1} \mCD(X).
+		\end{equation}
+		Now \eqref{eqn-proof-PBW-2}$+$\eqref{eqn-proof-PBW-5} implies \eqref{eqn-proof-PBW-3} by \eqref{eqn-proof-PBW-4}.
+		
+	\qed
+
+	\begin{cor}
+		Let $X$ be a affine smooth $k$-scheme, then the associative algebra $\mCD(X)$ is generated by the images of $\mCO(X)$ and $\mCT(X)$ subject to the following relations:
+		\[
+			f_1 \star f_2 = f_1 f_2,\; \partial_1 \star\partial_2 - \partial_2 \star\partial_1 = [\partial_1,\partial_2],\; f \star \partial = f\partial,\; \partial\star f - f\star\partial = \partial(f)
+		\]
+		for $f,f_1,f_2\in \mCO(X)$ and $\partial,\partial_1,\partial_2\in \mCT(X)$. Here $\star$ (temporarily) denotes the multplication in $\mCD(X)$.
+
+	\end{cor}
+
+	\begin{exam}
+		For $X=\mBA^d$, we have $\mCD(X) = k[x_1,\cdots,x_d, \partial_1,\cdots,\partial_d]$ such that $[x_i,x_j]=[\partial_i,\partial_j] =0$ and $[\partial_i,x_j]=\delta_{i,j}$. This is known as the \textbf{Weyl algebra}.
+	\end{exam}
+
+	
+
+\section{Definition of D-modules}
+
+	\begin{defn}
+		Let $X$ be a smooth $k$-scheme. A \textbf{left (resp. right) $\mCD_X$-module} is a sheaf $\mCM$ of $k$-vector spaces equipped with a left (resp. right) action by $\mCD_X$.
+
+		Let $\mCD_X\hmod^l$ (resp. $\mCD_X\hmod^r$) be the category of left (resp. right) $\mCD_X$-modules, where morphisms are defined in the obvious way.
+	\end{defn}
+
+	\begin{constr}
+		Let $X$ be a smooth $k$-scheme. Restricting along the homomorphism $\mCO_X \to \mCD_X$, we obtain forgetful functors
+		\[
+			\oblv^l: \mCD_X\hmod^l\to \mCO_X\hmod,\; \oblv^r: \mCD_X\hmod^r\to \mCO_X\hmod.
+		\]
+		We say a left (resp. right) $\mCD_X$-module $\mCM$ is \textbf{quasi-coherent} if the underlying $\mCO_X$-module is quasi-coherent.
+
+		Let $\mCD_X\hmod_\qc^l$ (resp. $\mCD_X\hmod_\qc^r$) be the category of left (resp. right) $\mCD_X$-modules.
+	\end{constr}
+
+	\begin{rem}
+		It is easy to see the above categories are abelian categories and the forgetful functors are exact.
+	\end{rem}
+
+	The following result follows from the PBW theorem:
+
+	\begin{prop}
+		Restricting along $\mCT_X \to \mCD_X$ defines an equivalence
+		\[
+			\mCD_X\hmod^l_\qc \simeq \mCT_X\hmod_\qc.
+		\]
+	\end{prop}
+
+	\begin{rem}
+		In fact, we could have defined a notion of \emph{quasi-coherent right $\mCT_X$-modules} such that they form an abelian category equivalent to $\mCD_X\hmod^r_\qc$. We did not introduce this notion because people are less familiar with right modules of Lie algebras.
+	\end{rem}
+
+\section{Examples of D-modules}
+
+	\begin{exam}
+		The sheaf $\mCD_X$ itself is a left and a right $\mCD_X$-module.
+	\end{exam}
+
+	\begin{exam}
+		The sheaf $\mCO_X$ is a left $\mCD_X$-module with the action given by $D\cdot f:=D(f)$.
+	\end{exam}
+
+	\begin{exe}
+		This is \red{Homework 5, Problem 2}. Let $X$ be a smooth $k$-scheme of dimension $n$. Prove: there is a unique right $\mCD_X$-module structure on $\Omega_X^n$ such that for local sections $f\in \mCO(U)$, $\partial\in \mCT(U)$ and $\omega\in \Omega^n(U)$, the right action is given by
+		\[
+			\omega \cdot f = f\omega,\; \omega \cdot \partial = -\mCL_\partial(\omega)
+		\]
+	\end{exe}
+
+	\begin{exam}
+		For $X=\mBA^1=\Spec (k[x])$, we define a left D-module $\mCM_{e^x}$ whose underlying $\mCO_X$-module is isomorphic to $\mCO_X$, with a generator denoted by ``$e^x$''. The $\mCT_X$-action is determined by the formular $\partial_x \cdot e^x = e^x$. It is easy to see $\mCM_{e^x} \simeq \mCD_X/\mCD_X\cdot(\partial_x-1)$, where $\mCD_X\cdot(\partial_x-1)$ is the left ideal of $\mCD_X$ generated by the section $\partial_x-1$.
+	\end{exam}
+
+	\begin{exam}
+		\label{exam-monodromy}
+		For $X=\mBA^1-0=\Spec (k[x^\pm])$ and $\lambda\in k$, we define a left D-module $\mCM_{x^\lambda}$ whose underlying $\mCO_X$-module is isomorphic to $\mCO_X$, with a generator denoted by ``$x^\lambda$''. The $\mCT_X$-action is determined by the formular $\partial_x \cdot x^\lambda = \lambda x^{-1}\cdot x^{\lambda}$. It is easy to see $\mCM_{x^\lambda} \simeq \mCD_X/\mCD_X\cdot(\partial_x-1)$, where $\mCD_X\cdot(\partial_x-\lambda x^{-1})$ is the left ideal of $\mCD_X$ generated by the section $\partial_x-\lambda x^{-1}$.
+	\end{exam}
+
+	\begin{exe}
+		This is \red{Homework 5, Problem 3}. In Example \ref{exam-monodromy}, prove $\mCM_{x^\lambda}$ is isomorphic to $\mCO_X$ as left $\mCD_X$-modules iff $\lambda\in \mBZ$.
+	\end{exe}
+	
+
+\section{\texorpdfstring{$\mCD_X$}{DX} vs. \texorpdfstring{$U(\mfg)$}{U(g)}}
+	
+	\begin{constr}
+		Let $X$ be a smooth $k$-scheme equipped with an action by an algebraic group $G$. Consider the Lie algebra homomorphisms
+		\[
+			\mfg \xrightarrow{a} \mCT(X) \to \mCD(X)
+		\]
+		where $\mCD(X)$ is viewed as a Lie algebra via the forgetful functor $\mathsf{Alg} \to \Lie$. By the universal property of $U(\mfg)$, we obtain a homomorphism
+		\[
+			U(\mfg) \xrightarrow{a}  \mCD(X).
+		\]
+		By construction, this homomorphism is compatible with the PBW filtrations on both sides.
+
+		This induces a functor
+		\[
+			\Gamma: \mCD_X\hmod^l_\qc \to U(\mfg)\hmod, \; \mCM \mapsto \mCM(X).
+		\]
+		By construction, the following diagram commutes:
+		\[
+			\xymatrix{
+				\mCD_X\hmod^l_\qc \ar[r]^-\simeq \ar[d]^-\Gamma&
+				\mCT_X\hmod_\qc \ar[d]^-\Gamma \\
+				U(\mfg)\hmod \ar[r]^-\simeq & \mfg\hmod.
+			}
 		\]
 	\end{constr}
 
 	\begin{rem}
-		The \textbf{tangent space} $T_{X,x}$ introduced in [Section 3, Lecture 3] can be identified with the stalk of $\mCT_X$ at $x$.
+		The localizaiton theory says for $X=G/B$, the homomorphism $U(\mfg) \xrightarrow{a}  \mCD(X)$ induces an isomorphism
+		\[
+			a: U(\mfg)_{\chi_0}:= U(\mfg)\ot_{Z(\mfg)} k_{\chi_0} \xrightarrow{\simeq}\mCD(X).
+		\]
+		and the functor $\Gamma$ induces an equivalence
+		\[
+			\Gamma: \mCD_X\hmod^l_\qc \xrightarrow{\simeq} U(\mfg)\hmod_{\chi_0}.
+		\]
 	\end{rem}
 
 	
+	
+
+
 
 
 \begin{thebibliography}{Yau}
