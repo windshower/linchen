@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1713543714 "lecture8.tex" "lecture8.pdf" "lecture8" 1713543716
+["pdflatex"] 1714886411 "lecture8.tex" "lecture8.pdf" "lecture8" 1714887519
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc" 1480098668 3341 78e600b269762aa2a25a5293cc4535c0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc" 1480098668 3275 8d7166dfdbc31ffdc8aba0c31b3bd5c8 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc" 1480098668 3375 808c88761dbdc66fc653d18f42765b64 ""
@@ -260,12 +260,12 @@
   "/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1523934492 2717033 f61a5287d9c22a39a74f1979fe3f905c ""
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1523934516 4220280 10cab8fbd7c5a7c52aba9917e190d018 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "header.tex" 1713536857 10363 9b52dd4615d08f97f4b4bad0fc017609 ""
-  "lecture8.aux" 1713543715 1901 bce7b49eb00076fbcf9004fd433a014a ""
-  "lecture8.out" 1713543715 396 36c44b4f63cfb2ae59fa7211730e0962 ""
-  "lecture8.tex" 1713543713 30584 bebd0880cfa6dddcb39c10943075ffdc ""
+  "header.tex" 1714279437 10481 080d740a48ad345465f7c02cecc5bd74 ""
+  "lecture8.aux" 1714886412 1901 ff8402a9ac6d0bcfb2c0bf2e54f1c3b8 ""
+  "lecture8.out" 1714886412 396 36c44b4f63cfb2ae59fa7211730e0962 ""
+  "lecture8.tex" 1714887519 30727 cb7c7b5f3c4065bd1d2ee176b051f499 ""
   (generated)
+  "lecture8.pdf"
   "lecture8.out"
   "lecture8.log"
-  "lecture8.pdf"
   "lecture8.aux"

@@ -649,14 +649,25 @@
 		\[
 			\oblv^l: \mCD_X\hmod^l\to \mCO_X\hmod,\; \oblv^r: \mCD_X\hmod^r\to \mCO_X\hmod.
 		\]
+		
+	\end{constr}
+
+	\begin{defn}
 		We say a left (resp. right) $\mCD_X$-module $\mCM$ is \textbf{quasi-coherent} if the underlying $\mCO_X$-module is quasi-coherent.
 
-		Let $\mCD_X\hmod_\qc^l$ (resp. $\mCD_X\hmod_\qc^r$) be the category of left (resp. right) $\mCD_X$-modules.
-	\end{constr}
+		When $X$ is quasi-compact, we say a quasi-coherent left (resp. right) $\mCD_X$-module $\mCM$ is \textbf{coherent} if it is locally finitely generated.
+
+		Let $\mCD_X\hmod_{\mathsf{(q)c}}^l$ (resp. $\mCD_X\hmod_{\mathsf{(q)c}}^r$) be the category of left (resp. right) (quasi-)coherent $\mCD_X$-modules.
+
+	\end{defn}
 
 	\begin{rem}
 		It is easy to see the above categories are abelian categories and the forgetful functors are exact.
 	\end{rem}
+
+	\begin{warn}
+		In general, a coherent $\mCD_X$-module is not coherent as an $\mCO_X$-module. When there is danger of ambiguity, we use the terminologies ``$\mCD_X$-coherent'' vs ``$\mCO_X$-coherent''.
+	\end{warn}
 
 	The following result follows from the PBW theorem:
 

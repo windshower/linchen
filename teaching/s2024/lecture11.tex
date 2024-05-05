@@ -1,0 +1,608 @@
+
+\input{header}
+
+\begin{document}
+
+
+\title{Lecture 11}
+
+\date{May 6, 2024}
+
+\maketitle
+
+	Last time, for a smooth $k$-scheme $X$, we introduced the sheaf of differential operators $\mCD_X$ on $X$ and defined quasi-coherent $\mCD_X$-modules, known as \emph{$\mCD$-module on $X$}. In this lecture, we introduce operations on $\mCD$-modules. We will main focus on the formal aspect of this thoery, known as the \emph{six functors formalism for $\mCD$-modules}. For more details, see \cite{B} and \cite{HTT}.
+
+\section{Conventions on derived categories}
+
+	For the purpose of this course, we do not need the full power of the derived categories of $\mCD$-modules. However, these categories are useful in other topics of geometric representation theory, hence I choose to include the results about them in this lecture. 
+
+	When talking about derived categories of $\mCD$-modules, we always assume $X$ is quasi-projective. In this case, the abelian category $\mCD_X\hmod_\qc^{l/r}$ has enough injective and locally projective objects, and any object admits a resolution by locally projective $\mCD_X$-modules with length $\le 2d_X$, where $d_X=\dim(X)$ is the dimension (function) of $X$. The latter implies $\Ext^i(-,-)\simeq 0$ for $i>2d_X$.
+
+	We have the following triangulated categoies equipped with natural t-strcutures:
+	\begin{itemize}
+		\item 
+			$D(\mCD_X\hmod_\qc^{l/r})$, the derived category of quasi-coherent $\mCD_X$-modules. This can be identified with the full subcategory of the derived category $D(\mCD_X\hmod^{l/r})$ of \emph{all} $\mCD_X$-modules containing those complices whose cohomologies are quasi-coherent.
+		\item
+			 $D^b(\mCD_X\hmod_\mbc^{l/r})$, the bounded derived category of coherent $\mCD_X$-modules. This can be identified with the full subcategory of the bounded derived category $D^b(\mCD_X\hmod^{l/r})$ of \emph{all} $\mCD_X$-modules containing those complices whose cohomologies are coherent.
+	\end{itemize}
+
+	When talking about functors between derived categories, even if such functors are left/right derived functors, we drop the decorations ``L/R'' from the notations. For example, $-\ot - $ in derived categories would mean $-\ot^L -$ in classical literatures. We choose to do so because we will enconter functors that are not derived functors.
+
+	\begin{rem}
+		The (essential) image of the fully faithful functor 
+		\[
+			D^b(\mCD_X\hmod_\mbc^{l/r}) \to D(\mCD_X\hmod_\qc^{l/r})
+		\]
+		contains exactly the \emph{compact} objects in the target, i.e., those objects $\mCM$ such that $\Hom(\mCM,-)$ commutes with filtered (homotopy) colimits.
+
+
+	\end{rem}
+
+\section{Forget and induce}
+
+	\begin{constr}
+		We have adjoint functors
+		\[
+			 \ind^{l/r}: \mCO_X\hmod_\qc \adj \mCD_X \hmod_\qc^{l/r} : \oblv^{l/r} 
+ 		\]
+ 		such that
+ 		\[
+ 			\ind^l( \mCF ) := \mCD_X\ot_{\mCO_X} \mCF,\; \ind^r(\mCD):= \mCF \ot_{\mCO_X} \mCD_X.
+ 		\]
+ 		Both functors are exact.
+	\end{constr}
+
+\section{Tensor and Hom}
+	
+	\begin{constr}
+		\label{constr-tensor-Hom}
+		Let $\mCM, \mCN \in \mCD_X\hmod_\qc^l$ and  $\mCM', \mCN' \in \mCD_X\hmod_\qc^r$. Then there are natural objects defined using the signed Lebniz rules: 
+		\begin{itemize}
+			\item 
+				$\mCM \ot_{\mCO_X} \mCN \in \mCD_X\hmod_\qc^l$ defined by $\partial\cdot (m\ot n) = (\partial\cdot m) \ot n + m \ot (\partial\cdot n)$;
+			\item 
+				$\mCM' \ot_{\mCO_X} \mCN \in \mCD_X\hmod_\qc^r$ defined by $ (m'\ot n)\cdot \partial = (m' \cdot \partial)\ot n  - m'\ot(\partial \cdot n) $;
+			\item
+				$\mCH om_{\mCO_X}(\mCM,\mCN) \in \mCD_X\hmod_\qc^l$ defined by $(\partial\cdot \phi)(m) = \partial \cdot \phi(m) - \phi( \partial \cdot m )$;
+			\item
+				$\mCH om_{\mCO_X}(\mCM',\mCN') \in \mCD_X\hmod_\qc^l$ defined by $(\partial\cdot \phi)(m') = -\phi(m')\cdot \partial + \phi(  m \cdot \partial )$;
+			\item
+				$\mCH om_{\mCO_X}(\mCM,\mCN') \in \mCD_X\hmod_\qc^r$ defined by $(\phi\cdot \partial)(m) = \phi(m)\cdot \partial + \phi(  m \cdot \partial )$.
+		\end{itemize}
+	\end{constr}
+
+	\begin{rem}
+		One way to memorize the above rules for left vs. right is using the known objects $\mCO_X \in \mCD_X\hmod_\qc^l$ and $\omega_X:=\Omega_X^n \in \mCD_X\hmod_\qc^r$. For example, $\mCH om_{\mCO_X}(\omega_X,\omega_X)\simeq \mCO_X$ has a left $\mCD$-module structure, while $\mCH om_{\mCO_X}(\omega_X,\mCO_X)\simeq \omega_X^{-1}$ in general has no $\mCD$-module structures.
+	\end{rem}
+
+	\begin{rem}
+		One way to memorize the signed Lebniz rules: (i) put a minus sign when acting on a section of the source object in $\mCH om_{\mCO_X}(-,-)$; (ii) put a minus sign when moving $\partial$ from the one side of $\cdot$ to the other side.
+	\end{rem}
+
+	\begin{rem}
+		The tensor operations make $\mCD_X\hmod_\qc^l$ a symmetric monoidal category such that the forgetful functor $\mCD_X\hmod_\qc^l \to \mCO_X\hmod_\qc^l$ is naturally symmetric monoidal. The category $\mCD_X\hmod_\qc^r$ is a module category of it.
+	\end{rem}
+
+	The following result follows by unwinding the definitions:
+
+	\begin{lem}
+		Let $\mCM\in \mCD_X\hmod_\qc^l$ and  $\mCM' \in \mCD_X\hmod_\qc^r$. We have adjoint functors
+		\begin{eqnarray*}
+			\mCM \ot_{\mCO_X} - : \mCD_X\hmod_\qc^{l/r} &\adj& \mCD_X\hmod_\qc^{l/r} : \mCH om_{\mCO_X}(\mCM,-) \\
+			\mCM' \ot_{\mCO_X} - : \mCD_X\hmod_\qc^{l} &\adj& \mCD_X\hmod_\qc^{r} : \mCH om_{\mCO_X}(\mCM',-)
+		\end{eqnarray*}
+		compatible with the similar adjunction between $\mCO_X$-modules.
+	\end{lem}
+
+	\begin{rem}
+		The above compatibility means e.g. the isomorphism between $\mCD_X$-modules
+		\[
+			\mCM \ot_{\mCO_X} \mCN \simeq \mCH om_{\mCO_X}(\mCM,\mCN)
+		\]
+		provided by the adjunction in the lemma gives the corresponding isomorphism between $\mCO_X$-modules provided by the adjunction between $\mCO_X$-modules. 
+	\end{rem}
+
+	Recall $\omega_X$ is a line bundle. It follows formally that:
+
+	\begin{cor}
+		The following functors are inverse to each other:
+		\[
+			\omega_X \ot_{\mCO_X} - : \mCD_X\hmod_\qc^{l} \adj \mCD_X\hmod_\qc^{r} : \mCH om_{\mCO_X}(\omega_X,-).
+		\]
+	\end{cor}
+
+	\begin{rem}
+		In particular, for any right $\mCD$-module $\mCN'$, we obtain a left $\mCD$-module structure on $\omega_X^{-1} \ot \mCN'$.
+	\end{rem}
+
+
+	\begin{rem}
+		We also have similar results for the derived category of $\mCD$-modules and the corresponding derived functors. The left derived functor $-\ot_{\mCO_X}-$ has cohomological amplitude $[-d_X,0]$ while the right derived functor $\mCH om_{\mCO_X}(-,-)$ has cohomological amplitude $[0,d_X]$.
+	\end{rem}
+
+
+	\begin{rem}
+		When identifying the \emph{derived} categories of left and right $\mCD$-modules, it is more convenient to use the complex $\omega_X[d_X]$, which is also known as the \emph{dualizing complex}\footnote{This notion makes sense even when $X$ is singular.} on $X$. In other words, we use the equivalences
+		\[
+			\omega_X[d_X] \ot_{\mCO_X} - : D(\mCD_X\hmod_\qc^{l}) \adj D(\mCD_X\hmod_\qc^{r}) : \mCH om_{\mCO_X}(\omega_X[d_X],-).
+		\]		
+	\end{rem}
+
+
+	\begin{constr}
+		We define a symmetric monoidal structure $-\ot^! - $ on $D(\mCD_X\hmod_\qc^{r})$ by translating the symmetric monoidal structure $-\ot_{\mCO_X} - $ of $D(\mCD_X\hmod_\qc^{l})$ via the above equivalences. In other words, as $\mCO_X$-modules, we have
+		\[
+			\mCM' \ot^! \mCN' \simeq \mCM' \ot_{\mCO_X} \mCN' \ot_{\mCO_X} \omega_X^{-1}[-d_X].
+		\]
+
+	\end{constr}
+
+\section{External tensor}
+	\begin{constr}
+		\label{constr-external}
+		Let $\mCM_i \in \mCD_{X_i}\hmod_\qc^{l/r}$. Then there are natural objects
+		\[
+			\mCM_1 \boxt \mCM_2:=\mCM_1 \ot_{k} \mCM_2 \in \mCD_{X_1\mt X_2}\hmod_\qc^{l/r}
+		\]
+		induced by the isomorphism $\mCD_{X_1}\ot_k \mCD_{X_2} \simeq \mCD_{X_1\mt X_2}$. This is called the \textbf{external tensor product} of $\mCD$-modules.
+		
+	\end{constr}
+	
+
+\section{Pullbacks}
+
+	Let $\phi: Y\to X$ be a map between smooth $k$-schemes.
+	
+	\begin{constr}
+		We will construct a commutative diagram
+		\[
+			\xymatrix{
+				\mCD_X\hmod^l_\qc \ar@{.>}[r]^-{\phi^*} \ar[d]^-{\oblv^l} &
+				\mCD_Y\hmod^l_\qc \ar[d]^-{\oblv^l} \\
+				\mCO_X\hmod_\qc \ar[r]^-{\phi^*} & \mCO_Y\hmod_\qc.
+			}
+		\]
+		The functor 
+		\[
+			\phi^*: \mCD_X\hmod^l_\qc \to \mCD_Y\hmod^l_\qc
+		\]
+		is called the \textbf{($*$-)pullback of left $\mCD$-modules}.
+
+		The construction is as follows. For $\mCM\in \mCO_X\hmod_\qc$, recall $\phi^*(\mCM):= \mCO_Y \ot_{\phi^{-1}\mCO_X} \phi^{-1}\mCM$. Suppose $\mCM$ is equipped with a left $\mCD_X$-module structure, then there is a left $\mCD_Y$-module structure on $\phi^*(\mCM)$ defined by the Lebniz rule:
+		\[
+			\partial \cdot ( f\ot  s) :=  \partial(f) \ot s + f \overline{\partial} \cdot s,
+		\]
+		where
+		\begin{itemize}
+			\item 
+				$\partial$ is a local section of $\mCT_Y$ and $\overline{\partial}$ is the image of it under the map $\mCT_Y \to \phi^*\mCT_X = \mCO_Y \ot_{\phi^{-1}\mCO_X} \phi^{-1}\mCT_X  $;
+			\item
+				$f$ is a local section of $\mCO_Y$;
+			\item
+				$s$ is a local section of $\phi^{-1}\mCM$, and $\overline{\partial}\cdot s$ is defined using the action of $\phi^{-1}\mCT_X$ on $\phi^{-1}\mCM$.
+		\end{itemize}
+	\end{constr}
+
+	\begin{rem}
+		One can show the pullback of left $\mCD$-modules are compatible with composition of maps between smooth $k$-schemes.
+	\end{rem}
+
+	\begin{exam}
+		The pullback of the object $\mCO_X\in \mCD_X\hmod^l_\qc$ is $\mCO_Y\in \mCD_Y\hmod^l_\qc$.
+	\end{exam}
+
+	\begin{constr}
+		We write:
+		\[
+			\mCD_{Y\to X}:= \phi^*\mCD_X \simeq \mCO_Y \ot_{\phi^{-1}\mCO_X} \phi^{-1}\mCD_X  
+		\]
+		and call it the \textbf{transfer module}.
+
+		The above construction gives a left $\mCD_Y$-module structure on $\mCD_{Y\to X}$. On the other hand, there is an obvious \emph{right} $\phi^{-1}\mCD_X$-module structure on $\mCD_{Y\to X}$. One can show there two actions commute. In other words, $\mCD_{Y\to X}$ is a $(\mCD_Y, \phi^{-1}\mCD_X)$-bimodule.
+
+		Note that for $\mCM \in  \mCD_X\hmod^l_\qc$, we have
+		\[
+			\phi^* \mCM \simeq \mCD_{Y\to X}\ot_{ \phi^{-1}\mCD_X } \phi^{-1}\mCM.
+		\]
+	\end{constr}
+
+	\begin{constr}
+		Note that the functor $\phi^*: \mCD_X\hmod^l_\qc\to \mCD_Y\hmod^l_\qc$ is right exact. We abuse notation and let
+		\[
+			\phi^*: D(\mCD_X\hmod^l_\qc) \to D(\mCD_Y\hmod^l_\qc)
+		\]
+		be the left derived functor of it. Note that it is compatible with the left derived functor $\phi^*: D(\mCO_X\hmod_\qc) \to D(\mCO_Y\hmod_\qc)$ and the forgetful functors.
+	\end{constr}
+
+	\begin{rem}
+		We have:
+		\begin{itemize}
+			\item If $\phi$ is flat, then $\phi^*$ is t-exact, i.e., preserves the heart.
+			\item If $\phi$ is a closed embedding (which is automatically regular), then $\phi^*$ has cohomological amplitude $[-d_X+d_Y,0]$.
+		\end{itemize}
+	\end{rem}
+
+	\begin{exam}
+		Let $\phi$ is a closed embedding. Since $X$ and $Y$ are smooth, $\phi$ is a regular immersion. For any closed point $p\in Y$, we can find an étale coordinate system $x_1,\cdots,x_m$ of $X$ near $p$ such that $Y$ is locally cut out by the ideal $(x_{n+1},\cdots,x_m)$ ($m=\dim(\mCO_{X,y})$ and $n=\dim(\mCO_{Y,y})$). Let $y_1,\cdots,y_n$ be the restriction of $x_1,\cdots,x_n$ on $Y$. They form an étale coordinate system of $Y$ near $p$. Then near the point $p\in Y$, we have
+		\[
+			\mCD_{Y\to X} \simeq \mCD_Y\ot_k k[ \partial_{n+1},\cdots,\partial_m ]
+		\]
+		as left $\mCD_Y$-modules. In particular, $\mCD_{Y\to X}$ is a locally free left $\mCD_Y$-module.
+
+		
+	\end{exam}
+
+	\begin{constr}
+		Let $\phi^!$ be the unique functor that makes the following diagram commute
+		\[
+			\xymatrix{
+				D(\mCD_X\hmod^l_\qc) \ar[r]^-{\phi^*} \ar[d]_-{\omega_X[d_X]}^-\simeq &
+				D(\mCD_Y\hmod^l_\qc) \ar[d]^-{\omega_Y[d_Y]}_-\simeq \\
+				D(\mCD_X\hmod^r_\qc) \ar@{.>}[r]^-{\phi^!} &
+				D(\mCD_Y\hmod^r_\qc),
+			}
+		\]
+	 	The obtained functor
+		\[
+			\phi^!: D(\mCD_X\hmod^r_\qc) \to D(\mCD_Y\hmod^r_\qc)
+		\]
+		is called the \textbf{!-pullback of (complices of) right $\mCD$-modules}. It has cohomological amplitude $[-d_Y, d_X-d_Y]$ and in general is not a derived functor.
+	\end{constr}
+
+	\begin{rem}
+		We have:
+		\begin{itemize}
+			\item If $\phi$ is flat, then $\phi^!$ is t-exact up to a shift.
+			\item If $\phi$ is a closed embedding, then $\phi^!$ has cohomological amplitude $[0,d_X-d_Y]$.
+		\end{itemize}
+	\end{rem}
+
+	\begin{exam}
+		By definition, $\phi^!(\omega_X[d_X])\simeq \omega_Y[d_Y]$.
+	\end{exam}
+
+	\begin{exam}
+		If $j:U \to X$ is an open embedding, then $j^!$ is t-exact and the corresponding functor $\mCD_X\hmod^r_\qc\to \mCD_U\hmod^r_\qc$ is the restriction functor. Indeed, this follows from $\omega_X|_{U} \simeq \omega_U$.
+	\end{exam}
+
+	\begin{facts}
+		If $\phi:Y \to X$ is a closed embedding, then $\phi^!$ is equivalent to the right derived functor of a functor
+		\[
+			\phi^!: \mCD_X\hmod^r_\qc \to \mCD_Y\hmod^r_\qc.
+		\]
+	\end{facts}
+
+	\begin{constr}
+		Let $\phi:Y \to X$ be a closed embedding. The functor $\phi^!: \mCD_X\hmod^r_\qc \to \mCD_Y\hmod^r_\qc$ can be described as follows. 
+
+		Recall we have adjoint functors
+		\[
+			\phi_*: \mCO_Y\hmod_\qc\adj \mCO_X\hmod_\qc : \phi^! 
+		\]
+		where for a quasi-coherent $\mCO_X$-module $\mCM$ and any open subset $U\subset X$, a section $m$ of $\phi^!(\mCM)$ on $U\cap Y$ corresponds to a section $\wt{m}$ of $\mCM$ on $U$ annihilated by the ideal $\mCI_Y:=\ker(\mCO_X \to \mCO_Y)$. Suppose $\mCM$ is equipped with a right $\mCD_X$-module structure. For any local section $\partial$ of $\mCT_Y$, we can extend it to a local section $\wt{\partial}$ of $\mCT_X$. Now for a local section $m$ of $\phi^!(\mCM)$, we define $m\cdot \partial$ such that
+		\[
+			\wt{m\cdot \partial} = \wt{m} \cdot \wt{\partial}.
+		\]
+		One can show the local section $m\cdot \partial$ is well-defined and does not depend on the choice of $\wt\partial$. Moreover, this defines a right $\mCD_Y$-module structure on $\phi^!(\mCM)$. $\phi^!(\mCM)$.
+
+	\end{constr}
+
+	\begin{rem}
+		For any map $\phi:Y\to X$ between finite type $k$-schemes, one can define a functor
+		\[
+			\phi^!: D(\mCO_X\hmod_\qc) \to D(\mCO_Y\hmod_\qc)
+		\]
+		as follows.
+
+		If $\phi$ is an open embedding, take $\phi^!:=\phi^*$. If $\phi$ is proper, take $\phi^!$ to be the right adjoint of (the right derived functor) $\phi_*$. For the general case, choose a Nagata compactification $Y\xrightarrow{j}\overline{Y} \xrightarrow{\overline{\phi}} X$ such that $j$ is an open embedding and $\overline{\phi}$ is proper, and take $\phi^!:= j^! \circ \overline{\phi}^!$. One can show the functor $\phi^!$ does not depend on the choice of the compactification, and these functors are compatible with compositions of maps. In fact, the construction $\phi \mapsto \phi^!$ can be uniquely characterized by these properties (if stated properly).
+
+		When $X$ and $Y$ are smooth, the $!$-pullback functors of $\mCO$-modules and right $\mCD$-modules are compatible via the forgeful functors. In other words, we have a commutative diagram
+		\begin{equation}
+			\label{eqn-pull-vs-oblv}
+			\xymatrix{
+				D(\mCO_Y\hmod_\qc) &
+				D(\mCO_X\hmod_\qc)   \ar[l]^-{\phi^!} \\
+				D(\mCD_Y\hmod^r_\qc)   \ar[u]_-{\oblv^r} &
+				D(\mCD_X\hmod^r_\qc) \ar[l]^-{\phi^!} \ar[u]_-{\oblv^r}
+			}
+		\end{equation}
+	\end{rem}
+
+	\begin{facts}
+		In the (derived) setting of Construction \ref{constr-tensor-Hom}, we have
+		\begin{eqnarray*}
+			\phi^*( \mCM\ot_{\mCO_X} \mCN ) &\simeq& \phi^*(\mCM) \ot_{\mCO_Y} \phi^*(\mCN) ,\\
+			\phi^!( \mCM'\ot_{\mCO_X} \mCN ) &\simeq& \phi^!(\mCM') \ot_{\mCO_Y} \phi^*(\mCN) ,\\
+			\phi^* \mCH om_{\mCO_X}(\mCM,\mCN ) &\simeq& \mCH om_{\mCO_Y}(\phi^*\mCM,\phi^*\mCN ), \\
+			\phi^* \mCH om_{\mCO_X}(\mCM',\mCN' ) &\simeq& \mCH om_{\mCO_Y}(\phi^!\mCM',\phi^!\mCN' ),\\
+			\phi^! \mCH om_{\mCO_X}(\mCM,\mCN' ) &\simeq& \mCH om_{\mCO_Y}(\phi^*\mCM,\phi^!\mCN' ).
+		\end{eqnarray*}
+	\end{facts}
+
+	\begin{facts}
+		For $\pr_i: X_1\mt X_2 \to X_i$, we have
+		\begin{eqnarray*}
+			\mCM_1 \boxt \mCM_2 &\simeq& \pr_1^*(\mCM_1) \ot_{\mCO_{X_1\mt X_2}} \pr_2^*(\mCM_2) \\
+			\mCM_1' \boxt \mCM_2' &\simeq& \pr_1^!(\mCM_1) \ot^! \pr_2^!(\mCM_2).
+		\end{eqnarray*}
+
+	\end{facts}
+
+\section{Pushforwards}
+
+	
+
+	\begin{constr}
+		Let $\phi: Y\to X$ be a map between smooth $k$-schemes. Recall the transfer module
+		\[
+			\mCD_{Y\to X}:= \phi^*\mCD_X \simeq \mCO_Y \ot_{\phi^{-1}\mCO_X} \phi^{-1}\mCD_X  
+		\]
+		is a bimodule for $(\mCD_Y,\phi^{-1}\mCD_X)$. We define a functor
+		\[
+			\phi_{*,\dR}: D( \mCD_Y\hmod_\qc^r ) \to  D( \mCD_X\hmod_\qc^r ),\; \mCN \mapsto \phi_*(\mCN\ot_{\mCD_Y} \mCD_{Y\to X}),
+		\]
+		where
+		\begin{itemize}
+			\item 
+				The (left derived) tensor product functor $-\ot_{\mCD_Y} \mCD_{Y\to X}$ sends a complex of right $\mCD_Y$-modules to a complex of right $\phi^{-1}\mCD_X$-modules. 
+			\item
+				The (right derived) functor $\phi_*$ sends a complex of right $\phi^{-1}\mCD_X$-modules to a complex of right $\mCD_X$-modules via the homomorphism $\mCD_X \to \phi_*(\phi^{-1}\mCD_X)$.
+		\end{itemize}
+		We call $\phi_{*,\dR}$ the \textbf{direct image functor}, or \textbf{de Rham pushforward functor}, of (complices) of right $\mCD$-modules. 
+	\end{constr}
+
+	\begin{rem}
+		One can show the direct image functors of right $\mCD$-modules are compatible with composition of maps between smooth $k$-schemes.
+
+	\end{rem}
+
+	\begin{rem}
+		The functor $\phi_{*,\dR}$ is called the \emph{de Rham} pushforward functor because for $\pi: X\to \pt$, $\pi_{*,\dR}(\omega_X[-d_X])$ can be identified with the de Rham complex of $X$. For this reason, we also write 
+		\[
+			\Gamma_{\dR}(X,-):= \pi_{*,\dR}(-).
+		\]
+
+		You are strongly encouraged to look at its proof in \cite[Sect. 5.17]{G}.
+	\end{rem}
+
+	\begin{rem}
+		Some authors use the notation $\phi_\star$ for $\phi_{*,\dR}$.
+	\end{rem}
+
+	\begin{rem}
+		The cohomological amplitude of $\phi_{*,\dR}$ is $[-d_Y,d_Y]$. Better estimation exist in the following cases:
+		\begin{itemize}
+			\item If $\phi$ is affine, then the bounds can be $[-d_Y,0]$.
+			\item If $\phi$ is smooth, then the bounds can be $[-d_Y+d_X,d_Y]$.
+			\item If $\phi$ is a closed embedding, then the functor is t-exact.
+		\end{itemize}
+	\end{rem}
+
+	\begin{warn}
+		One can define a functor between the abelian categories using the same formula. However, that functor would not be $\mCH^0(\phi_{*,\dR})$ and is of less interests.
+	\end{warn}
+
+	\begin{exe}
+		This is \red{Homework 5, Problem 4}. Let $x:\pt \to X$ be a closed point of $X$. We write $\delta_x:= x_{*,\dR}(k)$. Prove:
+		\begin{itemize}
+			\item[(1)]
+				$\delta_x\simeq k_x \ot_{\mCO_X}\mCD_X$ as a right $\mCD_X$-module.
+			\item[(2)]
+				$\delta_x$ is set-theoretically support on at $x$, i.e., for the complement open $U:=X-x$, we have $\delta_x|_U = 0$.
+			\item[(3)]
+				There exists a unique section $\mathsf{Dirac}_x$ of $\delta_x$ such that $\mathsf{Dirac}_x\cdot f = f(x)\mathsf{Dirac}_x$ for any local section $f$ of $\mCO_X$ defined near $x$.
+			\item[(4)]
+				$\delta_x$ is generated by $\mathsf{Dirac}_x$ as a right $\mCD_X$-module.
+		\end{itemize}
+	\end{exe}
+
+	\begin{rem}
+		The section $\mathsf{Dirac}_x$ should be viewed as the incarnation of the Dirac function in the theory of $\mCD$-modules.
+	\end{rem}
+
+	
+
+	\begin{lem}
+		The following diagram commutes:
+		\begin{equation}
+			\label{eqn-push-vs-ind}
+			\xymatrix{
+				D(\mCO_Y\hmod_\qc) \ar[r]^-{\phi_*} \ar[d]_-{\ind^r} &
+				D(\mCO_X\hmod_\qc) \ar[d]_-{\ind^r} \\
+				D(\mCD_Y\hmod^r_\qc) \ar[r]^-{\phi_{*,\dR}}  &
+				D(\mCD_X\hmod^r_\qc)
+			}
+		\end{equation}
+	\end{lem}
+
+	\proof[Sketch]
+		For $\mCF\in D(\mCO_Y\hmod_\qc)$, we have
+		\[
+			\phi_{*,\dR}\circ \ind^r(\mCF) \simeq \phi_*(\mCF \ot_{\mCO_Y} \mCD_Y \ot_{\mCD_Y} \mCD_{Y\to X} ) \simeq \phi_*(\mCF \ot_{\mCO_Y} \phi^*\mCD_X ) \simeq \phi_*\mCF \ot_{\mCO_X} \mCD_X \simeq \ind^r\circ \phi_*(\mCF)
+		\]
+		where the last isomorphism is the (derived) projection formula.
+
+	\qed
+
+	We state the following results without proof.
+
+	\begin{prop}
+		If $\phi:Y \to X$ is proper, then we have adjoint functors
+		\[
+			\phi_{*,\dR}: D( \mCD_Y\hmod_\qc^r ) \adj  D( \mCD_X\hmod_\qc^r ): \phi^!.
+		\]
+	\end{prop}
+
+	\begin{prop}
+		If $\phi:Y \to X$ is smooth, then we have adjoint functors
+		\[
+			\phi^![-2 d_Y+2d_X]: D( \mCD_Y\hmod_\qc^r ) \adj  D( \mCD_X\hmod_\qc^r ): \phi_{*,\dR}.
+		\]
+	\end{prop}
+
+	\begin{rem}
+		If $\phi:Y \to X$ is proper, then the square (\ref{eqn-pull-vs-oblv}) can be obtained from (\ref{eqn-push-vs-ind}) by passing to right adjoints.
+	\end{rem}
+
+	
+
+	\begin{constr}
+		As in the case of pullback functors, we can define the \textbf{direct image functor} of left $\mCD$-modules:
+		\[
+			\xymatrix{
+				D(\mCD_Y\hmod^l_\qc) \ar@{.>}[r]^-{\phi_{*,\dR}} \ar[d]_-{\omega_Y[d_Y]}^-\simeq &
+				D(\mCD_X\hmod^l_\qc) \ar[d]^-{\omega_X[d_X]}_-\simeq \\
+				D(\mCD_Y\hmod^r_\qc) \ar[r]^-{\phi_{*,\dR}} &
+				D(\mCD_X\hmod^r_\qc).
+			}
+		\]
+	\end{constr}
+
+
+
+\section{Kashiwara's lemma}
+
+	If $\phi:Y\to X$ is a closed embedding, then the tensor product functor $-\ot_{\mCD_Y} \mCD_{Y\to X}$ is t-exact because $\mCD_{Y\to X}$ is locally free as a $\mCD_Y$-module. On the other hand, the functor $\phi_*$ is also t-exact because $\phi$ is affine. Therefore the functor $\phi_{*,\dR} $ is t-exact. 
+
+	\begin{thm}[Kashiwara's lemma]
+		Let $\phi:Y \to X$ be a closed embedding between smooth $k$-schemes, then the exact functor
+		\[
+			\phi_{*,\dR}:  \mCD_Y\hmod_\qc^r  \to  \mCD_X\hmod_\qc^r
+		\]
+		is fully faithful and its essential image contains exactly right $\mCD_X$-modules that are set-theoretically supported on $Y$.
+	\end{thm}
+
+
+	
+
+	\begin{rem}
+		Using Kashiwara's lemma, we can define $\mCD_Y\hmod_\qc^r$ even for finite type singular $k$-scheme $Y$. Namely, if $Y$ is affine, we can embed $Y$ into a smooth ambidient $k$-scheme $X$ and define a right $\mCD$-module on $Y$ to be a right $\mCD$-module on $X$ that is set-theoretically supported on the image of $Y$. One can show the obtained abelian category does not depend on the choice of the embedding. When $Y$ is not affine, we can define the category by gluing.
+
+		Moreover, all the previous constructions about right $\mCD$-modules can be generalized to the singular case.
+
+		A more canonical construction of $\mCD_Y\hmod_\qc^r$ or even $\mCD_Y\hmod_\qc^l$ for singular $k$-schemes is to use the theory of (Grothendieck's) crystals.
+	\end{rem}
+
+	Another application of Kashiwara's lemma is the following result. See \cite[Sect. 5.12]{G} for a proof.
+
+	\begin{cor}
+		Let $X$ be a smooth $k$-scheme, then any $\mCO_X$-coherent $\mCD_X$-module is locally free as an $\mCO_X$-module.
+	\end{cor}
+
+\section{Base-change isomorphism and projection formula}
+	\begin{facts}
+		Let
+		\[
+			\xymatrix{
+				Y' \ar[r]^-{\phi'} \ar[d]^-f & X' \ar[d]^-g \\
+				Y \ar[r]^-\phi & X
+			}
+		\]
+		be a Cartesian square of finite type $k$-schemes. Then we have equivalences
+		\[
+			g^!\circ \phi_{*,\dR} \simeq \phi'_{*,\dR}\circ f^!
+		\]
+		between functors $D( \mCD_Y\hmod_qc^r ) \to D( \mCD_{X'}\hmod_qc^r ). $
+	\end{facts}
+
+	\begin{facts}
+		Let $\phi: Y \to X$ be any morphism between finite type $k$-schemes. Then we have
+		\[
+			\phi_{*,\dR}( - \ot^! \phi^!(\bullet) ) \simeq \phi_{*,\dR}( -) \ot^! \bullet.
+		\]
+	\end{facts}
+
+	\begin{exe}
+		This is \red{Homework 5, Problem 5}. Let $x:\pt \to X$ be a closed point of $X$. Prove\footnote{A formal proof exists, but you are encouraged to do some direct calculations to see $\mCH^i(\delta_x\ot_{\mCO_X} \delta_x)=0$ unless $i=-d_X$ and  $\mCH^{-d}(\delta_x\ot_{\mCO_X} \delta_x)=\delta_x$.} $\delta_x \ot^! \delta_x \simeq \delta_x$. 
+
+	\end{exe}
+	
+	
+\section{Duality}
+
+	The duality functor is only defined on \emph{coherent} $\mCD$-modules.
+
+	\begin{facts}
+		For any $\mCM\in D^b(\mCD_X\hmod_\mbc^r)$, there exists a unique object $\mBD \mCM \in D^b(\mCD_X\hmod_\mbc^r) $ such that
+		\[
+			\Gamma_\dR( X, \mCM \ot^! - ) \simeq \Hom( \mBD\mCM,- )
+		\]
+		as functors $D(\mCD_X\hmod_\qc^r) \to \Vect$. The obtained functor
+		\[
+			\mBD: D^b(\mCD_X\hmod_\mbc^r)^\op \to D^b(\mCD_X\hmod_\mbc^r)
+		\]
+		is an anti-involution, i.e., $\mBD\circ \mBD\simeq \Id$.
+
+	\end{facts}
+
+	\begin{rem}
+		The construction of $\mBD\mCM$ can be treated as a blackbox.
+
+	\end{rem}
+
+	\begin{exam}
+		We have $\mBD(\omega_X) \simeq \omega_X$.
+	\end{exam}
+	
+	\begin{constr}
+		Let $\phi:Y \to X$ be a map between finite type $k$-schemes. The standard functors $\phi^!$ and $\phi_{*,\dR}$ in general do not preserve coherent complices. Hence we only have \emph{partially defined} functors
+		\[
+			\phi_!:= \mBD \circ \phi_{*,\dR}\circ \mBD,\; \phi_\dR^{*}:=\mBD \circ \phi^!\circ \mBD.
+		\]
+		They are called the \textbf{$!$-direct image functor} and the \textbf{de Rham pullback functor}.
+	\end{constr}
+
+	\begin{facts}
+		Let $\phi:Y \to X$ be a map between finite type $k$-schemes. Then $\phi_!$ is equivalent to the partially defined left adjoint of $\phi^!$. More precisely, we have
+		\[
+			\Hom(\phi_!\mCM,-) \simeq \Hom( \mCM,\phi^!(-) )
+		\]
+		whenever $\phi_!\mCM$ is well-defined. Similarly, $\phi_\dR^*$ is equivalent to the partially defined left adjoint of $\phi_{*,\dR}$.
+	\end{facts}
+
+	\begin{rem}
+		If $\phi$ is proper, then $\phi_!\simeq \phi_{*,\dR}$. If $\phi$ is smooth, then $\phi_\dR^* \simeq \phi^![-2d_Y + 2d_X]$.
+
+	\end{rem}
+
+\section{Holonomic D-modules}
+
+	We do not give the standard definition of holonomic D-modules. Instead, we characterize them as follows:
+
+	\begin{facts}
+		Let $\mCM\in \mCD_X\hmod_\mbc^r$, then $\mCM$ is \textbf{holonomic} iff $\mBD \mCM \in  \mCD_X\hmod_\mbc^r$ (rather than just in the derived category).
+	\end{facts}
+
+	\begin{facts}
+		Let $\mCM\in D^b(\mCD_X\hmod_\mbc^r)$, then $\mCM$ has \textbf{holonomic cohomologies}, i.e., $\mCH^\bullet(\mCM)$ are holonomic, iff for any closed point $i:x\to X$, the complex $i^!\mCM \in  D^b(\mCD_\pt\hmod_\mbc^r)\simeq D^b(\Vect)$ has finite dimensional cohomologies.
+	\end{facts}
+
+	\begin{notn}
+		Let $\mCD_X\hmod_\hol^r$ be the abelian category of holonomic right $\mCD_X$-modules and $D^b(\mCD_X\hmod_\hol^r)$ be the bounded derived category.
+	\end{notn}
+
+	\begin{facts}
+		$D^b(\mCD_X\hmod_\hol^r)$ is equivalent to the full subcategory of $D^b(\mCD_X\hmod_\mbc^r)$ containing complices with holonomic cohomologies.
+	\end{facts}
+
+	\begin{facts}
+		All the functors defined so far preserve bounded holonomic complices.
+	\end{facts}
+	
+
+	
+
+\begin{thebibliography}{Yau}
+
+	\bibitem[B]{B} Bernstein, Joseph. Algebraic theory of D-modules, 1984, abailable at \url{https://gauss.math.yale.edu/~il282/Bernstein_D_mod.pdf}.
+	
+
+	\bibitem[G]{G} Gaitsgory, Dennis. Course Notes for Geometric Representation Theory, 2005, available at \url{https://people.mpim-bonn.mpg.de/gaitsgde/267y/catO.pdf}.
+
+	\bibitem[HTT]{HTT} Hotta, Ryoshi, and Toshiyuki Tanisaki. $\mCD$-modules, perverse sheaves, and representation theory. Vol. 236. Springer Science \& Business Media, 2007.
+\end{thebibliography}
+
+
+\end{document} 
+
+
