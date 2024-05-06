@@ -94,14 +94,6 @@
 		compatible with the similar adjunction between $\mCO_X$-modules.
 	\end{lem}
 
-	\begin{rem}
-		The above compatibility means e.g. the isomorphism between $\mCD_X$-modules
-		\[
-			\mCM \ot_{\mCO_X} \mCN \simeq \mCH om_{\mCO_X}(\mCM,\mCN)
-		\]
-		provided by the adjunction in the lemma gives the corresponding isomorphism between $\mCO_X$-modules provided by the adjunction between $\mCO_X$-modules. 
-	\end{rem}
-
 	Recall $\omega_X$ is a line bundle. It follows formally that:
 
 	\begin{cor}
@@ -262,8 +254,12 @@
 	\end{exam}
 
 	\begin{exam}
-		If $j:U \to X$ is an open embedding, then $j^!$ is t-exact and the corresponding functor $\mCD_X\hmod^r_\qc\to \mCD_U\hmod^r_\qc$ is the restriction functor. Indeed, this follows from $\omega_X|_{U} \simeq \omega_U$.
+		If $j:U \to X$ is an open embedding, then $j^!$ is t-exact and the corresponding functor $\mCD_X\hmod^r_\qc\to \mCD_U\hmod^r_\qc$ is the restriction functor. Indeed, this follows from $\omega_X|_{U} \simeq \omega_U$. In this case, we write $j^!=j^*$.
 	\end{exam}
+
+	\begin{warn}
+		In general, for a right $\mCD_X$-module $\mCM$, there is \emph{no} $\mCD$-module structure on its $\mCO$-module pullback $\phi^*\mCM$.
+	\end{warn}
 
 	\begin{facts}
 		If $\phi:Y \to X$ is a closed embedding, then $\phi^!$ is equivalent to the right derived functor of a functor
@@ -382,13 +378,17 @@
 		One can define a functor between the abelian categories using the same formula. However, that functor would not be $\mCH^0(\phi_{*,\dR})$ and is of less interests.
 	\end{warn}
 
+	\begin{exam}
+		If $j:U\to X$ is an open embedding, then $\mCD_{U\to X} \simeq j^*\mCD_X \simeq \mCD_U$. It follows that $j_{*,\dR}\mCM \simeq j_*\mCM$. In other words, there is a right $\mCD_X$-module structure on the $\mCO$-module direct image of $\mCM$. In this case, we write $j_{*,\dR}=j_*$.
+	\end{exam}
+
 	\begin{exe}
 		This is \red{Homework 5, Problem 4}. Let $x:\pt \to X$ be a closed point of $X$. We write $\delta_x:= x_{*,\dR}(k)$. Prove:
 		\begin{itemize}
 			\item[(1)]
 				$\delta_x\simeq k_x \ot_{\mCO_X}\mCD_X$ as a right $\mCD_X$-module.
 			\item[(2)]
-				$\delta_x$ is set-theoretically support on at $x$, i.e., for the complement open $U:=X-x$, we have $\delta_x|_U = 0$.
+				$\delta_x$ is set-theoretically supported on at $x$, i.e., for the complement open $U:=X-x$, we have $\delta_x|_U = 0$.
 			\item[(3)]
 				There exists a unique section $\mathsf{Dirac}_x$ of $\delta_x$ such that $\mathsf{Dirac}_x\cdot f = f(x)\mathsf{Dirac}_x$ for any local section $f$ of $\mCO_X$ defined near $x$.
 			\item[(4)]
@@ -420,7 +420,7 @@
 		\[
 			\phi_{*,\dR}\circ \ind^r(\mCF) \simeq \phi_*(\mCF \ot_{\mCO_Y} \mCD_Y \ot_{\mCD_Y} \mCD_{Y\to X} ) \simeq \phi_*(\mCF \ot_{\mCO_Y} \phi^*\mCD_X ) \simeq \phi_*\mCF \ot_{\mCO_X} \mCD_X \simeq \ind^r\circ \phi_*(\mCF)
 		\]
-		where the last isomorphism is the (derived) projection formula.
+		where the second last isomorphism is the (derived) projection formula.
 
 	\qed
 
@@ -433,6 +433,10 @@
 		\]
 	\end{prop}
 
+	\begin{rem}
+		If $\phi:Y \to X$ is proper, then the square (\ref{eqn-pull-vs-oblv}) can be obtained from (\ref{eqn-push-vs-ind}) by passing to right adjoints.
+	\end{rem}
+
 	\begin{prop}
 		If $\phi:Y \to X$ is smooth, then we have adjoint functors
 		\[
@@ -440,9 +444,12 @@
 		\]
 	\end{prop}
 
-	\begin{rem}
-		If $\phi:Y \to X$ is proper, then the square (\ref{eqn-pull-vs-oblv}) can be obtained from (\ref{eqn-push-vs-ind}) by passing to right adjoints.
-	\end{rem}
+	\begin{exam}
+		\label{exam-push-open-embedding}
+		If $j: U\to X$ is a closed embedding, then $j^!\simeq j^*$ is left adjoint to $j_{*,\dR}=j_*$. Note that the right adjoint functor is fully faithful.
+	\end{exam}
+
+	
 
 	
 
@@ -516,6 +523,19 @@
 		This is \red{Homework 5, Problem 5}. Let $x:\pt \to X$ be a closed point of $X$. Prove\footnote{A formal proof exists, but you are encouraged to do some direct calculations to see $\mCH^i(\delta_x\ot_{\mCO_X} \delta_x)=0$ unless $i=-d_X$ and  $\mCH^{-d}(\delta_x\ot_{\mCO_X} \delta_x)=\delta_x$.} $\delta_x \ot^! \delta_x \simeq \delta_x$. 
 
 	\end{exe}
+
+	\begin{cor}
+		Let $U \xrightarrow{j} X \xleftarrow{i} Y$ be finite type $k$-schemes such that $i$ is a closed embedding and $j$ is its complementary open embedding. Then for any $\mCM\in D( \mCD_X\hmod_\qc^r )$, we have a distinguished triangle
+		\[
+			i_{*,\dR}\circ i^! \mCM \to \mCM \to j_{*,\dR} \circ j^! \mCM \xrightarrow{+1}.
+		\]
+	\end{cor}
+
+	\proof[Sketch]
+		Consider the cone $\mCN$ of the morphism $\mCM \to j_{*,\dR} \circ j^* \mCM$ provided by the adjoint pair $(j^!,j_{*,\dR})$. Note that $j^!\mCN$ is isomorphic the cone of $j^!\mCM \to j^!\circ j_{*,\dR} \circ j^* \mCM$. And the latter morphism is an isomorphism because $j_{*,\dR}=j_*$ is fully faithful (see Example \ref{exam-push-open-embedding}). Hence $\mCN$ is a complex of right $\mCD_X$-modules that are set-theoretically supported on $Y$. By Kashiwara's lemma, we have $\mCN \simeq i_{*,\dR}\circ i^!(\mCN)$. Note that $i_{*,\dR}\circ i^!\mCN$ is isomorphic to the cone of $i_{*,\dR}\circ i^!\mCM \to i_{*,\dR}\circ i^!\circ  j_{*,\dR} \circ j^!\mCM$, and the target is isomorphic to $0$ by the base-change isomorphism. It follows that $i_{*,\dR}\circ i^!\mCN \simeq i_{*,\dR}\circ i^!\mCM [1]$ as desired.
+ 
+
+	\qed
 	
 	
 \section{Duality}
@@ -536,7 +556,22 @@
 	\end{facts}
 
 	\begin{rem}
-		The construction of $\mBD\mCM$ can be treated as a blackbox.
+		The construction of $\mBD\mCM$ can be treated as a blackbox. For completeness,
+		\[
+			\mBD\mCM \simeq \mCH om_{\mCD_X^r}( \mCM, \omega_X\ot_{\mCO_X}\mCD_X[d] ),
+		\]
+		where
+		\begin{itemize}
+			\item 
+				$\omega_X\ot_{\mCO_X}\mCD_X$ has two right $\mCD_X$-module structures;
+			\item
+				The first one comes from the right multiplication of $\mCD_X$ on itself. We use this right $\mCD_X^r$-structure to define the inner $\mCH om_{\mCD_X^r}$ object.
+			\item
+				The second one comes from the right $\mCD_X$-module structure on the tensor product of a right $\mCD_X$-module (i.e. $\omega_X$) and a left $\mCD_X$-module (i.e. $\mCD_X$).
+			\item
+				The second right $\mCD_X$-module structure survives after taking the inner $\mCH om_{\mCD_X^r}$, and the RHS is viewed as a right $\mCD_X$-module using this structure.
+		\end{itemize}
+		
 
 	\end{rem}
 
