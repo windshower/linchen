@@ -10,7 +10,7 @@
 
 \maketitle
 
-	Last time, for a smooth $k$-scheme $X$, we introduced the sheaf of differential operators $\mCD_X$ on $X$ and defined quasi-coherent $\mCD_X$-modules, known as \emph{$\mCD$-module on $X$}. In this lecture, we introduce operations on $\mCD$-modules. We will main focus on the formal aspect of this thoery, known as the \emph{six functors formalism for $\mCD$-modules}. For more details, see \cite{B} and \cite{HTT}.
+	Last time, for a smooth $k$-scheme $X$, we introduced the sheaf of differential operators $\mCD_X$ on $X$ and defined quasi-coherent $\mCD_X$-modules, known as \emph{$\mCD$-module on $X$}. In this lecture, we introduce operations on $\mCD$-modules. We will mainly focus on the formal aspect of this thoery, known as the \emph{six functors formalism for $\mCD$-modules}. For more details, see \cite{B} and \cite{HTT}.
 
 \section{Conventions on derived categories}
 
@@ -223,7 +223,7 @@
 	\end{rem}
 
 	\begin{exam}
-		Let $\phi$ is a closed embedding. Since $X$ and $Y$ are smooth, $\phi$ is a regular immersion. For any closed point $p\in Y$, we can find an étale coordinate system $x_1,\cdots,x_m$ of $X$ near $p$ such that $Y$ is locally cut out by the ideal $(x_{n+1},\cdots,x_m)$ ($m=\dim(\mCO_{X,y})$ and $n=\dim(\mCO_{Y,y})$). Let $y_1,\cdots,y_n$ be the restriction of $x_1,\cdots,x_n$ on $Y$. They form an étale coordinate system of $Y$ near $p$. Then near the point $p\in Y$, we have
+		Let $\phi$ be a closed embedding. Since $X$ and $Y$ are smooth, $\phi$ is a regular immersion. For any closed point $p\in Y$, we can find an étale coordinate system $x_1,\cdots,x_m$ of $X$ near $p$ such that $Y$ is locally cut out by the ideal $(x_{n+1},\cdots,x_m)$ ($m=\dim(\mCO_{X,y})$ and $n=\dim(\mCO_{Y,y})$). Let $y_1,\cdots,y_n$ be the restriction of $x_1,\cdots,x_n$ on $Y$. They form an étale coordinate system of $Y$ near $p$. Then near the point $p\in Y$, we have
 		\[
 			\mCD_{Y\to X} \simeq \mCD_Y\ot_k k[ \partial_{n+1},\cdots,\partial_m ]
 		\]
@@ -279,7 +279,7 @@
 		\[
 			\phi_*: \mCO_Y\hmod_\qc\adj \mCO_X\hmod_\qc : \phi^! 
 		\]
-		where for a quasi-coherent $\mCO_X$-module $\mCM$ and any open subset $U\subset X$, a section $m$ of $\phi^!(\mCM)$ on $U\cap Y$ corresponds to a section $\wt{m}$ of $\mCM$ on $U$ annihilated by the ideal $\mCI_Y:=\ker(\mCO_X \to \mCO_Y)$. Suppose $\mCM$ is equipped with a right $\mCD_X$-module structure. For any local section $\partial$ of $\mCT_Y$, we can extend it to a local section $\wt{\partial}$ of $\mCT_X$. Now for a local section $m$ of $\phi^!(\mCM)$, we define $m\cdot \partial$ such that
+		where for a quasi-coherent $\mCO_X$-module $\mCM$ and any open subset $U\subset X$, a section $m$ of $\phi^!(\mCM)$ on $U\cap Y$ corresponds to a section $\wt{m}$ of $\mCM$ on $U$ annihilated by the ideal $\mCI_Y:=\ker(\mCO_X \to \phi_*\mCO_Y)$. Suppose $\mCM$ is equipped with a right $\mCD_X$-module structure. For any local section $\partial$ of $\mCT_Y$, we can extend it to a local section $\wt{\partial}$ of $\mCT_X$. Now for a local section $m$ of $\phi^!(\mCM)$, we define $m\cdot \partial$ such that
 		\[
 			\wt{m\cdot \partial} = \wt{m} \cdot \wt{\partial}.
 		\]
