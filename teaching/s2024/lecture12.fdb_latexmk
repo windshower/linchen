@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1715531828 "lecture12.tex" "lecture12.pdf" "lecture12" 1715531830
+["pdflatex"] 1715580474 "lecture12.tex" "lecture12.pdf" "lecture12" 1715580476
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc" 1480098668 3341 78e600b269762aa2a25a5293cc4535c0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc" 1480098668 3275 8d7166dfdbc31ffdc8aba0c31b3bd5c8 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc" 1480098668 3375 808c88761dbdc66fc653d18f42765b64 ""
@@ -261,11 +261,11 @@
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1523934516 4220280 10cab8fbd7c5a7c52aba9917e190d018 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "header.tex" 1715523101 10603 9606fb982ebbe3e22adbe0dfb47b1bd3 ""
-  "lecture12.aux" 1715531829 2554 fd781811a1306c659a778567e8b4faee ""
-  "lecture12.out" 1715531829 414 5aa552003332ee96e97a1bf895eb63d2 ""
-  "lecture12.tex" 1715531828 28452 a0ec06a1c0d9eec26c76979c17d87305 ""
+  "lecture12.aux" 1715580476 2554 1548adcaa30b096510d1505729413db8 ""
+  "lecture12.out" 1715580476 414 5aa552003332ee96e97a1bf895eb63d2 ""
+  "lecture12.tex" 1715580474 29563 c7daa45a38800e348775d4853319e500 ""
   (generated)
   "lecture12.aux"
-  "lecture12.out"
   "lecture12.log"
+  "lecture12.out"
   "lecture12.pdf"
