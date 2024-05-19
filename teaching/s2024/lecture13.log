@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  19 MAY 2024 21:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  19 MAY 2024 22:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1278,11 +1278,11 @@ Package rerunfilecheck Info: File `lecture13.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 560.
  ) 
 Here is how much of TeX's memory you used:
- 30950 strings out of 492649
- 572991 string characters out of 6129622
- 650099 words of memory out of 5000000
- 34125 multiletter control sequences out of 15000+600000
- 551870 words of font info for 103 fonts, out of 8000000 for 9000
+ 30958 strings out of 492649
+ 573067 string characters out of 6129622
+ 651099 words of memory out of 5000000
+ 34129 multiletter control sequences out of 15000+600000
+ 553110 words of font info for 107 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  63i,15n,82p,10395b,503s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{/
@@ -1297,33 +1297,34 @@ e/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}</usr/local/texlive/20
 /texmf-dist/fonts/type1/public/mnsymbol/MnSymbol7.pfb></usr/local/texlive/2018/
 texmf-dist/fonts/type1/public/mnsymbol/MnSymbol8.pfb></usr/local/texlive/2018/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2018/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2018/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2018/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/font
-s/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmss10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmss8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmti8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmtt8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/am
-sfonts/euler/eufm10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/
-amsfonts/euler/eufm5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public
-/amsfonts/euler/eufm7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publi
-c/amsfonts/symbols/msam10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/p
-ublic/xypic/xyatip10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public
-/xypic/xybtip10.pfb>
-Output written on lecture13.pdf (9 pages, 357443 bytes).
+xmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2018/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2018/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2018/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2018/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2018/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2018/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2018/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmss10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmss8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmti10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmti8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmtt8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsf
+onts/euler/eufm10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/am
+sfonts/euler/eufm5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/a
+msfonts/euler/eufm7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/
+amsfonts/symbols/msam10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/pub
+lic/xypic/xyatip10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/x
+ypic/xybtip10.pfb>
+Output written on lecture13.pdf (9 pages, 364124 bytes).
 PDF statistics:
- 332 PDF objects out of 1000 (max. 8388607)
- 289 compressed objects within 3 object streams
+ 336 PDF objects out of 1000 (max. 8388607)
+ 292 compressed objects within 3 object streams
  71 named destinations out of 1000 (max. 500000)
  61 words of extra memory for PDF output out of 10000 (max. 10000000)
 

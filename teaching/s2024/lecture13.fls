@@ -369,6 +369,10 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/euler/eufm7.t
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolS8.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mnsymbol/MnSymbolS6.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmtt8.tfm
 INPUT lecture13.aux
 INPUT ./lecture13.out
@@ -385,6 +389,7 @@ INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol6.p
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol7.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/mnsymbol/MnSymbol8.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
+INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 INPUT /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb

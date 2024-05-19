@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1716127014 "lecture13.tex" "lecture13.pdf" "lecture13" 1716127015
+["pdflatex"] 1716128270 "lecture13.tex" "lecture13.pdf" "lecture13" 1716128271
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc" 1480098668 3341 78e600b269762aa2a25a5293cc4535c0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc" 1480098668 3275 8d7166dfdbc31ffdc8aba0c31b3bd5c8 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc" 1480098668 3375 808c88761dbdc66fc653d18f42765b64 ""
@@ -22,6 +22,10 @@
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm" 1480098698 940 75ac932a52f80982a9f8ea75d03a34cf ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1480098698 940 228d6584342e91276bf566bcf9716b83 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1480098701 1328 c834bbb027764024c09d3d2bf908b5f0 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx5.tfm" 1480098701 1332 f817c21a1ba54560425663374f1b651a ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx6.tfm" 1480098701 1344 8a0be4fe4d376203000810ad4dc81558 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx7.tfm" 1480098701 1336 3125ccb448c1a09074e3aa4a9832f130 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbx8.tfm" 1480098701 1332 1fde11373e221473104d6cc5993f046e ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmbxti10.tfm" 1480098701 1532 9162035f4e7176612125649e348e2195 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmcsc10.tfm" 1480098701 1300 63a6111ee6274895728663cf4b4e7e81 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1480098701 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -79,6 +83,7 @@
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/xypic/xyluat10.tfm" 1480098719 608 a3a3bc08980c5126ff2a7a68fb5a64ff ""
   "/usr/local/texlive/2018/texmf-dist/fonts/tfm/public/xypic/xylubt10.tfm" 1480098719 608 a3a3bc08980c5126ff2a7a68fb5a64ff ""
   "/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1480098733 34811 78b52f49e893bcba91bd7581cdc144c0 ""
+  "/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb" 1480098733 32166 b0c356b15f19587482a9217ce1d8fa67 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb" 1480098733 36554 b67dc2cfa451409e100b3fcf5f506509 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb" 1480098733 32001 6aeea3afe875097b1eb0da29acd61e28 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb" 1480098733 36299 5f9df58c2139e7edcf37c8fca4bd384d ""
@@ -263,11 +268,11 @@
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1523934516 4220280 10cab8fbd7c5a7c52aba9917e190d018 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
   "header.tex" 1716118608 10754 66d0c472db590047a152a2ed3dbdf37e ""
-  "lecture13.aux" 1716127015 2515 a058388f6ef376fb7824ce4201c06cb2 ""
-  "lecture13.out" 1716127015 400 6a5de87eb19bb834b25ec46299b985f5 ""
-  "lecture13.tex" 1716127011 26562 4bb3f84a8f174d570d4f50a9a91b7816 ""
+  "lecture13.aux" 1716128271 2515 a058388f6ef376fb7824ce4201c06cb2 ""
+  "lecture13.out" 1716128271 400 6a5de87eb19bb834b25ec46299b985f5 ""
+  "lecture13.tex" 1716128269 26417 dcac5703837848fd28d9ceb01ccb96c9 ""
   (generated)
   "lecture13.aux"
   "lecture13.log"
-  "lecture13.out"
   "lecture13.pdf"
+  "lecture13.out"

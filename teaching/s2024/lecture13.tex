@@ -341,60 +341,60 @@
 		\[
 			\xymatrix{
 				\wt{\mCN} \ar[r] \ar[d] & \wt{\mfg} \ar[d] \\
-				0 \ar[r] & \mft^\abs,
+				0 \ar[r] & \mbft,
 			}
 		\]
-		where $\mft^\abs$ is the \emph{abstact} Cartan Lie algebra (see Appendix \ref{app-abs}). Moreover, the vertical maps are smooth.
+		where $\mbft$ is the \emph{abstact} Cartan Lie algebra (see Appendix \ref{app-abs}). Moreover, the vertical maps are smooth.
 
 	\end{lem}
 
 	\proof[Sketch]
-		We have an obvious injective map $\wt{\mCN} \to \wt{\mfg}$ between vector bundles on $X$. By Remark \ref{rem-Springer-coordinate} and the proof of Proposition-Definition \ref{propdefn-Groth-alter}, this map can be identified with $X\mt \mfn_x \to X\mt \mfb_x $ when restricted to the open subscheme $U_{x,x'} \subset X$. Hence the quotient bundle can be identified with $X \mt \mft_x \simeq X\mt \mft^\abs$ over $U_{x,x'}$, where we used the realizing isomorphism $\mft^\abs \to \mft_x$.
+		We have an obvious injective map $\wt{\mCN} \to \wt{\mfg}$ between vector bundles on $X$. By Remark \ref{rem-Springer-coordinate} and the proof of Proposition-Definition \ref{propdefn-Groth-alter}, this map can be identified with $X\mt \mfn_x \to X\mt \mfb_x $ when restricted to the open subscheme $U_{x,x'} \subset X$. Hence the quotient bundle can be identified with $X \mt \mft_x \simeq X\mt \mbft$ over $U_{x,x'}$, where we used the realizing isomorphism $\mbft \to \mft_x$.
 
 		One can show these identifications can be glued into a short exact sequence of vector bundles over $X$:
 		\[
-			0 \to \wt\mCN \to \wt\mfg \to X \mt \mft^\abs \to 0,
+			0 \to \wt\mCN \to \wt\mfg \to X \mt \mbft \to 0,
 		\]
 		which makes the desired claim manifest.
 
 	\qed
 
 	\begin{notn}
-		Let $\mfg_\rss \subset \mfg_\reg \subset \mfg$ be the open subschemes whose closed points are regular semisimple (resp. regular\footnote{Recall an element $v\in \mfg$ is regular if its centralizer is of minimal dimension, which is $\dim(\mft^\abs)$.}) elements in $\mfg$. Let $\wt{\mfg}_\rss\subset \wt{\mfg}_\reg \subset \wt\mfg$ be their preimages.
+		Let $\mfg_\rss \subset \mfg_\reg \subset \mfg$ be the open subschemes whose closed points are regular semisimple (resp. regular\footnote{Recall an element $v\in \mfg$ is regular if its centralizer is of minimal dimension, which is $\dim(\mbft)$.}) elements in $\mfg$. Let $\wt{\mfg}_\rss\subset \wt{\mfg}_\reg \subset \wt\mfg$ be their preimages.
 
 		Let $\mCN_\reg:=\mfg_\reg\cap \mCN$ be the open subscheme of $\mCN$. Its closed points are regular nilpotent elements.
 
-		Let $\mft_\reg^\abs\subset \mft^\abs$ be the open subscheme whose closed points are regular elements\footnote{This means the realizations in any/all Cartan subalgebras are regular. Equivalently, this means $W^\abs$ acts freely at these points.}.
+		Let $\mbft_\reg\subset \mbft$ be the open subscheme whose closed points are regular elements\footnote{This means the realizations in any/all Cartan subalgebras are regular. Equivalently, this means $\mbfW$ acts freely at these points.}.
 	\end{notn}
 
 	We have the following basic results. See e.g. \cite[Section 3.1]{CG} for a proof.
 
 	\begin{prop}
 		\label{prop-Groth-alt}
-		Consider the map $\mfg \to \mfg/\!/G \to \mft^\abs/\!/W^\abs$ given by the abstract Chevalley isomorphism (see Appendix \ref{app-abs}). We have:
+		Consider the map $\mfg \to \mfg/\!/G \to \mbft/\!/\mbfW$ given by the abstract Chevalley isomorphism (see Appendix \ref{app-abs}). We have:
 		\begin{itemize}
 			\item[(1)]
 				The following diagram commutes:
 				\[
 					\xymatrix{
-						\wt\mfg \ar[r] \ar[d] & \mft^\abs \ar[d] \\
-						\mfg \ar[r] & \mft^\abs/\!/W^\abs
+						\wt\mfg \ar[r] \ar[d] & \mbft \ar[d] \\
+						\mfg \ar[r] & \mbft/\!/\mbfW
 					}
 				\]
 			\item[(2)]
 				When restricted to the regular locus $\wt\mfg_\reg$, the above diagram is Cartesian. In other words, the following diagram is Cartesian:
 				\[
 					\xymatrix{
-						\wt\mfg_\reg \ar[r] \ar[d] & \mft^\abs \ar[d] \\
-						\mfg_\reg \ar[r] & \mft^\abs/\!/W^\abs.
+						\wt\mfg_\reg \ar[r] \ar[d] & \mbft \ar[d] \\
+						\mfg_\reg \ar[r] & \mbft/\!/\mbfW.
 					}
 				\]
 			\item[(3)]
-				When restricted to the regular semisimple locus $\wt\mfg_\rss$, the following diagram is Cartesian, and the Vertical maps are finite étale covers with Galois group $W^\abs$:
+				When restricted to the regular semisimple locus $\wt\mfg_\rss$, the following diagram is Cartesian, and the Vertical maps are finite étale covers with Galois group $\mbfW$:
 				\[
 					\xymatrix{
-						\wt\mfg_\rss \ar[r] \ar[d] & \mft_\reg^\abs \ar[d] \\
-						\mfg_\rss \ar[r] & \mft_\reg^\abs/W^\abs.
+						\wt\mfg_\rss \ar[r] \ar[d] & \mbft_\reg \ar[d] \\
+						\mfg_\rss \ar[r] & \mbft_\reg/\mbfW.
 					}
 				\]
 		\end{itemize}
@@ -402,7 +402,7 @@
 	\end{prop}
 
 	\begin{warn}
-		The map $\wt\mfg \to \mft^\abs$ does \emph{not} send regular elements to regular elements. Indeed, it sends $\mCN_\reg$ to $0$.
+		The map $\wt\mfg \to \mbft$ does \emph{not} send regular elements to regular elements. Indeed, it sends $\mCN_\reg$ to $0$.
 	\end{warn}
 
 
@@ -414,11 +414,11 @@
 	\proof[Sketch]
 		We have seen $\mCN$ is Cohen--Macaulay (Remark \ref{rem-Nilp-CM}). Hence by Serre's criterion, we only need to show $\mCN$ is regular in codimension $1$. 
 
-		By Lemma \ref{lem-Groth-alter-Cartan}, the map $\wt{\mfg} \to \mft^\abs$ is smooth, hence so is $\wt{\mfg}_\reg \to \mft^\abs$. Recall $\mft^\abs\to \mft^\abs/\!/W$ is faithfully flat ([Lecture 6, Proposition 1.1 and Corollary 1.5]). Hence by Proposition \ref{prop-Groth-alt}(2), the map $\mfg_\reg \to \mft^\abs/\!/W^\abs$ is smooth (by flat descent of smooth maps). By definition, we have a Cartesian diagram
+		By Lemma \ref{lem-Groth-alter-Cartan}, the map $\wt{\mfg} \to \mbft$ is smooth, hence so is $\wt{\mfg}_\reg \to \mbft$. Recall $\mbft\to \mbft/\!/W$ is faithfully flat ([Lecture 6, Proposition 1.1 and Corollary 1.5]). Hence by Proposition \ref{prop-Groth-alt}(2), the map $\mfg_\reg \to \mbft/\!/\mbfW$ is smooth (by flat descent of smooth maps). By definition, we have a Cartesian diagram
 		\[
 			\xymatrix{
 				\mCN_\reg \ar[r] \ar[d] & \mfg_\reg \ar[d] \\
-				0 \ar[r] & \mfg/\!/G \simeq \mft^\abs/\!/W^\abs.
+				0 \ar[r] & \mfg/\!/G \simeq \mbft/\!/\mbfW.
 			}
 		\]
 		Hence $\mCN_\reg$ is smooth.
@@ -439,7 +439,7 @@
 	\end{cor}
 
 	\proof
-		We have already proved $\mfp$ is proper and surjective (Lemma \ref{lem-Springer-proper-surj}). It remains to show $\mfp$ is birational. We claim its restriction on $\mCN_\reg\subset \mCN$ is an isomorphism. Since $\mCN$ is reduced, we only need to show any closed point of $\mCN_\reg$ has a unique preimage in $\wt\mCN_\reg$. Now the claim follows from Proposition \ref{prop-Groth-alt}(2) because $0\in \mft^\abs/\!/W^\abs$ has a unique preimage in $\mft^\abs$.
+		We have already proved $\mfp$ is proper and surjective (Lemma \ref{lem-Springer-proper-surj}). It remains to show $\mfp$ is birational. We claim its restriction on $\mCN_\reg\subset \mCN$ is an isomorphism. Since $\mCN$ is reduced, we only need to show any closed point of $\mCN_\reg$ has a unique preimage in $\wt\mCN_\reg$. Now the claim follows from Proposition \ref{prop-Groth-alt}(2) because $0\in \mbft/\!/\mbfW$ has a unique preimage in $\mbft$.
 
 	\qed
 
@@ -466,25 +466,25 @@
 			\phi_{x,y}: T_x \xrightarrow{\sim} T_y.
 		\]
 
-		It is easy to check $\phi_{x,x}=\Id$ and $\phi_{y,z}\circ \phi_{x,y}=\phi_{x,z}$. Hence there exists an algebraic group $T^\abs$, equipped with isomorphisms
+		It is easy to check $\phi_{x,x}=\Id$ and $\phi_{y,z}\circ \phi_{x,y}=\phi_{x,z}$. Hence there exists an algebraic group $\mbfT$, equipped with isomorphisms
 		\[
-			r_x: T^\abs \xrightarrow{\sim} T_x,
+			r_x: \mbfT \xrightarrow{\sim} T_x,
 		\]
-		such that $r_y = \phi_{x,y}\circ r_x$. The data $(T^\abs, r_x)$ are \emph{unique up to an unique isomorphism}\footnote{This means for $(T^\abs, r_x)$ and $((T^\abs)', r_x')$, there is a unique isomorphism $\alpha:T^\abs \xrightarrow{\sim} (T^\abs)'$ such that $r_x= r_x'\circ \alpha$.}.
+		such that $r_y = \phi_{x,y}\circ r_x$. The data $(\mbfT, r_x)$ are \emph{unique up to an unique isomorphism}\footnote{This means for $(\mbfT, r_x)$ and $((\mbfT)', r_x')$, there is a unique isomorphism $\alpha:\mbfT \xrightarrow{\sim} (\mbfT)'$ such that $r_x= r_x'\circ \alpha$.}.
 
-		We call $T^\abs$ the \textbf{abstract Cantan group} for $G$, and call $r_x$ the \textbf{realizing isomorphisms}.
+		We call $\mbfT$ the \textbf{abstract Cantan group} for $G$, and call $r_x$ the \textbf{realizing isomorphisms}.
 
-		Similarly, the Lie algebra of $T^\abs$ is denoted by $\mfg^\abs$ and is called the \textbf{abstract Cantan algebra} for $\mfg$.
+		Similarly, the Lie algebra of $\mbfT$ is denoted by $\mbft$ and is called the \textbf{abstract Cantan algebra} for $\mfg$.
 	\end{constr}
 
 	\begin{warn}
-		The algebraic group $T^\abs$ is \emph{not} a subgroup of $G$, at least not in a canonical way.
+		The algebraic group $\mbfT$ is \emph{not} a subgroup of $G$, at least not in a canonical way.
 	\end{warn}
 
 	\begin{rem}
-		A Cartan subgroup $T_1\inj G$ of $G$ does \emph{not} give a realizing isomorphism $T^\abs \to T_1$, at least not in a canonical way. Instead, if we further choose a Borel subgroup $B_x$ that contains $T_1$, i.e., if we have a \textbf{Borel pair} $(B_x,T_1)$, then there is a realizing isomorphism $T^\abs \to T_1$ defined to be the composition
+		A Cartan subgroup $T_1\inj G$ of $G$ does \emph{not} give a realizing isomorphism $\mbfT \to T_1$, at least not in a canonical way. Instead, if we further choose a Borel subgroup $B_x$ that contains $T_1$, i.e., if we have a \textbf{Borel pair} $(B_x,T_1)$, then there is a realizing isomorphism $\mbfT \to T_1$ defined to be the composition
 		\[
-			r_{(B_x,T_1)}:T^\abs \xrightarrow{r_x} T_x \xleftarrow{\sim} T_1,
+			r_{(B_x,T_1)}:\mbfT \xrightarrow{r_x} T_x \xleftarrow{\sim} T_1,
 		\]
 		where the second isomorphism is given by $T_1 \inj B_x \surj T_x$.
 	\end{rem}
@@ -499,13 +499,13 @@
 			\varphi_{(B_x,T_1),(B_y,T_2)}: W_{T_1} \to W_{T_2}.
 		\]
 
-		It is easy to check $\varphi_{(B_x,T_1),(B_x,T_1)}=\Id$ and $ \varphi_{(B_y,T_2),(B_z,T_3)}\circ \varphi_{(B_x,T_1),(B_y,T_2)} = \varphi_{(B_x,T_1),(B_z,T_3)} $. Hence there exists a group $W^\abs$ equipped with isomorphisms
+		It is easy to check $\varphi_{(B_x,T_1),(B_x,T_1)}=\Id$ and $ \varphi_{(B_y,T_2),(B_z,T_3)}\circ \varphi_{(B_x,T_1),(B_y,T_2)} = \varphi_{(B_x,T_1),(B_z,T_3)} $. Hence there exists a group $\mbfW$ equipped with isomorphisms
 		\[
-			r_{(B_x,T_1)}: W^\abs \xrightarrow{\sim} W_{T_1}
+			r_{(B_x,T_1)}: \mbfW \xrightarrow{\sim} W_{T_1}
 		\]
-		such that $r_{(B_y,T_2)} = \varphi_{(B_x,T_1),(B_y,T_2)}\circ r_{(B_x,T_1)}$. The data $(W^\abs, r_{(B_x,T_1)})$ are unique up to an unique isomorphism.
+		such that $r_{(B_y,T_2)} = \varphi_{(B_x,T_1),(B_y,T_2)}\circ r_{(B_x,T_1)}$. The data $(\mbfW, r_{(B_x,T_1)})$ are unique up to an unique isomorphism.
 
-		We call $W^\abs$ the \textbf{abstract Weyl group} for $G$, and call $r_{(B_x,T_1)}$ the \textbf{realizing isomorphisms}.
+		We call $\mbfW$ the \textbf{abstract Weyl group} for $G$, and call $r_{(B_x,T_1)}$ the \textbf{realizing isomorphisms}.
 
 	\end{constr}
 
@@ -514,7 +514,7 @@
 	\end{warn}
 
 	\begin{warn}
-		The group $W^\abs$ is \emph{not} a subgroup of $G$, at least not in a canonical way.
+		The group $\mbfW$ is \emph{not} a subgroup of $G$, at least not in a canonical way.
 	\end{warn}
 
 	\begin{rem}
@@ -523,7 +523,7 @@
 	\end{rem}
 
 	\begin{constr}
-		Let $(B_x,T_1)$ be any Borel pair. The action of $W_{T_1}$ on $T_1$ defines an action of $W^\abs$ on $T^\abs$ via the realizing isomorphisms $r_{(B_x,T_1)}: T^\abs \xrightarrow{\sim} T_1$ and $r_{(B_x,T_1)}: W^\abs \xrightarrow{\sim} W_{T_1}$. Unwinding the definitions, one can show this action does not depend on the choice of the Borel pair. Hence we obtain a \emph{canonical} action of $W^\abs$ on $T^\abs$, which is called \textbf{the (abstract) action} of $W^\abs$ on $T^\abs$.
+		Let $(B_x,T_1)$ be any Borel pair. The action of $W_{T_1}$ on $T_1$ defines an action of $\mbfW$ on $\mbfT$ via the realizing isomorphisms $r_{(B_x,T_1)}: \mbfT \xrightarrow{\sim} T_1$ and $r_{(B_x,T_1)}: \mbfW \xrightarrow{\sim} W_{T_1}$. Unwinding the definitions, one can show this action does not depend on the choice of the Borel pair. Hence we obtain a \emph{canonical} action of $\mbfW$ on $\mbfT$, which is called \textbf{the (abstract) action} of $\mbfW$ on $\mbfT$.
 	\end{constr}
 
 	\begin{constr}
@@ -534,9 +534,9 @@
 				\mft \ar[r] & \mft/\!/W. \ar[u]_-\simeq
 			}
 		\]
-		Via the realizing isomorphism $r_{(B,T)}: \mft^\abs/\!/W^\abs \xrightarrow{\sim} \mft/\!/W$, we obtain an isomorphism 
+		Via the realizing isomorphism $r_{(B,T)}: \mbft/\!/\mbfW \xrightarrow{\sim} \mft/\!/W$, we obtain an isomorphism 
 		\[
-			\mft^\abs/\!/W^\abs \xrightarrow{\sim} \mfg/\!/G
+			\mbft/\!/\mbfW \xrightarrow{\sim} \mfg/\!/G
 		\]
 		which can be shown to do not depend on the choice of the Borel pair. We call this isomorphism the \textbf{abstract Chevalley isomorphism}.
 	\end{constr}
