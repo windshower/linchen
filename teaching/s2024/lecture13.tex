@@ -242,11 +242,13 @@
 
 	\begin{rem}
 		\label{rem-Springer-coordinate}
-		One can find local trivialization of the vector bundle $T^*X \to \Fl_G$ as follows. Let $x,x^- \in X$ be closed points such that the Borel subalgebras $\mfb_x$ and $\mfb_{x^-}$ intersect transversally. Using the Bruhat decomposition, the $(N_{x^-})$-orbit of $x$ is open, and we denote it by $U_{x,x^-}$. It follows that the commposition
+		One can find local trivialization of the vector bundle $T^*X \to \Fl_G$ as follows. Let $x^-\in X$ be any closed point and consider the big Bruhat cell of $X$ with respect to the Borel subgroup $B_{x^-}$, i.e., the unique open $B_{x^-}$-orbit in $X$. Denote this orbit by $U_{x^-}$. It follows that the commposition
 		\[
-			T^* X \to X\mt \mfg^* \to X \mt \mfn_{x^-}^* \simeq X \mt \mfn_x
+			T^* X \to X\mt \mfg^* \to X \mt \mfn_{x^-}^*
 		\]
-		is an isomorphism when restricted to the open subscheme $U_{x,x^-}\subset X$. Indeed, this follows fromm the fact that for any $y\in U_{x,x^-}$, the composition $\mfb_{x^-} \to \mfg \to \mfg/\mfb_y$ is an isomorphism.
+		is an isomorphism when restricted to $U_{x^-} \subset X$. Indeed, for any $x\in U_{x^-}$, $B_x$ and $B_{x^-}$ are in generic position and therefore $\mfn_{x^-} \to \mfg \to \mfg/\mfb_x$ is an isomorphism.
+
+		Also note that for any chosen $x\in U_{x^-}$, we have $\mfn_{x^-}^* \simeq (\mfg/\mfb_x)^* \simeq \mfn_x$, where the last isomorphism uses the Killing form. Hence we can also trivialize $T^*X|_{U_{x^-}}$ as $X\mt \mfn_x$ after choosing a point $x\in U_{x^-}.$
 	\end{rem}
 
 	\begin{defn}
@@ -325,11 +327,11 @@
 	\end{propdefn}
 
 	\proof[Sketch]
-		It is easy to show $v\in \mfb_x$ is a closed condition and therefore defines a reduced closed subscheme $\wt\mfg$. Also, as in Remark \ref{rem-Springer-coordinate}, the commposition 
+		It is easy to show $v\in \mfb_x$ is a closed condition and therefore defines a reduced closed subscheme $\wt\mfg$. Also, as in Remark \ref{rem-Springer-coordinate}, the composition 
 		\[
-			\wt{\mfg} \to X\mt \mfg \to X \mt \mfg/\mfn_{x^-} \simeq X \mt \mfb_x
+			\wt{\mfg} \to X\mt \mfg \to X \mt \mfg/\mfn_{x^-}
 		\] 
-		is an isomorphism when restricted to the open subscheme $U_{x,x^-}\subset X$. This implies $\wt{\mfg}$ is smooth.
+		is an isomorphism when restricted to the open Bruhat cell $U_{x^-}\subset X$. This implies $\wt{\mfg}$ is smooth.
 
 	\qed
 
@@ -349,9 +351,9 @@
 	\end{lem}
 
 	\proof[Sketch]
-		We have an obvious injective map $\wt{\mCN} \to \wt{\mfg}$ between vector bundles on $X$. By Remark \ref{rem-Springer-coordinate} and the proof of Proposition-Definition \ref{propdefn-Groth-alter}, this map can be identified with $X\mt \mfn_x \to X\mt \mfb_x $ when restricted to the open subscheme $U_{x,x'} \subset X$. Hence the quotient bundle can be identified with $X \mt \mft_x \simeq X\mt \mbft$ over $U_{x,x'}$, where we used the realizing isomorphism $\mbft \to \mft_x$.
+		We have an obvious injective map $\wt{\mCN} \to \wt{\mfg}$ between vector bundles on $X$. By Remark \ref{rem-Springer-coordinate} and the proof of Proposition-Definition \ref{propdefn-Groth-alter}, this map can be identified with $X\mt \mfn_x \to X\mt \mfb_x $ when restricted to the open Bruhat cell $U_{x^-} \subset X$ with a chosen point $x\in U_{x^-}$. Hence the quotient bundle can be identified with $X \mt \mft_x \simeq X\mt \mbft$ over $U_{x^{-}}$, where we used the realizing isomorphism $\mbft \to \mft_x$.
 
-		One can show these identifications can be glued into a short exact sequence of vector bundles over $X$:
+		One can show these identifications do not depend on $x$, and can be glued into a short exact sequence of vector bundles over $X$:
 		\[
 			0 \to \wt\mCN \to \wt\mfg \to X \mt \mbft \to 0,
 		\]
