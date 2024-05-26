@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  18 MAY 2024 08:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018) (preloaded format=pdflatex 2018.4.16)  26 MAY 2024 15:49
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1266,25 +1266,25 @@ LaTeX Font Info:    Try loading font information for U+euf on input line 80.
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 ) [2] [3]
 [4] [5] [6] [7] [8] [9]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 570.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 570.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 572.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 572.
  (./lecture12.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 570.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 570.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 572.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 572.
 Package rerunfilecheck Info: File `lecture12.out' has not changed.
 (rerunfilecheck)             Checksum: 5AA552003332EE96E97A1BF895EB63D2;414.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 570.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 572.
  ) 
 Here is how much of TeX's memory you used:
- 30955 strings out of 492649
- 573256 string characters out of 6129622
- 648953 words of memory out of 5000000
- 34104 multiletter control sequences out of 15000+600000
+ 30965 strings out of 492649
+ 573311 string characters out of 6129622
+ 649028 words of memory out of 5000000
+ 34111 multiletter control sequences out of 15000+600000
  552568 words of font info for 105 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  63i,13n,82p,10395b,474s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{/
-usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}{/usr/
+{/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolS.enc}{/
+usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc}{/usr/
 local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolF.enc}{/usr/loca
 l/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc}{/usr/local/te
 xlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolE.enc}{/usr/local/texliv
@@ -1315,10 +1315,10 @@ amsfonts/cm/cmtt8.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/am
 sfonts/euler/eufm10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/
 amsfonts/euler/eufm7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public
 /amsfonts/symbols/msbm10.pfb>
-Output written on lecture12.pdf (9 pages, 374566 bytes).
+Output written on lecture12.pdf (9 pages, 379740 bytes).
 PDF statistics:
- 356 PDF objects out of 1000 (max. 8388607)
- 315 compressed objects within 4 object streams
- 96 named destinations out of 1000 (max. 500000)
+ 367 PDF objects out of 1000 (max. 8388607)
+ 326 compressed objects within 4 object streams
+ 99 named destinations out of 1000 (max. 500000)
  69 words of extra memory for PDF output out of 10000 (max. 10000000)
 

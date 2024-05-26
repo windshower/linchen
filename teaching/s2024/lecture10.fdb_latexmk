@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1715434599 "lecture10.tex" "lecture10.pdf" "lecture10" 1715434601
+["pdflatex"] 1716652216 "lecture10.tex" "lecture10.pdf" "lecture10" 1716652218
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolA.enc" 1480098668 3341 78e600b269762aa2a25a5293cc4535c0 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolC.enc" 1480098668 3275 8d7166dfdbc31ffdc8aba0c31b3bd5c8 ""
   "/usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/mnsymbol/MnSymbolD.enc" 1480098668 3375 808c88761dbdc66fc653d18f42765b64 ""
@@ -261,12 +261,12 @@
   "/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1523934492 2717033 f61a5287d9c22a39a74f1979fe3f905c ""
   "/usr/local/texlive/2018/texmf-var/web2c/pdftex/pdflatex.fmt" 1523934516 4220280 10cab8fbd7c5a7c52aba9917e190d018 ""
   "/usr/local/texlive/2018/texmf.cnf" 1523934483 577 0b39adfd7c93507ff20c9c14c2f1a33f ""
-  "header.tex" 1714919342 10531 8caa2e923a58e4ba45fee5238fccddd5 ""
-  "lecture10.aux" 1715434601 3636 45cfdaff4c3eedac6cf4b591f0e2f32d ""
-  "lecture10.out" 1715434601 546 94191434788b30bcd95832163dadbe1b ""
-  "lecture10.tex" 1715434598 36255 dfb30150eb1b0d4438f97b35b9023871 ""
+  "header.tex" 1716118608 10754 66d0c472db590047a152a2ed3dbdf37e ""
+  "lecture10.aux" 1716652217 3739 4e527e8e43e537f167ac1aa5a9532a11 ""
+  "lecture10.out" 1716652217 546 94191434788b30bcd95832163dadbe1b ""
+  "lecture10.tex" 1716652215 36870 c79e67ecd239ef1df7ff63f68cc17ed9 ""
   (generated)
-  "lecture10.log"
-  "lecture10.out"
   "lecture10.aux"
+  "lecture10.out"
+  "lecture10.log"
   "lecture10.pdf"

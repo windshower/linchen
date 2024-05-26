@@ -1,0 +1,280 @@
+
+\input{header}
+
+\begin{document}
+
+
+\title{Lecture 14}
+
+\date{May 27, 2024}
+
+\maketitle
+
+	As before, we write $X:=G/B$.
+
+\section{Categorical equivalence}
+
+	In this section, we prove
+	\begin{thm} \label{thm-categorical-equivalence}
+		The functors
+		\[
+			\Loc: U(\mfg)_{\chi_0} \hmod \adj \mCD_X \hmod_\qc^l: \Gamma
+		\]
+		are inverse to each other. 
+	\end{thm}
+		
+	We first deduce this from the following result:
+
+	\begin{thm}
+		\label{thm-exact-and-faithful}
+		The functor $\Gamma: \mCD_X \hmod_\qc^l \to \Vect$ is exact and faithful.
+	\end{thm}
+
+	\proof[Proof of Theorem \ref{thm-categorical-equivalence}]
+
+		Since the forgetful functor $U(\mfg)_{\chi_0} \to \Vect$ is exact and faithful, Theorem \ref{thm-exact-and-faithful} implies: $\Gamma: \mCD_X \hmod_\qc^l \to  U(\mfg)_{\chi_0} $ is also exact and faithful.
+
+		Consider the unit natural transformation $\Id \xrightarrow{u} \Gamma \circ \Loc$. By the last lecture, it sends any free module in $U(\mfg)_{\chi_0} \hmod$ to an isomorphism. By the last paragraph, the functor $\Gamma \circ \Loc$ is right exact. This implies $\Id \to \Gamma \circ \Loc$ sends any module $\mCM$ to an isomorphism because $\mCM$ can be wriiten as the quotient of a map between free modules. In other words, $\Id \to \Gamma \circ \Loc$ is an equivalence.
+
+		It remains to show the counit natural transformation $\Loc\circ \Gamma \xrightarrow{e} \Id$ is an equivalence. Since $\Gamma$ is faithful, we only need to show the natural transformation $\Gamma\circ \Loc \circ \Gamma \xrightarrow{\Gamma(e)} \Gamma$ is an equivalence. By the axioms of adjunction data, $\Gamma(e)$ is left inverse to $u(\Gamma): \Gamma \to \Gamma\circ \Loc \circ \Gamma$. The latter natural transformation is an equivalence because $u$ is so. It follows that $\Gamma(e)$ is an equivalence as desired.
+
+	\qed
+
+	To continue, we need the following construction, which is an analogue of [Lecture 12, Construction 2.9] for strong equivariant $\mCD$-modules.
+
+	\begin{constr}
+		\label{constr-strong-equiv-HC}
+
+		Let $H$ be an affine algebraic group that acts on a smooth $k$-scheme $Y$. Let $K\inj H$ be a closed subgroup. We will construct the following commutative diagram
+		\[
+			\xymatrix{
+				\mCD_Y\hmod_\qc^{K\mathsf{-strong},l} 
+					\ar@{.>}[d]_-{\Gamma(Y,-)} \ar[r]^-\oblv
+				& \mCD_Y\hmod_\qc^{l}  \ar[d]^-{\Gamma(Y,-)}
+				\\
+				\mfh\hmod^K \ar[r]_-\oblv
+				& \mfh\hmod.
+			}
+		\]
+		Here $\mfh\hmod^K$ is the abelian category of representations for the Harish--Chandra pair $(\mfh,K)$\footnote{When $K$ is connected, this category consists of representations of $\mfh$ such that the restricted $\mfk$-action is integrable.}, and the horizontal functors are forgetful functors.
+
+		The right vertical functor is the familiar one: it is induced by the homomorphism $\mfh \to \mCT(Y)$. We will show it sends strongly $K$-equviariant objects to $K$-integrable representations in a natural way as follows. Let $\mCF\in \mCD_Y\hmod_\qc^{l} $ be an object equipped with a \emph{weak} $K$-equivariant structure. By [Lecture 12, Construction 2.9], the global section $\Gamma(Y,\mCF)$ has a natural $K$-module structure. Unwinding the definitions, $\mCF$ being strongly $K$-equivariant implies this $K$-module structure is compatible with the $\mfh$-module structure in the sense of Harish--Chandra.
+
+
+
+	\end{constr}
+
+
+	\begin{rem}
+		\label{rem-strong-action}
+		Using modern homological/homotopical techniques, one can define a monoidal structure on the (dg/$\infty$) derived category $D(\mCD_K\hmod^l)$, such that $D(\mCD_Y\hmod_\qc^l)$ and $D(\mfh\hmod)$ are \emph{categorical representations} of this monoidal category, and such that the derived functor $\Gamma(Y,-):D(\mCD_Y\hmod_\qc^l)\to D(\mfh\hmod)$ is compatible with these actions. Such categorical representations are called \emph{categories equipped with strong $K$-actions}. The invariance categories for these actions are exactly $D(\mCD_Y\hmod_\qc^l)^{K\mathsf{-strong}}$ and $D(\mfh\hmod^K)$. It follows formally that $\Gamma(Y,-)$ induces a functor between these invariance categories. When restricted to the hearts, we recover the above construction.
+
+	\end{rem}
+
+
+	\proof[Proof of exactness]
+
+		We realize $X$ as $G/B$ and consider the projection $\pi:G\to G/B$. Recall we have the following commutative diagram (see [Lecture 12, Construction 2.9])\footnote{Using the algebraic \emph{stack} $\pt/B$, this diagram says taking direct images along $G/B \to \pt$ is equivalent to the composition of taking direct images along $G/B \to \pt/B$ and $\pt/B \to \pt$.}
+		\[
+			\xymatrix{
+				\mCO_{G/B} \hmod_\qc 
+					\ar[r]^-{\pi^*}_-\simeq
+					\ar[d]_-{\Gamma(G/B,-)}
+				& \mCO_G \hmod_\qc^B
+					\ar[d]^-{\Gamma(G,-)} \\
+				\Vect
+				& \Rep(B) \ar[l]_-{(-)^B}
+			}
+		\]
+		Hence we only need to show the composition
+		\[
+			\mCD_G \hmod_\qc^{B\mathsf{-strong},l} \xrightarrow{\oblv} \mCO_G \hmod_\qc^B \xrightarrow{\Gamma(G,-)} \Rep(B) \xrightarrow{(-)^B} \Vect
+		\]
+		is exact. By Construction \ref{constr-strong-equiv-HC}, this functor is equivalent to
+		\[
+			\mCD_G \hmod_\qc^{B\mathsf{-strong},l} \xrightarrow{\Gamma(G,-)} \mfg\hmod^B \xrightarrow{\oblv} \Rep(B) \xrightarrow{(-)^B} \Vect.
+		\]
+		The first functor in the above composition is exact because $G$ is affine. Hence we only need to show $\mfg\hmod^B \xrightarrow{\oblv} \Rep(B) \xrightarrow{(-)^B} \Vect$ is exact. By definition, this functor is represented by the Verma module $M_0 \in \mfg\hmod^B$. We only need to show this is a projective object.
+
+		Since $0$ is dot-dominant, $M_0$ is projective in the category $\mCO$ ([Lecture 7, Proposition 3.6]). Hence it is also projective in the \emph{integral} part of the category $\mCO$:
+		\[
+			\mCO^\mathsf{int}:= \bigoplus_{\lambda\textrm{ is integral }} \mCO_{\varpi(\lambda)}.
+		\]
+		Unwinding the definitions, we have $\mCO^\mathsf{int}\simeq \mfg\hmod_{\mathsf{fg}}^B$, i.e., $\mCO$ consists of finitely generated $B$-integrable $\mfg$-modules. Hence $\mfg\hmod^B$ is the ind-completion of $\mCO^\mathsf{int}$. It follows formally that $M_0$ is also projective in $\mfg\hmod^B$ as desired.
+
+	\qed
+
+	To proceed, we prove the following result about Lie algebra cohomologies of $\Gamma(X,-)$. Fix a Borel subgroup $B$ and consider the corresponding Bruhat cells $X^{=w}\simeq BwB/B$. Let $i_w: X^{=w} \to X$ be the locally closed embedding.
+
+	\begin{prop}
+		\label{prop-cal-dual-Verma}
+		For $\mCF\in D(\mCD_{X^{=w}}\hmod_\qc^l)$, we have
+		\begin{equation}
+			\label{eqn-cal-dual-Verma}
+			 \Gamma( X, i_{w,\dR,*} \mCF )^\mfn \simeq \Gamma_\dR( X^{=w}, \mCF )[-\ell(w)],
+		\end{equation}
+		and the LHS is a complex of $\mft$-modules of weight $w\bullet(-2\rho)$.
+	\end{prop}
+
+	\begin{rem}
+		When using the de Rham pushforward functors, we change $\mCF$ to right $\mCD$-modules by tensoring with $\omega$, apply the corresponding functor, and change the result back to left $\mCD$-modules by tensoring with $\omega^{-1}$. Also note that $i_{w,\dR,*}$ is t-exact because $i_w$ is affine.
+	\end{rem}
+
+	\proof[Sketch]
+		Consider the $N$-action on $X^{=w}$ and the corresponding full subcategory 
+		\[
+			 D(\mCD_{X^{=w}}\hmod_\qc^l)^{N\mathsf{-strong}} \subset D(\mCD_{X^{=w}}\hmod_\qc^l).
+		\]
+		One can show this forgetful functor admits a right adjoint $\mathsf{Av}_*^{N\mathsf{-strong}}$ and both sides in \eqref{eqn-cal-dual-Verma} do not change if we replace $\mCF$ by its averaging image $\mathsf{Av}_*^{N\mathsf{-strong}}(\mCF)$\footnote{From the perspective of categorical actions in Remark \ref{rem-strong-action}, the functors
+		\[
+			D(\mCD_{X^{=w}}\hmod_\qc^l) \xrightarrow{ i_{w,\dR,*} } D(\mCD_X\hmod_\qc^l) \xrightarrow{ \Gamma(X,-) } D(\mfg\hmod) \xrightarrow{\oblv} D(\mfb\hmod) \xrightarrow{(-)^\mbn} D(\mft\hmod)
+		\]
+		and
+		\[
+			D(\mCD_{X^{=w}}\hmod_\qc^l) \xrightarrow{ \Gamma_\dR(X^{=w},-) } D(\Vect)
+		\]
+		are all strongly $N$-linear and therefore compatible with the averaging functors. However, the averaging functors on the targets are trivial because $N$ (is unipotent and) acts trivially on $\mft=\mfb/\mfn$ and $\pt$.}. Hence we can assume $\mCF$ is strongly $N$-equivariant. Since $N$ acts transitively on $X^{=w}$, we have an exact equivalence
+		\[
+			\mCD_{X^{=w}}\hmod_\qc^{N\mathsf{-strong},l} \simeq \Vect,
+		\]
+		with $\mCO_{X^{=w}}$ being its generator. We have a similar result for the triangulated categories. Hence we have reduced to prove the proposition for $\mCO_{X^{=w}}$. 
+
+		When $\mCF=\mCO_{X^{=w}}$, the RHS of \eqref{eqn-cal-dual-Verma}, which is an object in $D(\Vect)$, is just $k$. Indeed, this follows from the non-canonical isomorpihsm $X^{=w}\simeq \mBA^{\ell(w)}$. On the other hand, using the orthogonal relations between Verma and dual Verma modules, we have
+		\[
+			(M_{w\cdot (-2\rho)}^\vee)^\mfn  \simeq k_{w\cdot (-2\rho)}.
+		\]
+
+		Hence it remains to show:
+
+	\begin{prop}
+		We have an isomorphism between $\mfb$-modules:
+		\[
+			\Gamma(X,\nabla_w) \simeq M_{w\cdot (-2\rho)}^\vee.
+		\]
+		In particlar, $\Gamma(X,\nabla_w)$ and $M_{w\cdot (-2\rho)}^\vee$ have the same formal character.
+	\end{prop}
+
+	\begin{rem}
+		 Recall we claimed the above equivalence as objects in $\mCO$. Once we have proved the categorical equivalence, this stronger claim can be deduced from the above proposition by considering the Grothendieck group of $\mCO$ and induction on $\ell(w)$. For more details, see \cite[Page 60]{G}. 
+
+		 Also note that once we have proved the categorical equivalence as well as the $\mfg$-linear isomorphisms $\Gamma(X,\nabla_w) \simeq M_{w\cdot (-2\rho)}^\vee$, we automatically have $\mfg$-linear isomorphisms $\Gamma(X,\Delta_w) \simeq M_{w\cdot (-2\rho)}$ by using the orthogonal properties between Verma/standard objects and dual Verma/costandard objects. Finally we obtain $\Gamma(X,\mathsf{IC}_w) \simeq L_{w\cdot (-2\rho)}$ by considering the images of the maps between these objects.
+	\end{rem}
+
+	\proof[Sketch]
+		Recall the $\mfb^-$-module structure on $M_\lambda$ is uniquely determined by:
+		\begin{itemize}
+			\item $M_\lambda\simeq U(\mfn^-)$ as $\mfn^-$-modules;
+			\item The highest weight is equal to $\lambda$.
+		\end{itemize}
+		Hence by definition, the $\mfb$-module structure\footnote{Beware the Cartan involution in the definition of duality.} on $M_\lambda^\vee$ is uniquely etermined by:
+		\begin{itemize}
+			\item $M_\lambda^\vee\simeq \mCO(N)$ as $\mfn$-modules;
+			\item The highest weight is equal to $\lambda$.
+		\end{itemize}
+		Here we are using the isomorphism $U(\mfn^-)^{*,\weight}\simeq \mCO(N)$. 
+
+		We only need to show $\Gamma(X,\nabla_w)$ satisfies similar properties. Let $\mCN_w$ be the normal sheaf of $X^{=w}$ inside $X$. A direct calculation shows
+		\[
+			\nabla_w \simeq \Sym_{\mCO_{X^{=w}}} (\mCN_w) \ot_{\mCO_{X^{=w}}} \wedge^{\mathsf{top}} \mCN_w,
+		\]
+		where the symmetric power comes from the transfer module $\mCD_{ X^{=w} \to X }$ (see [Lecture 11, Example 5.7]) and the line bundle $\wedge^{\mathsf{top}} \mCN_w$ comes from switching between left and right $\mCD$-modules. One can show the conormal bundle of $X^{=w}\simeq N/(N\cap \Ad_w(N))$ inside $X$ is non-canonically trivial, and can be identified with $N$ in an $N$-equivariant way\footnote{Two special case: when $w=1$, $X^{=w}\simeq \pt$ and the conormal bundle is $(\mfg/\mfb)^*\simeq \mfn \simeq N$, where the last isomorphism is the exponential map; when $w=w_0$, $X^{=w}\simeq N$ and the conormal bundle is trivial. In general, the conormal bundle can be calculated as $N\mt^{N\cap \Ad_w(N)} (\mfn\cap \Ad_w(\mfn))$, i.e., the adjoint bundle assoicated to the $(N\cap \Ad_w(N))$-torsor $N\to X^{=w}$. The latter can be further identified with $N$ via the exponential map.}. Hence $\nabla_w\simeq \mCO(N)$ as $\mfn$-modules, and the highest weight line is canonically isomorphic to the weight of the noncanonical-trivial line bundle $\wedge^{\mathsf{top}} \mCN_w$. A direct calculation shows this weight is $-w(\rho)-\rho = w\bullet(-2\rho)$.
+
+
+
+	\qed
+
+		
+
+	\qed[Proposition \ref{prop-cal-dual-Verma}]
+
+
+	\begin{rem}
+		As the above proof shows, the case $w=w_0$ is almost obvious. In fact, one can deduce the general case from the $w_0$-case by considering the $G$-orbit on $X\mt X$ corresponding to $w^{-1}w_0$. See \cite[Theorem 2.1]{S} for more details.
+	\end{rem}
+
+
+
+	
+	\proof[Sketch of a proof of faithfulness]
+
+		Since $\Gamma$ is exact, we only need to show the \emph{derived} functor
+		\[
+			\Gamma(X,-): D(\mCD_{X} \hmod_\qc^l) \to D(\Vect)
+		\]
+		is conservative, i.e., detects zero objects. Suppose $\Gamma(X,\mCF)\simeq 0$ for a complex $\mCF$. We only need to show its derived fiber at any point $\eta$ of $X$ is zero. Choose a geometric point $\Spec (K) \to X$ lying over $\eta$. This provides a \emph{closed} point of $X_K:= X\mt_k K$ that is sent to $\eta$ under the projection map $X_K \to X$. Applying the base-change $-\mt_k K$ in the entire story, we reduce to the case when $\eta$ is a closed point. 
+
+		Let $B$ be the Borel subgroup corresponding to $\eta$, and consider the corresponding Bruhat cells. Using the open-closed triangle (see [Lecture 11, Corollary 8.4]) and induction, $\mCF$ admits a finite filtration\footnote{When defining filtrations in a derived category, or more generally in any triangulated category, we no longer require the transition maps to be injective. Also, the graded pieces are defined as cones rather than quotients. For instance, 
+		\[
+			\mbF^{\le k}:=\left\{ 
+				\begin{array}{rcl}  
+						0	&	\textrm{if } k\neq 0,\\
+						M	&	\textrm{if } k=0
+				\end{array}\right.
+		\]
+		defines a finite filtration on the zero complex, whose non-vanishing graded pieces are $\gr^0 \simeq M$ and $\gr^1\simeq M[1]$.} (known as the \emph{Cousin (double) complex}) whose graded pieces are equivalent to\footnote{As usual, we first change $\mCF$ into a complex of right $\mCD$-modules, apply the functors $i_{w,\dR,*}\circ i_w^!$, and change the results back to complices of left $\mCD$-modules.} $\bigoplus_{w\in W} i_{w,\dR,*}\circ i_w^! (\mCF)$, where the $w$-term is of grading $\ell(w)$. Hence the complex $0\simeq \Gamma(X,-)$ admits a finite filtration whose graded pieces are equivalent to
+		\[
+			\bigoplus_{w\in W}  \Gamma(X, i_{w,\dR,*}\circ i_w^! (\mCF) )
+		\]
+
+		Since each Bruhat cell is stablized by the $B$-action, the above filtration can be upgraded to a filtration in $D(\mfb\hmod)$. Taking derived $\mfn$-invariance, we obtain a finite filtration of $0\in D(\mft\hmod)$ whose graded pieces are equivalent to 
+		\[
+			\bigoplus_{w\in W}  \Gamma(X, i_{w,\dR,*}\circ i_w^! (\mCF) )^\mfn.
+		\]
+		By Proposition \ref{prop-cal-dual-Verma}, the direct summands have distinct weights. It follows that they cannot ``cancel'' each other and each direct summand is zero. In particular, for $w=1$, using Proposition \ref{prop-cal-dual-Verma} again, we see $i_1^!(\mCF)\simeq 0$ as desired.
+
+
+	\qed
+
+	\section{Storytelling: proof of the Kazhdan--Lusztig conjecture}
+
+	Contents in this section should not be viewed as rigorous. There are many good references for this theory in the literature. For example, one can follow \cite{EMTW} and read the references listed there.
+
+
+	By the localization theory, we only need to calculate the multiplicities $[\Delta_w: \mathsf{IC}_{w'}]$ in the category of strongly $B$-equivariant $\mCD$-modules on $G/B$.
+
+	Via the \emph{Riemann--Hilbert correspondence}, we only need to calculate the similarly defined multiplicities in the category $\mathsf{Perv}_B(X)$ of perverse sheaves on $X$ defined using the Bruhat stratification. Let us bravely write this category as $\mathsf{Perv}(B\backslash G/B)$, and the corresponding triangulated category as $D_c^b(B\backslash G/B)$. 
+
+	Now for any object $\mCF\in D_c^b(B\backslash G/B)$, we can produce an element $\ch(\mCF)$, called its \emph{(Hecke-)character} in the Hecke algebra $\mCH$, essentially characterized by the following properties:
+	\begin{itemize}
+		\item 
+			For $!$-extensions $\Delta_w$, $\ch(\Delta_w)=\delta_w$ is the standard basis element;
+		\item
+			$\ch(\mCF) = \sum_k v^{-k}\ch(\mCH_p^k(\mCF))$, where $\mCH_p^k(\mCF)\in \mathsf{Perv}(B\backslash G/B)$ is the $k$-th cohomology of $\mCF$ with respect to the perverse t-structure;
+		\item
+			For any short exact sequence $0\to \mCF_1\to \mCF_2\to \mCF_3\to 0$ in $\mathsf{Perv}(B\backslash G/B)$, $\ch(\mCF_2) = \ch(\mCF_1)+ \ch(\mCF_3)$.
+	\end{itemize}
+	Moreover, one can prove the following highly non-trivial result:
+	\[
+		\ch(\mBD \mCF) = \overline{ \ch(\mCF) }, \textrm{ for \emph{pure} }\mCF. 
+	\]
+	The word \emph{pure} comes from motivic theory and indicates the proof of this formula might use the \emph{decomposition theorem}.
+
+	The above formula allows one to show
+	\[
+		\ch(\mathsf{IC}_w) = b_w
+	\]
+	because $\mathsf{IC}_w$ is self-dual, and $\Delta_w$ maps surjectively onto it. Then Kazhdan--Lusztig conjecture follows immediately. Note that this also allows one to identify the coefficients of the KL polynomials as dimensions of cohomologies of the $!$-fibers the IC sheaves.
+
+	So far we have not mentioned the \emph{multiplication} of the Hecke algebra $\mCH$. There is also a geometric incarnation of it. The category $D_c^b(B\backslash G/B)$ has a monoidal structure given by convolution, i.e., pull-push along the correspondence
+	\[
+		B\backslash G/B \gets B\backslash G\mt^B G/B \to B\backslash G/B \mt B\backslash G/B.
+	\]
+	One can show when restricted to pure objects, $\ch$ sends convolution products to multplications in $\mCH$.
+
+
+\begin{thebibliography}{Yau}
+
+	
+	
+	\bibitem[EMTW]{EMTW} Elias, Ben, Shotaro Makisumi, Ulrich Thiel, and Geordie Williamson. Introduction to Soergel bimodules. Vol. 5. Springer Nature, 2020.
+
+	\bibitem[G]{G} Gaitsgory, Dennis. Course Notes for Geometric Representation Theory, 2005, available at \url{https://people.mpim-bonn.mpg.de/gaitsgde/267y/catO.pdf}.
+
+	\bibitem[S]{S} Shapiro, Ilya. "The BRST reduction of the chiral Hecke algebra." Advances in Mathematics 220, no. 6 (2009): 1657-1688.
+
+\end{thebibliography}
+
+
+\end{document} 
+
+

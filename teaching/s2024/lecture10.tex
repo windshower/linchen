@@ -266,18 +266,16 @@
 		\]
 	\end{exam}
 
-
-	The following terminology is not standard\footnote{The standard terminology would be: $\mCM$ is a module for the \emph{Lie algebroid $\mCT_{X}$}.}.
-
 	\begin{defn}
-		Let $X$ be a smooth $k$-scheme. A \textbf{quasi-coherent $\mCT_{X}$-module} is a quasi-coherent $\mCO_X$-module $\mCM$ equipped with a $\mCT_{X}$-module structure such that 
+		\label{defn-module-for-Lie-algebroid}
+		Let $X$ be a smooth $k$-scheme. A \textbf{quasi-coherent $\wt\mCT_{X}$-module} is a quasi-coherent $\mCO_X$-module $\mCM$ equipped with a $\mCT_{X}$-module structure such that 
 		\begin{itemize}
 			\item[(i)]
 				The map $\mCT_X\ot_k \mCM \to \mCM$ is $\mCO_X$-linear, where $\mCT_X\ot_k \mCM$ is viewed as an $\mCO_X$-module via the first factor.
 			\item[(ii)]
 				The map $\mCO_X \ot_k \mCM \to \mCM$ is $\mCT_{X}$-linear, where $\mCO_X \ot_k \mCM $ is viewed as an $\mCT_X$-module via the diagonal action.
 		\end{itemize}
-		Let $\mCT_X\hmod_\qc$ be the category of quasi-coherent $\mCT_{X}$-module, where morphisms are defined in the obvious way.
+		Let $\wt\mCT_X\hmod_\qc$ be the category of quasi-coherent $\wt\mCT_{X}$-module, where morphisms are defined in the obvious way.
 	\end{defn}
 
 	\begin{rem}
@@ -287,19 +285,23 @@
 		\]
 	\end{rem}
 
+	\begin{rem}
+		The notation stands $\wt\mCT_X$ stands for $\mCO_X \oplus \mCT_X$, viewed as a \emph{Picard algebroid} on $X$ in the sense of \cite{BB}\footnote{A Picard algebroid $\mCP$ on $X$ is a sheaf of Lie algebras equipped with a short exact sequence $0 \to \mCO_X \to \mCP \to \mCT_X \to 0$, where $\mCO_X$ is viewed as a sheaf of Lie algebras, such that the action of $\mCP$ on its (Lie) ideal sheaf $\mCO_X$ factors through the canonical action of $\mCT_X$ on $\mCO_X$.}. 
+	\end{rem}
+
 	\begin{exam}
-		The structure sheaf $\mCO_X$, equipped with the standard $\mCT_X$-action, is a quasi-coherent $\mCT_X$-module.
+		The structure sheaf $\mCO_X$, equipped with the standard $\mCT_X$-action, is a quasi-coherent $\wt\mCT_X$-module.
 	\end{exam}
 
 	\begin{rem}
-		It is easy to show $\mCT_X\hmod_\qc$ is an abelian category and the forgetful functor $\mCT_X\hmod_\qc \to \mCO_X\hmod_\qc$ is exact.
+		It is easy to show $\wt\mCT_X\hmod_\qc$ is an abelian category and the forgetful functor $\wt\mCT_X\hmod_\qc \to \mCO_X\hmod_\qc$ is exact.
 	\end{rem}
 
 
 	\begin{constr}
 		Let $X$ be a finite type $k$-scheme equipped with an action of an algebraic group $G$. We have a functor
 		\[
-			\Gamma: \mCT_X\hmod_\qc \to \mfg\hmod,\; \mCM \mapsto \mCM(X),
+			\Gamma: \wt\mCT_X\hmod_\qc \to \mfg\hmod,\; \mCM \mapsto \mCM(X),
 		\]
 		where $\mCM(X)$ is viewed as a $\mfg$-module via the Lie algebra homomorphism $a:\mfg \to \mCT(X)$.
 	\end{constr}
@@ -307,7 +309,7 @@
 	\begin{rem}
 		One version of the localizaiton theory says for $X=G/B$, the above functor induces an equivalence
 		\[
-			\Gamma: \mCT_X\hmod_\qc \xrightarrow{\simeq} \mfg\hmod_{\chi_0},
+			\Gamma: \wt\mCT_X\hmod_\qc \xrightarrow{\simeq} \mfg\hmod_{\chi_0},
 		\]
 		where $\chi_0=\varpi(0)$ is the central character of $M_0$.
 	\end{rem}
@@ -630,6 +632,11 @@
 
 	\end{cor}
 
+	\begin{rem}
+		Equivalently, we can say $\mCD_X$ is the universal enveloping (associative) algebra of the Picard algebroid $\wt\mCT_X:=\mCO_X \oplus \mCT_X$.
+
+	\end{rem}
+
 	\begin{exam}
 		For $X=\mBA^d$, we have $\mCD(X) = k[x_1,\cdots,x_d, \partial_1,\cdots,\partial_d]$ such that $[x_i,x_j]=[\partial_i,\partial_j] =0$ and $[\partial_i,x_j]=\delta_{i,j}$. This is known as the \textbf{Weyl algebra}.
 	\end{exam}
@@ -672,14 +679,14 @@
 	The following result follows from the PBW theorem:
 
 	\begin{prop}
-		Restricting along $\mCT_X \to \mCD_X$ defines an equivalence
+		Restricting along $\mCO_X\oplus\mCT_X \to \mCD_X$ defines an equivalence
 		\[
-			\mCD_X\hmod^l_\qc \simeq \mCT_X\hmod_\qc.
+			\mCD_X\hmod^l_\qc \simeq \wt\mCT_X\hmod_\qc.
 		\]
 	\end{prop}
 
 	\begin{rem}
-		In fact, we could have defined a notion of \emph{quasi-coherent right $\mCT_X$-modules} such that they form an abelian category equivalent to $\mCD_X\hmod^r_\qc$. We did not introduce this notion because people are less familiar with right modules of Lie algebras.
+		In fact, we could have defined a notion of \emph{quasi-coherent right $\wt\mCT_X$-modules} such that they form an abelian category equivalent to $\mCD_X\hmod^r_\qc$.
 	\end{rem}
 
 \section{Examples of D-modules}
@@ -734,7 +741,7 @@
 		\[
 			\xymatrix{
 				\mCD_X\hmod^l_\qc \ar[r]^-\simeq \ar[d]^-\Gamma&
-				\mCT_X\hmod_\qc \ar[d]^-\Gamma \\
+				\wt\mCT_X\hmod_\qc \ar[d]^-\Gamma \\
 				U(\mfg)\hmod \ar[r]^-\simeq & \mfg\hmod.
 			}
 		\]
@@ -760,6 +767,8 @@
 \begin{thebibliography}{Yau}
 
 	\bibitem[B]{B} Bernstein, Joseph. Algebraic theory of D-modules, 1984, abailable at \url{https://gauss.math.yale.edu/~il282/Bernstein_D_mod.pdf}.
+
+	\bibitem[BB]{BB} Beilinson, Alexander, and Joseph Bernstein. "A proof of Jantzen conjectures." ADVSOV (1993): 1-50.
 
 	\bibitem[G]{G} Gaitsgory, Dennis. Course Notes for Geometric Representation Theory, 2005, available at \url{https://people.mpim-bonn.mpg.de/gaitsgde/267y/catO.pdf}.
 
