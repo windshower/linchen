@@ -1,0 +1,442 @@
+\documentclass{amsart}
+\usepackage{amsmath}
+\usepackage{amsxtra}
+\usepackage{amscd}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[foot]{amsaddr}
+\usepackage{cite}
+\usepackage{url}
+\usepackage{rotating}
+\usepackage{eucal}
+\usepackage{tikz-cd,mathtools}
+\tikzset{mydescription/.style={anchor=center,fill=white}}
+\usepackage[all,2cell,color]{xy}
+\UseAllTwocells
+\UseCrayolaColors
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{comment}
+\usepackage{verbatim}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{xparse}
+\usepackage{upgreek}
+\usepackage{MnSymbol}
+\usepackage{bbold}
+\usepackage{soul}
+
+
+
+\sloppy
+
+
+%%%%%%%%%%%%%%%%%%%%Theorem%%%%%%%%%%%%%%%%%%%%
+\newcounter{theorem}
+\setcounter{theorem}{0}
+
+\newtheorem{cor}[subsection]{Corollary}
+\newtheorem{lem}[subsection]{Lemma}
+\newtheorem{goal}[subsection]{Goal}
+\newtheorem{lemdefn}[subsection]{Lemma-Definition}
+\newtheorem{prop}[subsection]{Proposition}
+\newtheorem{propdefn}[subsection]{Proposition-Definition}
+\newtheorem{cordefn}[subsection]{Corollary-Definition}
+\newtheorem{variant}[subsection]{Variant}
+\newtheorem{warn}[subsection]{Warning}
+\newtheorem{sugg}[subsection]{Suggestion}
+\newtheorem{facts}[subsection]{Fact}
+\newtheorem{ques}{Question}
+\newtheorem{guess}{Guess}
+\newtheorem{claim}{Claim}
+\newtheorem{propconstr}[subsection]{Proposition-Construction}
+\newtheorem{lemconstr}[subsection]{Lemma-Construction}
+\newtheorem{ax}{Axiom}
+\newtheorem{conje}[subsection]{Conjecture}
+\newtheorem{mainthm}[subsection]{Main-Theorem}
+\newtheorem{summ}[subsection]{Summary}
+\newtheorem{thm}[subsection]{Theorem}
+\newtheorem{thmdefn}[subsection]{Theorem-Definition}
+\newtheorem{notn}[subsection]{Notation}
+\newtheorem{convn}[subsection]{Convention}
+\newtheorem{constr}[subsection]{Construction}
+
+
+
+\newtheorem{defn}[subsection]{Definition}
+\newtheorem{exam}[subsection]{Example}
+\newtheorem{assum}[subsection]{Assumption}
+\newtheorem{slog}[subsection]{Slogan}
+
+\newtheorem{rem}[subsection]{Remark}
+\newtheorem{exe}[subsection]{Exercise}
+\newtheorem{cha}[subsection]{Challenge}
+
+
+\numberwithin{equation}{section}
+
+
+%%%%%%%%%%%%%%%%%%%%Commands%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\nc}{\newcommand}
+\nc\on{\operatorname}
+\nc\renc{\renewcommand}
+
+
+%%%%%%%%%%%%%%%%%%%%Sections%%%%%%%%%%%%%%%%%%%%
+
+\nc\ssec{\subsection}
+\nc\sssec{\subsubsection}
+
+%%%%%%%%%%%%%%%%%%%%Environment%%%%%%%%%%%%%%%%%
+\nc\blongeqn{\[ \begin{aligned}}
+\nc\elongeqn{\end{aligned} \]}
+
+
+
+%%%%%%%%%%%%%%%%%%%%Mathfont%%%%%%%%%%%%%%%%%%%%
+
+\nc\mBA{{\mathbb A}}
+\nc\mBB{{\mathbb B}}
+\nc\mBC{{\mathbb C}}
+\nc\mBD{{\mathbb D}}
+\nc\mBE{{\mathbb E}}
+\nc\mBF{{\mathbb F}}
+\nc\mBG{{\mathbb G}}
+\nc\mBH{{\mathbb H}}
+\nc\mBI{{\mathbb I}}
+\nc\mBJ{{\mathbb J}}
+\nc\mBK{{\mathbb K}}
+\nc\mBL{{\mathbb L}}
+\nc\mBM{{\mathbb M}}
+\nc\mBN{{\mathbb N}}
+\nc\mBO{{\mathbb O}}
+\nc\mBP{{\mathbb P}}
+\nc\mBQ{{\mathbb Q}}
+\nc\mBR{{\mathbb R}}
+\nc\mBS{{\mathbb S}}
+\nc\mBT{{\mathbb T}}
+\nc\mBU{{\mathbb U}}
+\nc\mBV{{\mathbb V}}
+\nc\mBW{{\mathbb W}}
+\nc\mBX{{\mathbb X}}
+\nc\mBY{{\mathbb Y}}
+\nc\mBZ{{\mathbb Z}}
+
+
+\nc\mCA{{\mathcal A}}
+\nc\mCB{{\mathcal B}}
+\nc\mCC{{\mathcal C}}
+\nc\mCD{{\mathcal D}}
+\nc\mCE{{\mathcal E}}
+\nc\mCF{{\mathcal F}}
+\nc\mCG{{\mathcal G}}
+\nc\mCH{{\mathcal H}}
+\nc\mCI{{\mathcal I}}
+\nc\mCJ{{\mathcal J}}
+\nc\mCK{{\mathcal K}}
+\nc\mCL{{\mathcal L}}
+\nc\mCM{{\mathcal M}}
+\nc\mCN{{\mathcal N}}
+\nc\mCO{{\mathcal O}}
+\nc\mCP{{\mathcal P}}
+\nc\mCQ{{\mathcal Q}}
+\nc\mCR{{\mathcal R}}
+\nc\mCS{{\mathcal S}}
+\nc\mCT{{\mathcal T}}
+\nc\mCU{{\mathcal U}}
+\nc\mCV{{\mathcal V}}
+\nc\mCW{{\mathcal W}}
+\nc\mCX{{\mathcal X}}
+\nc\mCY{{\mathcal Y}}
+\nc\mCZ{{\mathcal Z}}
+
+
+\nc\mbA{{\mathsf A}}
+\nc\mbB{{\mathsf B}}
+\nc\mbC{{\mathsf C}}
+\nc\mbD{{\mathsf D}}
+\nc\mbE{{\mathsf E}}
+\nc\mbF{{\mathsf F}}
+\nc\mbG{{\mathsf G}}
+\nc\mbH{{\mathsf H}}
+\nc\mbI{{\mathsf I}}
+\nc\mbJ{{\mathsf J}}
+\nc\mbK{{\mathsf K}}
+\nc\mbL{{\mathsf L}}
+\nc\mbM{{\mathsf M}}
+\nc\mbN{{\mathsf N}}
+\nc\mbO{{\mathsf O}}
+\nc\mbP{{\mathsf P}}
+\nc\mbQ{{\mathsf Q}}
+\nc\mbR{{\mathsf R}}
+\nc\mbS{{\mathsf S}}
+\nc\mbT{{\mathsf T}}
+\nc\mbU{{\mathsf U}}
+\nc\mbV{{\mathsf V}}
+\nc\mbW{{\mathsf W}}
+\nc\mbX{{\mathsf X}}
+\nc\mbY{{\mathsf Y}}
+\nc\mbZ{{\mathsf Z}}
+
+\nc\mba{{\mathsf a}}
+\nc\mbb{{\mathsf b}}
+\nc\mbc{{\mathsf c}}
+\nc\mbd{{\mathsf d}}
+\nc\mbe{{\mathsf e}}
+\nc\mbf{{\mathsf f}}
+\nc\mbg{{\mathsf g}}
+\nc\mbh{{\mathsf h}}
+\nc\mbi{{\mathsf i}}
+\nc\mbj{{\mathsf j}}
+\nc\mbk{{\mathsf k}}
+\nc\mbl{{\mathsf l}}
+\nc\mbm{{\mathsf m}}
+\nc\mbn{{\mathsf n}}
+\nc\mbo{{\mathsf o}}
+\nc\mbp{{\mathsf p}}
+\nc\mbq{{\mathsf q}}
+\nc\mbr{{\mathsf r}}
+\nc\mbs{{\mathsf s}}
+\nc\mbt{{\mathsf t}}
+\nc\mbu{{\mathsf u}}
+\nc\mbv{{\mathsf v}}
+\nc\mbw{{\mathsf w}}
+\nc\mbx{{\mathsf x}}
+\nc\mby{{\mathsf y}}
+\nc\mbz{{\mathsf z}}
+
+
+
+
+\nc\mbfA{{\mathbf A}}
+\nc\mbfB{{\mathbf B}}
+\nc\mbfC{{\mathbf C}}
+\nc\mbfD{{\mathbf D}}
+\nc\mbfE{{\mathbf E}}
+\nc\mbfF{{\mathbf F}}
+\nc\mbfG{{\mathbf G}}
+\nc\mbfH{{\mathbf H}}
+\nc\mbfI{{\mathbf I}}
+\nc\mbfJ{{\mathbf J}}
+\nc\mbfK{{\mathbf K}}
+\nc\mbfL{{\mathbf L}}
+\nc\mbfM{{\mathbf M}}
+\nc\mbfN{{\mathbf N}}
+\nc\mbfO{{\mathbf O}}
+\nc\mbfP{{\mathbf P}}
+\nc\mbfQ{{\mathbf Q}}
+\nc\mbfR{{\mathbf R}}
+\nc\mbfS{{\mathbf S}}
+\nc\mbfT{{\mathbf T}}
+\nc\mbfU{{\mathbf U}}
+\nc\mbfV{{\mathbf V}}
+\nc\mbfW{{\mathbf W}}
+\nc\mbfX{{\mathbf X}}
+\nc\mbfY{{\mathbf Y}}
+\nc\mbfZ{{\mathbf Z}}
+
+\nc\mbfa{{\mathbf a}}
+\nc\mbfb{{\mathbf b}}
+\nc\mbfc{{\mathbf c}}
+\nc\mbfd{{\mathbf d}}
+\nc\mbfe{{\mathbf e}}
+\nc\mbff{{\mathbf f}}
+\nc\mbfg{{\mathbf g}}
+\nc\mbfh{{\mathbf h}}
+\nc\mbfi{{\mathbf i}}
+\nc\mbfj{{\mathbf j}}
+\nc\mbfk{{\mathbf k}}
+\nc\mbfl{{\mathbf l}}
+\nc\mbfm{{\mathbf m}}
+\nc\mbfn{{\mathbf n}}
+\nc\mbfo{{\mathbf o}}
+\nc\mbfp{{\mathbf p}}
+\nc\mbfq{{\mathbf q}}
+\nc\mbfr{{\mathbf r}}
+\nc\mbfs{{\mathbf s}}
+\nc\mbft{{\mathbf t}}
+\nc\mbfu{{\mathbf u}}
+\nc\mbfv{{\mathbf v}}
+\nc\mbfw{{\mathbf w}}
+\nc\mbfx{{\mathbf x}}
+\nc\mbfy{{\mathbf y}}
+\nc\mbfz{{\mathbf z}}
+
+\nc\mfa{{\mathfrak a}}
+\nc\mfb{{\mathfrak b}}
+\nc\mfc{{\mathfrak c}}
+\nc\mfd{{\mathfrak d}}
+\nc\mfe{{\mathfrak e}}
+\nc\mff{{\mathfrak f}}
+\nc\mfg{{\mathfrak g}}
+\nc\mfh{{\mathfrak h}}
+\nc\mfi{{\mathfrak i}}
+\nc\mfj{{\mathfrak j}}
+\nc\mfk{{\mathfrak k}}
+\nc\mfl{{\mathfrak l}}
+\nc\mfm{{\mathfrak m}}
+\nc\mfn{{\mathfrak n}}
+\nc\mfo{{\mathfrak o}}
+\nc\mfp{{\mathfrak p}}
+\nc\mfq{{\mathfrak q}}
+\nc\mfr{{\mathfrak r}}
+\nc\mfs{{\mathfrak s}}
+\nc\mft{{\mathfrak t}}
+\nc\mfu{{\mathfrak u}}
+\nc\mfv{{\mathfrak v}}
+\nc\mfw{{\mathfrak w}}
+\nc\mfx{{\mathfrak x}}
+\nc\mfy{{\mathfrak y}}
+\nc\mfz{{\mathfrak z}}
+
+\nc{\one}{{\mathsf{1}}}
+
+
+\nc\clambda{ {\check{\lambda} }}
+\nc\cmu{ {\check{\mu} }}
+
+\nc\bDelta{\mathsf{\Delta}}
+\nc\bGamma{\mathsf{\Gamma}}
+\nc\bLambda{\mathsf{\Lambda}}
+
+
+\nc\loccit{\emph{loc.cit.}}
+
+
+
+%%%%%%%%%%%%%%%%%%%%Operations-limit%%%%%%%%%%%%%%%%%%%%
+
+\NewDocumentCommand{\ot}{e{_^}}{
+  \mathbin{\mathop{\otimes}\displaylimits
+    \IfValueT{#1}{_{#1}}
+    \IfValueT{#2}{^{#2}}
+  }
+}
+\NewDocumentCommand{\boxt}{e{_^}}{
+  \mathbin{\mathop{\boxtimes}\displaylimits
+    \IfValueT{#1}{_{#1}}
+    \IfValueT{#2}{^{#2}}
+  }
+}
+\NewDocumentCommand{\mt}{e{_^}}{
+  \mathbin{\mathop{\times}\displaylimits
+    \IfValueT{#1}{_{#1}}
+    \IfValueT{#2}{^{#2}}
+  }
+}
+\NewDocumentCommand{\po}{e{_^}}{
+  \mathbin{\mathop{\sqcup}\displaylimits
+    \IfValueT{#1}{_{#1}}
+    \IfValueT{#2}{^{#2}}
+  }
+}
+\NewDocumentCommand{\convolve}{e{_^}}{
+  \mathbin{\mathop{\star}\displaylimits
+    \IfValueT{#1}{_{#1}}
+    \IfValueT{#2}{^{#2}}
+  }
+}
+\NewDocumentCommand{\colim}{e{_^}}{
+  \mathbin{\mathop{\operatorname{colim}}\displaylimits
+    \IfValueT{#1}{_{#1}\,}
+    \IfValueT{#2}{^{#2}\,}
+  }
+}
+\NewDocumentCommand{\laxlim}{e{_^}}{
+  \mathbin{\mathop{\operatorname{laxlim}}\displaylimits
+    \IfValueT{#1}{_{#1}\,}
+    \IfValueT{#2}{^{#2}\,}
+  }
+}
+\NewDocumentCommand{\oplaxlim}{e{_^}}{
+  \mathbin{\mathop\operatorname{oplax-lim}\displaylimits
+    \IfValueT{#1}{_{#1}\,}
+    \IfValueT{#2}{^{#2}\,}
+  }
+}
+
+
+%%%%%%%%%%%%%%%%%%%%Arrows%%%%%%%%%%%%%%%%%%%%
+
+
+\makeatletter
+\newcommand{\laxto}{\dashedrightarrow}
+\newcommand{\xrightleftarrows}[1]{\mathrel{\substack{\xrightarrow{#1} \\[-.9ex] \xleftarrow{#1}}}}
+\newcommand{\adj}{\xrightleftarrows{\rule{0.5cm}{0cm}}}
+
+\newcommand*{\da@rightarrow}{\mathchar"0\hexnumber@\symAMSa 4B }
+\newcommand*{\da@leftarrow}{\mathchar"0\hexnumber@\symAMSa 4C }
+\newcommand*{\xlaxto}[2][]{%
+  \mathrel{%
+    \mathpalette{\da@xarrow{#1}{#2}{}\da@rightarrow{\,}{}}{}%
+  }%
+}
+\newcommand{\xlaxgets}[2][]{%
+  \mathrel{%
+    \mathpalette{\da@xarrow{#1}{#2}\da@leftarrow{}{}{\,}}{}%
+  }%
+}
+\newcommand*{\da@xarrow}[7]{%
+  % #1: below
+  % #2: above
+  % #3: arrow left
+  % #4: arrow right
+  % #5: space left 
+  % #6: space right
+  % #7: math style 
+  \sbox0{$\ifx#7\scriptstyle\scriptscriptstyle\else\scriptstyle\fi#5#1#6\m@th$}%
+  \sbox2{$\ifx#7\scriptstyle\scriptscriptstyle\else\scriptstyle\fi#5#2#6\m@th$}%
+  \sbox4{$#7\dabar@\m@th$}%
+  \dimen@=\wd0 %
+  \ifdim\wd2 >\dimen@
+    \dimen@=\wd2 %   
+  \fi
+  \count@=2 %
+  \def\da@bars{\dabar@\dabar@}%
+  \@whiledim\count@\wd4<\dimen@\do{%
+    \advance\count@\@ne
+    \expandafter\def\expandafter\da@bars\expandafter{%
+      \da@bars
+      \dabar@ 
+    }%
+  }%  
+  \mathrel{#3}%
+  \mathrel{%   
+    \mathop{\da@bars}\limits
+    \ifx\\#1\\%
+    \else
+      _{\copy0}%
+    \fi
+    \ifx\\#2\\%
+    \else
+      ^{\copy2}%
+    \fi
+  }%   
+  \mathrel{#4}%
+}
+\makeatother
+
+%%%%%%%%%%%%%%%%%%%%Decorations%%%%%%%%%%%%%%%%%%%%
+\nc{\wt}{\widetilde}
+\nc{\ol}{\overline}
+
+\nc{\red}{\textcolor{red}}
+\nc{\blue}{\textcolor{blue}}
+\nc{\purple}{\textcolor{violet}}
+
+\nc{\simorlax}{{\red\simeq/\blue\lax}}
+
+%%%%%%%%%%%%%%%%%%%%All%%%%%%%%%%%%%%%%%%%%
+
+\nc{\Ob}{\mathsf{Ob}}
+\nc{\Hom}{\mathsf{Hom}}
+\nc{\id}{\mathsf{id}}
+\nc{\Set}{\mathsf{Set}}
+\nc{\Grp}{\mathsf{Grp}}
+\nc{\Grpd}{\mathsf{Grpd}}
+\nc{\Ring}{\mathsf{Ring}}
+\nc{\Top}{\mathsf{Top}}
+\nc{\hTop}{\mathsf{hTop}}
+
